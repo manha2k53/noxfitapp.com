@@ -1,75 +1,152 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NoxIt Features – Workouts, Nutrition Tracking & Progress Analytics</title>
-  <meta name="description" content="Explore NoxIt's full feature set: AI-personalized workout plans, a 5M+ food database for nutrition tracking, detailed progress analytics, and community challenges. Free on iOS & Android." />
-  <meta name="keywords" content="fitness app features, workout planner app, macro tracker, calorie counter app, exercise tracking, gym progress app, NoxIt features" />
-  <link rel="canonical" href="https://noxitapp.com/features.html" />
-  <meta property="og:title" content="NoxIt Features – Workouts, Nutrition & Progress" />
-  <meta property="og:description" content="See everything NoxIt can do for your fitness journey." />
-  <meta property="og:url" content="https://noxitapp.com/features.html" />
+  <title>NoxFit Features – Workouts, Meal Planning, Grocery Budgeting & Nutrition</title>
+  <meta name="description" content="Explore everything NoxFit offers: 500+ guided workouts, AI meal planning, grocery budget tracking, macro logging, progress analytics, and community challenges. Free on iOS & Android." />
+  <meta name="keywords" content="fitness app features, workout planner, meal planning app, grocery budget tracker, macro tracker, NoxFit features" />
+  <link rel="canonical" href="https://noxfitapp.com/features.html" />
+  <meta property="og:title" content="NoxFit Features – The Complete Fitness Toolkit" />
+  <meta property="og:description" content="Workouts, meal planning, grocery budgeting, and nutrition tracking — all in one free app." />
+  <meta property="og:url" content="https://noxfitapp.com/features.html" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <header class="nav-wrap">
     <nav class="nav container">
-      <a href="index.html" class="logo">Nox<span>It</span></a>
+      <a href="index.html" class="logo">Nox<span>Fit</span></a>
       <ul class="nav-links">
         <li><a href="features.html" class="active">Features</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="blog.html">Blog</a></li>
       </ul>
-      <div class="nav-cta">
+      <div class="nav-right">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
         <a href="index.html#download" class="btn btn-primary">Download Free</a>
       </div>
       <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
     </nav>
   </header>
 
-  <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="container">
-      <h1>Features Built for <span class="accent">Real Progress</span></h1>
-      <p>Every tool you need — nothing you don't. NoxIt keeps it powerful and simple.</p>
+      <div class="section-tag">Features</div>
+      <h1>The Complete<br><span class="gradient-text">Fitness Toolkit</span></h1>
+      <p>Workouts, meal planning, grocery budgeting, and nutrition tracking — everything in one place, free forever.</p>
     </div>
   </section>
 
-  <!-- FEATURE: WORKOUTS -->
-  <section class="feature-detail section">
+  <!-- WORKOUTS -->
+  <section class="feature-detail section" id="workouts">
     <div class="container feature-detail-inner">
       <div class="feature-detail-text">
-        <span class="feature-tag">Workouts</span>
-        <h2>Personalized Plans That Actually Fit Your Life</h2>
-        <p>Answer a few questions about your goals, schedule, and available equipment, and NoxIt generates a weekly plan built just for you. Whether you're training at a commercial gym, at home with dumbbells, or just using bodyweight — we've got you.</p>
+        <span class="feature-tag">Workout Library</span>
+        <h2>500+ Workouts for Every Level and Goal</h2>
+        <p>Browse our complete library of guided workouts — from 10-minute beginner sessions to advanced strength programs. Filter by time, equipment, muscle group, or fitness goal to find exactly what fits your day.</p>
         <ul class="feature-list">
-          <li>✓ 500+ exercises with HD video demonstrations</li>
-          <li>✓ Plans for weight loss, muscle gain, endurance, and mobility</li>
-          <li>✓ Adjusts difficulty as you get stronger</li>
-          <li>✓ Works offline — no signal needed on the gym floor</li>
-          <li>✓ Rest timer and superset support built in</li>
+          <li>HIIT, strength training, yoga, cardio, and mobility</li>
+          <li>HD video guidance for every exercise</li>
+          <li>Filter by duration, equipment, and difficulty</li>
+          <li>Save favorites and build fully custom routines</li>
+          <li>AI-adjusts your plan as you get stronger</li>
+          <li>Fully available offline — no Wi-Fi required</li>
         </ul>
+        <div style="margin-top:28px">
+          <a href="index.html#download" class="btn btn-primary">Get Started Free →</a>
+        </div>
       </div>
       <div class="feature-detail-visual card-visual">
-        <div class="stat-card">
-          <div class="stat-num">500+</div>
-          <div class="stat-label">Exercises</div>
-        </div>
         <div class="stat-card accent-card">
-          <div class="stat-num">12M+</div>
-          <div class="stat-label">Workouts Logged</div>
+          <div class="stat-num">500+</div>
+          <div class="stat-label">Guided Workouts</div>
         </div>
         <div class="stat-card">
           <div class="stat-num">All Levels</div>
-          <div class="stat-label">Beginner → Elite</div>
+          <div class="stat-label">Beginner → Advanced</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">Offline</div>
+          <div class="stat-label">Works without internet</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FEATURE: NUTRITION -->
+  <!-- MEAL PLANNING -->
+  <section class="feature-detail section alt-bg" id="meal-planning">
+    <div class="container feature-detail-inner reverse">
+      <div class="feature-detail-visual card-visual">
+        <div class="stat-card accent-card">
+          <div class="stat-num">5,000+</div>
+          <div class="stat-label">Healthy Recipes</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">7-Day</div>
+          <div class="stat-label">Auto-Generated Meal Plans</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">All Diets</div>
+          <div class="stat-label">Keto · Vegan · Paleo · GF</div>
+        </div>
+      </div>
+      <div class="feature-detail-text">
+        <span class="feature-tag">Meal Planning</span>
+        <h2>Plan Your Week of Meals in Under 5 Minutes</h2>
+        <p>NoxFit auto-builds a full week of meals matched to your calorie and macro targets. Pick from thousands of recipes, swap anything you don't like, and get a grocery list generated in one tap.</p>
+        <ul class="feature-list">
+          <li>Weekly meal plans auto-matched to your goals</li>
+          <li>5,000+ healthy recipes with full macro breakdowns</li>
+          <li>Swap any meal instantly without losing balance</li>
+          <li>One-tap grocery list generated from your plan</li>
+          <li>Supports keto, vegan, gluten-free, paleo, and more</li>
+          <li>Portion guides and prep instructions included</li>
+        </ul>
+        <div style="margin-top:28px">
+          <a href="index.html#download" class="btn btn-primary">Start Meal Planning Free →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GROCERY BUDGETING -->
+  <section class="feature-detail section" id="grocery">
+    <div class="container feature-detail-inner">
+      <div class="feature-detail-text">
+        <span class="feature-tag">Grocery Budgeting</span>
+        <h2>Eat Healthy Without Breaking Your Budget</h2>
+        <p>NoxFit turns your meal plan into a smart grocery list and helps you track spending in real time. Set a weekly budget, see estimated costs before checkout, and reduce food waste by buying only what you need.</p>
+        <ul class="feature-list">
+          <li>Auto-generated grocery list from your meal plan</li>
+          <li>Set and track your weekly grocery budget</li>
+          <li>Estimated cost per item and running weekly total</li>
+          <li>Check off items as you shop</li>
+          <li>Price comparisons to help you choose cheaper options</li>
+          <li>Minimize food waste by buying only what's planned</li>
+        </ul>
+        <div style="margin-top:28px">
+          <a href="index.html#download" class="btn btn-primary">Download NoxFit Free →</a>
+        </div>
+      </div>
+      <div class="feature-detail-visual card-visual">
+        <div class="stat-card accent-card">
+          <div class="stat-num">$60+</div>
+          <div class="stat-label">Avg. weekly savings reported</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">Smart</div>
+          <div class="stat-label">Budget tracking built in</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">Auto-list</div>
+          <div class="stat-label">From your meal plan</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUTRITION -->
   <section class="feature-detail section alt-bg">
     <div class="container feature-detail-inner reverse">
       <div class="feature-detail-visual card-visual">
@@ -87,52 +164,52 @@
         </div>
       </div>
       <div class="feature-detail-text">
-        <span class="feature-tag">Nutrition</span>
+        <span class="feature-tag">Nutrition Tracking</span>
         <h2>Nutrition Tracking That Doesn't Feel Like a Chore</h2>
-        <p>Log meals in seconds with our barcode scanner and 5M+ food database. NoxIt auto-calculates your daily calorie and macro targets based on your goal and adjusts them as your weight changes.</p>
+        <p>Log meals in seconds with a barcode scanner and our 5M+ food database. NoxFit auto-calculates your daily calorie and macro targets based on your goal and adjusts them as your weight changes.</p>
         <ul class="feature-list">
-          <li>✓ Barcode scanner for packaged foods</li>
-          <li>✓ Custom meal and recipe builder</li>
-          <li>✓ Daily macro & calorie targets tailored to your goal</li>
-          <li>✓ Water intake tracker</li>
-          <li>✓ Weekly nutrition insights and trends</li>
+          <li>Barcode scanner for packaged foods</li>
+          <li>Custom meal and recipe builder</li>
+          <li>Daily macro and calorie targets personalized to your goal</li>
+          <li>Water intake tracker</li>
+          <li>Weekly nutrition insights and trend reports</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- FEATURE: PROGRESS -->
+  <!-- PROGRESS -->
   <section class="feature-detail section">
     <div class="container feature-detail-inner">
       <div class="feature-detail-text">
-        <span class="feature-tag">Progress</span>
-        <h2>See Your Gains in Vivid Detail</h2>
-        <p>NoxIt turns your workout and nutrition data into clean, motivating charts. Track your weight, lifting PRs, body measurements, and workout streaks — all in one place.</p>
+        <span class="feature-tag">Progress Tracking</span>
+        <h2>See Every Gain in Vivid Detail</h2>
+        <p>NoxFit turns your workout and nutrition data into clean, motivating charts. Track weight, lifting PRs, body measurements, and streaks — all in one dashboard.</p>
         <ul class="feature-list">
-          <li>✓ Body weight and measurement charts</li>
-          <li>✓ Personal records tracker (PRs) per exercise</li>
-          <li>✓ Streak calendar to build habits</li>
-          <li>✓ Volume and intensity trends over time</li>
-          <li>✓ Weekly and monthly summary reports</li>
+          <li>Body weight and measurement charts</li>
+          <li>Personal records tracker (PRs) per exercise</li>
+          <li>Streak calendar to reinforce daily habits</li>
+          <li>Volume and intensity trends over time</li>
+          <li>Weekly and monthly summary reports</li>
         </ul>
       </div>
       <div class="feature-detail-visual card-visual">
         <div class="mini-chart">
-          <div class="chart-label">Weight (lbs)</div>
+          <div class="chart-label">Weight (lbs) — 16 weeks</div>
           <div class="bars">
             <div class="bar" style="height:80%"></div>
-            <div class="bar" style="height:74%"></div>
-            <div class="bar" style="height:70%"></div>
-            <div class="bar" style="height:66%"></div>
-            <div class="bar accent-bar" style="height:61%"></div>
+            <div class="bar" style="height:76%"></div>
+            <div class="bar" style="height:72%"></div>
+            <div class="bar" style="height:68%"></div>
+            <div class="bar accent-bar" style="height:62%"></div>
           </div>
-          <div class="chart-sub">↓ 19 lbs · 16 weeks</div>
+          <div class="chart-sub">↓ 19 lbs in 16 weeks</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FEATURE: COMMUNITY -->
+  <!-- COMMUNITY -->
   <section class="feature-detail section alt-bg">
     <div class="container feature-detail-inner reverse">
       <div class="feature-detail-visual card-visual">
@@ -140,28 +217,34 @@
           <div class="challenge-icon">🏆</div>
           <strong>June Challenge</strong>
           <p>30-Day Consistency</p>
-          <div class="challenge-users">12,400 joined</div>
+          <div class="challenge-users">12,400 members joined</div>
         </div>
       </div>
       <div class="feature-detail-text">
         <span class="feature-tag">Community</span>
         <h2>Stay Accountable with Real People</h2>
-        <p>Fitness is easier with others. Challenge friends, join monthly community events, and share your milestones. NoxIt's social layer keeps you motivated on the days you don't feel like showing up.</p>
+        <p>Fitness is easier with others. Challenge friends, join monthly community events, and share your milestones. NoxFit's social layer keeps you motivated on the days you don't feel like showing up.</p>
         <ul class="feature-list">
-          <li>✓ Friend challenges and leaderboards</li>
-          <li>✓ Monthly global fitness challenges</li>
-          <li>✓ Workout sharing and reactions</li>
-          <li>✓ Milestone badges and achievements</li>
+          <li>Friend challenges and leaderboards</li>
+          <li>Monthly global fitness challenges</li>
+          <li>Workout sharing and reactions</li>
+          <li>Milestone badges and achievement system</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- DOWNLOAD CTA -->
+  <!-- DOWNLOAD -->
   <section class="download-section section" id="download">
     <div class="container download-inner">
-      <h2>Ready to Try Every Feature <span class="accent">For Free?</span></h2>
-      <p>Download NoxIt and get full access to workouts, nutrition tracking, and progress tools — no subscription required to start.</p>
+      <div class="section-tag">Download</div>
+      <h2>Try Every Feature<br><span class="gradient-text">100% Free</span></h2>
+      <p>Full access to workouts, meal planning, grocery budgeting, and nutrition tracking — no subscription required to get started.</p>
+      <div class="download-chips">
+        <span class="chip"><span class="chip-dot"></span>Free forever</span>
+        <span class="chip"><span class="chip-dot"></span>No credit card</span>
+        <span class="chip"><span class="chip-dot"></span>iOS & Android</span>
+      </div>
       <div class="store-buttons">
         <a href="#" class="store-btn" aria-label="Download on the App Store">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
@@ -178,36 +261,25 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <a href="index.html" class="logo">Nox<span>It</span></a>
-        <p>Your personal fitness companion.</p>
+        <a href="index.html" class="logo">Nox<span>Fit</span></a>
+        <p>Your all-in-one fitness companion.</p>
       </div>
-      <div class="footer-links">
-        <div>
-          <strong>Product</strong>
-          <a href="features.html">Features</a>
-          <a href="index.html#download">Download</a>
-        </div>
-        <div>
-          <strong>Company</strong>
-          <a href="about.html">About</a>
-          <a href="blog.html">Blog</a>
-        </div>
-        <div>
-          <strong>Legal</strong>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-        </div>
+      <div class="footer-col">
+        <strong>Product</strong>
+        <a href="features.html#workouts">Workouts</a>
+        <a href="features.html#meal-planning">Meal Planning</a>
+        <a href="features.html#grocery">Grocery Budgeting</a>
+        <a href="features.html">All Features</a>
       </div>
+      <div class="footer-col"><strong>Company</strong><a href="about.html">About Us</a><a href="blog.html">Blog</a></div>
+      <div class="footer-col"><strong>Legal</strong><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 NoxIt. All rights reserved.</p>
+    <div class="footer-bottom container">
+      <p>© 2026 NoxFit. All rights reserved.</p>
+      <div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Contact</a></div>
     </div>
   </footer>
 
-  <script>
-    document.querySelector('.nav-toggle').addEventListener('click', function() {
-      document.querySelector('.nav-links').classList.toggle('open');
-    });
-  </script>
+  <script src="theme.js"></script>
 </body>
 </html>

@@ -72,6 +72,7 @@
       <!-- Category filter buttons -->
       <div class="category-bar">
         <button class="cat-btn active" data-cat="all">All</button>
+        <button class="cat-btn" data-cat="new">🆕 New</button>
         <button class="cat-btn" data-cat="fitness">💪 Fitness</button>
         <button class="cat-btn" data-cat="meal-planning">🥗 Meal Planning</button>
         <button class="cat-btn" data-cat="grocery">🛒 Grocery</button>
@@ -93,35 +94,35 @@
           <div class="blog-meta"><span>Maria R. · 12 min read · Jun 2026</span></div>
         </article>
 
-        <article class="blog-card" data-cat="meal-planning" style="border:1px solid var(--accent);">
+        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);">
           <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
           <h3><a href="/blog/meal-planning-app-on-a-budget/">Best Meal Planning App on a Budget (Save $150/Month)</a></h3>
           <p>How NoxFit helps you plan healthy meals without breaking the bank — includes app comparison table and real cost-saving tips.</p>
           <div class="blog-meta"><span>NoxFit Team · 8 min read · Jun 2026</span></div>
         </article>
 
-        <article class="blog-card" data-cat="fitness" style="border:1px solid var(--accent);">
+        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);">
           <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
           <h3><a href="/blog/home-workout-app-for-beginners/">Best Home Workout App for Beginners (No Gym Needed)</a></h3>
           <p>Start your fitness journey from home with zero equipment. Includes a sample beginner workout plan and what to look for in a home workout app.</p>
           <div class="blog-meta"><span>NoxFit Team · 7 min read · Jun 2026</span></div>
         </article>
 
-        <article class="blog-card" data-cat="meal-planning" style="border:1px solid var(--accent);">
+        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);">
           <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
           <h3><a href="/blog/healthy-eating-on-a-budget-app/">Best App for Healthy Eating on a Budget (2026)</a></h3>
           <p>Healthy eating doesn't have to be expensive. See how NoxFit helps you eat nutritious meals for under $5 per serving.</p>
           <div class="blog-meta"><span>NoxFit Team · 7 min read · Jun 2026</span></div>
         </article>
 
-        <article class="blog-card" data-cat="grocery" style="border:1px solid var(--accent);">
+        <article class="blog-card" data-cat="grocery" data-new="true" style="border:1px solid var(--accent);">
           <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
           <h3><a href="/blog/grocery-budgeting-app/">Best Grocery Budgeting App — Track Spending, Cut Waste, Save More</a></h3>
           <p>The only grocery app that connects your budget to your meal plan. Save $100–$280/month with smarter shopping habits.</p>
           <div class="blog-meta"><span>NoxFit Team · 8 min read · Jun 2026</span></div>
         </article>
 
-        <article class="blog-card" data-cat="fitness" style="border:1px solid var(--accent);">
+        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);">
           <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
           <h3><a href="/blog/fitness-app-for-beginners-free/">Best Free Fitness App for Beginners — Everything You Need</a></h3>
           <p>NoxFit is 100% free — workouts, meal planning, grocery budgeting, and progress tracking. No paywalls, no hidden fees.</p>
@@ -218,7 +219,9 @@
         btn.classList.add('active');
         const cat = btn.getAttribute('data-cat');
         cards.forEach(function(card) {
-          if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+          var matchCat = cat === 'all' || card.getAttribute('data-cat') === cat;
+          var matchNew = cat === 'new' && card.getAttribute('data-new') === 'true';
+          if (matchCat || matchNew) {
             card.classList.remove('hidden');
           } else {
             card.classList.add('hidden');

@@ -12,12 +12,32 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="stylesheet" href="/style.css" />
   <style>
-    .category-bar { display:flex; gap:.75rem; flex-wrap:wrap; margin-bottom:2.5rem; }
+    .category-bar { display:flex; align-items:center; gap:.75rem; flex-wrap:wrap; margin-bottom:2.5rem; }
     .cat-btn { padding:.55rem 1.25rem; border-radius:99px; border:1.5px solid var(--card-border); background:transparent; color:var(--text-secondary); font-size:.9rem; font-weight:600; cursor:pointer; transition:all .2s; }
     .cat-btn:hover { border-color:var(--accent); color:var(--accent); }
     .cat-btn.active { background:var(--accent); border-color:var(--accent); color:#fff; }
     .blog-card { transition: opacity .2s, transform .2s; }
     .blog-card.hidden { display:none; }
+    .cat-dropdown-wrap { position:relative; display:inline-block; }
+    .cat-dropdown-btn { padding:.55rem 1.25rem; border-radius:99px; border:1.5px solid var(--card-border); background:transparent; color:var(--text-secondary); font-size:.9rem; font-weight:600; cursor:pointer; transition:all .2s; display:flex; align-items:center; gap:.4rem; }
+    .cat-dropdown-btn:hover, .cat-dropdown-btn.open { border-color:var(--accent); color:var(--accent); }
+    .cat-dropdown-menu { display:none; position:absolute; top:calc(100% + .5rem); left:0; background:var(--card-bg); border:1px solid var(--card-border); border-radius:14px; padding:.5rem; min-width:200px; z-index:100; box-shadow:0 8px 32px rgba(0,0,0,.25); }
+    .cat-dropdown-menu.open { display:block; }
+    .cat-dropdown-item { display:flex; align-items:center; gap:.6rem; padding:.65rem 1rem; border-radius:9px; font-size:.9rem; font-weight:600; color:var(--text-secondary); cursor:pointer; transition:background .15s; }
+    .cat-dropdown-item:hover { background:var(--accent-alpha); color:var(--accent); }
+    .cat-dropdown-item.active { background:var(--accent); color:#fff; border-radius:9px; }
+    .filter-label { font-size:.88rem; font-weight:600; color:var(--text-muted); white-space:nowrap; }
+    /* Nav dropdown */
+    .nav-item-drop { position:relative; }
+    .nav-item-drop > a { display:flex; align-items:center; gap:.3rem; }
+    .nav-item-drop > a::after { content:'▾'; font-size:.75rem; opacity:.6; transition:transform .2s; }
+    .nav-item-drop:hover > a::after { transform:rotate(180deg); }
+    .nav-drop-menu { display:none; position:absolute; top:calc(100% + .75rem); left:50%; transform:translateX(-50%); background:var(--card-bg); border:1px solid var(--card-border); border-radius:14px; padding:.5rem; min-width:210px; z-index:200; box-shadow:0 12px 40px rgba(0,0,0,.3); }
+    .nav-item-drop:hover .nav-drop-menu { display:block; }
+    .nav-drop-menu::before { content:''; position:absolute; top:-6px; left:50%; transform:translateX(-50%); border:6px solid transparent; border-bottom-color:var(--card-border); border-top:none; }
+    .nav-drop-item { display:flex; align-items:center; gap:.7rem; padding:.65rem 1rem; border-radius:9px; color:var(--text-secondary); font-size:.9rem; font-weight:600; text-decoration:none; transition:background .15s, color .15s; white-space:nowrap; }
+    .nav-drop-item:hover { background:var(--accent-alpha); color:var(--accent); }
+    .nav-drop-divider { height:1px; background:var(--card-border); margin:.3rem .5rem; }
   </style>
 </head>
 <body>
@@ -28,7 +48,17 @@
       <ul class="nav-links">
         <li><a href="/features/">Features</a></li>
         <li><a href="/about/">About</a></li>
-        <li><a href="/blog/" class="active">Blog</a></li>
+        <li class="nav-item-drop">
+          <a href="/blog/" class="active">Blog</a>
+          <div class="nav-drop-menu">
+            <a class="nav-drop-item" href="/blog/?cat=fitness">💪 Fitness</a>
+            <a class="nav-drop-item" href="/blog/?cat=meal-planning">🥗 Meal Planning</a>
+            <a class="nav-drop-item" href="/blog/?cat=recipe">🍳 Recipe</a>
+            <a class="nav-drop-item" href="/blog/?cat=grocery">🛒 Grocery</a>
+            <div class="nav-drop-divider"></div>
+            <a class="nav-drop-item" href="/blog/">📚 All Posts</a>
+          </div>
+        </li>
       </ul>
       <div class="nav-right">
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
@@ -69,78 +99,96 @@
         <h2>Browse by<br><span class="gradient-text">Category</span></h2>
       </div>
 
-      <!-- Category filter buttons -->
+      <!-- Category filter -->
       <div class="category-bar">
+        <span class="filter-label">Filter:</span>
         <button class="cat-btn active" data-cat="all">All</button>
-        <button class="cat-btn" data-cat="fitness">💪 Fitness</button>
-        <button class="cat-btn" data-cat="meal-planning">🥗 Meal Planning</button>
-        <button class="cat-btn" data-cat="grocery">🛒 Grocery</button>
+        <button class="cat-btn" data-cat="new">🆕 New</button>
+        <!-- Dropdown -->
+        <div class="cat-dropdown-wrap">
+          <button class="cat-dropdown-btn" id="dropdownToggle">📂 Category <span style="font-size:.7rem;">▼</span></button>
+          <div class="cat-dropdown-menu" id="dropdownMenu">
+            <div class="cat-dropdown-item active" data-cat="all">🌐 All Posts</div>
+            <div class="cat-dropdown-item" data-cat="fitness">💪 Fitness</div>
+            <div class="cat-dropdown-item" data-cat="meal-planning">🥗 Meal Planning</div>
+            <div class="cat-dropdown-item" data-cat="recipe">🍳 Recipe</div>
+            <div class="cat-dropdown-item" data-cat="grocery">🛒 Grocery</div>
+          </div>
+        </div>
       </div>
 
       <div class="blog-grid" id="blogGrid">
 
-        <article class="blog-card" data-cat="fitness" style="border:1px solid var(--accent);">
+        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);">
           <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
           <h3><a href="/blog/how-to-start-your-fitness-journey/">How to Start Your Fitness Journey (Complete Beginner Guide)</a></h3>
           <p>Never worked out before? Step-by-step guide covering your first workout, what to eat, and how to stay consistent — no gym needed.</p>
-          <div class="blog-meta"><span>Maria R. · 10 min read · Jun 2026</span></div>
+          <div class="blog-meta"><span>NoxFit Team · 10 min read · Jun 2026</span></div>
         </article>
 
-        <article class="blog-card" data-cat="meal-planning">
-          <div class="blog-card-tag">Meal Planning</div>
+        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);">
+          <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
           <h3><a href="/blog/meal-planning-on-a-budget/">Meal Planning on a Budget: Eat Healthy for Less</a></h3>
           <p>How to meal plan on a budget — includes a full 7-day meal plan under $60, cheapest healthy foods list, and grocery saving tips.</p>
-          <div class="blog-meta"><span>Maria R. · 12 min read · Jun 2026</span></div>
+          <div class="blog-meta"><span>NoxFit Team · 12 min read · Jun 2026</span></div>
         </article>
 
-        <article class="blog-card" data-cat="fitness">
-          <div class="blog-card-tag">Fitness</div>
-          <h3><a href="#">The 5 Best Compound Exercises for Building Muscle Fast</a></h3>
-          <p>If you only have time for a few exercises, make them count. These five movements build total-body strength more efficiently than anything else.</p>
-          <div class="blog-meta"><span>Kevin L. · 6 min read</span></div>
+        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);">
+          <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+          <h3><a href="/blog/meal-planning-app-on-a-budget/">Best Meal Planning App on a Budget (Save $150/Month)</a></h3>
+          <p>How NoxFit helps you plan healthy meals without breaking the bank — includes app comparison table and real cost-saving tips.</p>
+          <div class="blog-meta"><span>NoxFit Team · 8 min read · Jun 2026</span></div>
         </article>
 
-        <article class="blog-card" data-cat="fitness">
-          <div class="blog-card-tag">Fitness</div>
-          <h3><a href="#">The 20-Minute Home Workout for People Who Hate the Gym</a></h3>
-          <p>No equipment, no commute, no excuses. This bodyweight circuit targets every major muscle group and fits in your lunch break.</p>
-          <div class="blog-meta"><span>Maria R. · 4 min read</span></div>
+        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);">
+          <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+          <h3><a href="/blog/home-workout-app-for-beginners/">Best Home Workout App for Beginners (No Gym Needed)</a></h3>
+          <p>Start your fitness journey from home with zero equipment. Includes a sample beginner workout plan and what to look for in a home workout app.</p>
+          <div class="blog-meta"><span>NoxFit Team · 7 min read · Jun 2026</span></div>
         </article>
 
-        <article class="blog-card" data-cat="fitness">
-          <div class="blog-card-tag">Fitness</div>
-          <h3><a href="#">Why the Scale Isn't Moving (And What to Do About It)</a></h3>
-          <p>Plateaus happen to everyone. Here are the 7 most common reasons your weight loss has stalled and the exact adjustments to break through.</p>
-          <div class="blog-meta"><span>Alex J. · 7 min read</span></div>
+        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);">
+          <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+          <h3><a href="/blog/healthy-eating-on-a-budget-app/">Best App for Healthy Eating on a Budget (2026)</a></h3>
+          <p>Healthy eating doesn't have to be expensive. See how NoxFit helps you eat nutritious meals for under $5 per serving.</p>
+          <div class="blog-meta"><span>NoxFit Team · 7 min read · Jun 2026</span></div>
         </article>
 
-        <article class="blog-card" data-cat="meal-planning">
-          <div class="blog-card-tag">Meal Planning</div>
-          <h3><a href="#">How to Meal Plan for the Week in Under 30 Minutes</a></h3>
-          <p>A simple, repeatable system for planning healthy meals that fit your schedule, your goals, and your grocery budget.</p>
-          <div class="blog-meta"><span>Maria R. · 7 min read</span></div>
+        <article class="blog-card" data-cat="grocery" data-new="true" style="border:1px solid var(--accent);">
+          <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+          <h3><a href="/blog/grocery-budgeting-app/">Best Grocery Budgeting App — Track Spending, Cut Waste, Save More</a></h3>
+          <p>The only grocery app that connects your budget to your meal plan. Save $100–$280/month with smarter shopping habits.</p>
+          <div class="blog-meta"><span>NoxFit Team · 8 min read · Jun 2026</span></div>
         </article>
 
-        <article class="blog-card" data-cat="meal-planning">
-          <div class="blog-card-tag">Meal Planning</div>
-          <h3><a href="#">How Much Protein Do You Actually Need to Build Muscle?</a></h3>
-          <p>The answer is simpler than most fitness influencers make it. Here's what the research says and how to hit your target effortlessly.</p>
-          <div class="blog-meta"><span>Maria R. · 5 min read</span></div>
+        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);">
+          <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+          <h3><a href="/blog/fitness-app-for-beginners-free/">Best Free Fitness App for Beginners — Everything You Need</a></h3>
+          <p>NoxFit is 100% free — workouts, meal planning, grocery budgeting, and progress tracking. No paywalls, no hidden fees.</p>
+          <div class="blog-meta"><span>NoxFit Team · 9 min read · Jun 2026</span></div>
         </article>
 
-        <article class="blog-card" data-cat="grocery">
-          <div class="blog-card-tag">Grocery</div>
-          <h3><a href="#">7 Ways to Cut Your Grocery Bill Without Sacrificing Healthy Eating</a></h3>
-          <p>Healthy food doesn't have to be expensive. These seven strategies help you eat clean and save money every single week.</p>
-          <div class="blog-meta"><span>Alex J. · 6 min read</span></div>
+        <article class="blog-card" data-cat="recipe" data-new="true" style="border:1px solid var(--accent);">
+          <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+          <h3><a href="/blog/high-protein-meal-prep-recipes/">5 High-Protein Meal Prep Recipes Under $5 Per Serving</a></h3>
+          <p>Cook once, eat all week. Five quick recipes with full macros — perfect for hitting your protein goals on a budget.</p>
+          <div class="blog-meta"><span>NoxFit Team · 9 min read · Jun 2026</span></div>
         </article>
 
-        <article class="blog-card" data-cat="grocery">
-          <div class="blog-card-tag">Grocery</div>
-          <h3><a href="#">The 12 Cheapest Healthy Foods You Should Always Buy</a></h3>
-          <p>Eggs, oats, lentils, frozen veg — these budget staples are nutritious, filling, and can form the base of a full week of meals for under $40.</p>
-          <div class="blog-meta"><span>Maria R. · 5 min read</span></div>
+        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);">
+          <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+          <h3><a href="/blog/7-day-meal-plan-for-weight-loss/">7-Day Meal Plan for Weight Loss — Simple, Budget-Friendly & Effective</a></h3>
+          <p>A complete week of meals averaging 1,450 calories and 120g protein. Grocery list and meal prep tips included.</p>
+          <div class="blog-meta"><span>NoxFit Team · 10 min read · Jun 2026</span></div>
         </article>
+
+        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);">
+          <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+          <h3><a href="/blog/how-to-build-a-home-gym-on-a-budget/">How to Build a Home Gym on a Budget (Under $200)</a></h3>
+          <p>Skip the expensive gym membership. This guide shows exactly what to buy, what to skip, and how to train effectively at home.</p>
+          <div class="blog-meta"><span>NoxFit Team · 8 min read · Jun 2026</span></div>
+        </article>
+
 
       </div>
     </div>
@@ -203,22 +251,71 @@
 
   <script src="/theme.js"></script>
   <script>
-    const catBtns = document.querySelectorAll('.cat-btn');
-    const cards = document.querySelectorAll('#blogGrid .blog-card');
+    var cards = document.querySelectorAll('#blogGrid .blog-card');
+
+    // Auto-filter from URL param e.g. /blog/?cat=fitness
+    var urlCat = new URLSearchParams(window.location.search).get('cat') || 'all';
+    if (urlCat !== 'all') {
+      document.querySelectorAll('.cat-btn').forEach(function(b){ b.classList.remove('active'); });
+      var matchBtn = document.querySelector('.cat-btn[data-cat="' + urlCat + '"]');
+      if (matchBtn) matchBtn.classList.add('active');
+    }
+
+    function filterCards(cat) {
+      cards.forEach(function(card) {
+        var matchCat = cat === 'all' || card.getAttribute('data-cat') === cat;
+        var matchNew = cat === 'new' && card.getAttribute('data-new') === 'true';
+        card.classList.toggle('hidden', !(matchCat || matchNew));
+      });
+    }
+
+    // Pill buttons
+    var catBtns = document.querySelectorAll('.cat-btn');
     catBtns.forEach(function(btn) {
       btn.addEventListener('click', function() {
         catBtns.forEach(function(b) { b.classList.remove('active'); });
         btn.classList.add('active');
-        const cat = btn.getAttribute('data-cat');
-        cards.forEach(function(card) {
-          if (cat === 'all' || card.getAttribute('data-cat') === cat) {
-            card.classList.remove('hidden');
-          } else {
-            card.classList.add('hidden');
-          }
-        });
+        // Reset dropdown
+        document.querySelectorAll('.cat-dropdown-item').forEach(function(i){ i.classList.remove('active'); });
+        document.querySelector('.cat-dropdown-item[data-cat="all"]').classList.add('active');
+        filterCards(btn.getAttribute('data-cat'));
       });
     });
+
+    // Dropdown toggle open/close
+    var dropBtn = document.getElementById('dropdownToggle');
+    var dropMenu = document.getElementById('dropdownMenu');
+    dropBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      dropBtn.classList.toggle('open');
+      dropMenu.classList.toggle('open');
+    });
+    document.addEventListener('click', function() {
+      dropBtn.classList.remove('open');
+      dropMenu.classList.remove('open');
+    });
+
+    // Dropdown items
+    document.querySelectorAll('.cat-dropdown-item').forEach(function(item) {
+      item.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var cat = item.getAttribute('data-cat');
+        // Update dropdown active state
+        document.querySelectorAll('.cat-dropdown-item').forEach(function(i){ i.classList.remove('active'); });
+        item.classList.add('active');
+        // Reset pill buttons to "All"
+        catBtns.forEach(function(b) { b.classList.remove('active'); });
+        document.querySelector('.cat-btn[data-cat="all"]').classList.add('active');
+        // Update label
+        dropBtn.innerHTML = item.textContent.trim() + ' <span style="font-size:.7rem;">▼</span>';
+        dropMenu.classList.remove('open');
+        dropBtn.classList.remove('open');
+        filterCards(cat);
+      });
+    });
+
+    // Apply URL param filter on load
+    filterCards(urlCat);
   </script>
 </body>
 </html>

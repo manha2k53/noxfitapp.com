@@ -12,12 +12,21 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="stylesheet" href="/style.css" />
   <style>
-    .category-bar { display:flex; gap:.75rem; flex-wrap:wrap; margin-bottom:2.5rem; }
+    .category-bar { display:flex; align-items:center; gap:.75rem; flex-wrap:wrap; margin-bottom:2.5rem; }
     .cat-btn { padding:.55rem 1.25rem; border-radius:99px; border:1.5px solid var(--card-border); background:transparent; color:var(--text-secondary); font-size:.9rem; font-weight:600; cursor:pointer; transition:all .2s; }
     .cat-btn:hover { border-color:var(--accent); color:var(--accent); }
     .cat-btn.active { background:var(--accent); border-color:var(--accent); color:#fff; }
     .blog-card { transition: opacity .2s, transform .2s; }
     .blog-card.hidden { display:none; }
+    .cat-dropdown-wrap { position:relative; display:inline-block; }
+    .cat-dropdown-btn { padding:.55rem 1.25rem; border-radius:99px; border:1.5px solid var(--card-border); background:transparent; color:var(--text-secondary); font-size:.9rem; font-weight:600; cursor:pointer; transition:all .2s; display:flex; align-items:center; gap:.4rem; }
+    .cat-dropdown-btn:hover, .cat-dropdown-btn.open { border-color:var(--accent); color:var(--accent); }
+    .cat-dropdown-menu { display:none; position:absolute; top:calc(100% + .5rem); left:0; background:var(--card-bg); border:1px solid var(--card-border); border-radius:14px; padding:.5rem; min-width:200px; z-index:100; box-shadow:0 8px 32px rgba(0,0,0,.25); }
+    .cat-dropdown-menu.open { display:block; }
+    .cat-dropdown-item { display:flex; align-items:center; gap:.6rem; padding:.65rem 1rem; border-radius:9px; font-size:.9rem; font-weight:600; color:var(--text-secondary); cursor:pointer; transition:background .15s; }
+    .cat-dropdown-item:hover { background:var(--accent-alpha); color:var(--accent); }
+    .cat-dropdown-item.active { background:var(--accent); color:#fff; border-radius:9px; }
+    .filter-label { font-size:.88rem; font-weight:600; color:var(--text-muted); white-space:nowrap; }
   </style>
 </head>
 <body>
@@ -69,13 +78,22 @@
         <h2>Browse by<br><span class="gradient-text">Category</span></h2>
       </div>
 
-      <!-- Category filter buttons -->
+      <!-- Category filter -->
       <div class="category-bar">
+        <span class="filter-label">Filter:</span>
         <button class="cat-btn active" data-cat="all">All</button>
         <button class="cat-btn" data-cat="new">🆕 New</button>
-        <button class="cat-btn" data-cat="fitness">💪 Fitness</button>
-        <button class="cat-btn" data-cat="meal-planning">🥗 Meal Planning</button>
-        <button class="cat-btn" data-cat="grocery">🛒 Grocery</button>
+        <!-- Dropdown -->
+        <div class="cat-dropdown-wrap">
+          <button class="cat-dropdown-btn" id="dropdownToggle">📂 Category <span style="font-size:.7rem;">▼</span></button>
+          <div class="cat-dropdown-menu" id="dropdownMenu">
+            <div class="cat-dropdown-item active" data-cat="all">🌐 All Posts</div>
+            <div class="cat-dropdown-item" data-cat="fitness">💪 Fitness</div>
+            <div class="cat-dropdown-item" data-cat="meal-planning">🥗 Meal Planning</div>
+            <div class="cat-dropdown-item" data-cat="recipe">🍳 Recipe</div>
+            <div class="cat-dropdown-item" data-cat="grocery">🛒 Grocery</div>
+          </div>
+        </div>
       </div>
 
       <div class="blog-grid" id="blogGrid">
@@ -129,18 +147,25 @@
           <div class="blog-meta"><span>NoxFit Team · 9 min read · Jun 2026</span></div>
         </article>
 
-        <article class="blog-card" data-cat="fitness">
-          <div class="blog-card-tag">Fitness</div>
-          <h3><a href="#">The 5 Best Compound Exercises for Building Muscle Fast</a></h3>
-          <p>If you only have time for a few exercises, make them count. These five movements build total-body strength more efficiently than anything else.</p>
-          <div class="blog-meta"><span>Kevin L. · 6 min read</span></div>
+        <article class="blog-card" data-cat="recipe" data-new="true" style="border:1px solid var(--accent);">
+          <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+          <h3><a href="/blog/high-protein-meal-prep-recipes/">5 High-Protein Meal Prep Recipes Under $5 Per Serving</a></h3>
+          <p>Cook once, eat all week. Five quick recipes with full macros — perfect for hitting your protein goals on a budget.</p>
+          <div class="blog-meta"><span>NoxFit Team · 9 min read · Jun 2026</span></div>
         </article>
 
-        <article class="blog-card" data-cat="meal-planning">
-          <div class="blog-card-tag">Meal Planning</div>
-          <h3><a href="#">How to Meal Plan for the Week in Under 30 Minutes</a></h3>
-          <p>A simple, repeatable system for planning healthy meals that fit your schedule, your goals, and your grocery budget.</p>
-          <div class="blog-meta"><span>Maria R. · 7 min read</span></div>
+        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);">
+          <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+          <h3><a href="/blog/7-day-meal-plan-for-weight-loss/">7-Day Meal Plan for Weight Loss — Simple, Budget-Friendly & Effective</a></h3>
+          <p>A complete week of meals averaging 1,450 calories and 120g protein. Grocery list and meal prep tips included.</p>
+          <div class="blog-meta"><span>NoxFit Team · 10 min read · Jun 2026</span></div>
+        </article>
+
+        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);">
+          <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+          <h3><a href="/blog/how-to-build-a-home-gym-on-a-budget/">How to Build a Home Gym on a Budget (Under $200)</a></h3>
+          <p>Skip the expensive gym membership. This guide shows exactly what to buy, what to skip, and how to train effectively at home.</p>
+          <div class="blog-meta"><span>NoxFit Team · 8 min read · Jun 2026</span></div>
         </article>
 
         <article class="blog-card" data-cat="grocery">
@@ -211,22 +236,58 @@
 
   <script src="/theme.js"></script>
   <script>
-    const catBtns = document.querySelectorAll('.cat-btn');
-    const cards = document.querySelectorAll('#blogGrid .blog-card');
+    var cards = document.querySelectorAll('#blogGrid .blog-card');
+
+    function filterCards(cat) {
+      cards.forEach(function(card) {
+        var matchCat = cat === 'all' || card.getAttribute('data-cat') === cat;
+        var matchNew = cat === 'new' && card.getAttribute('data-new') === 'true';
+        card.classList.toggle('hidden', !(matchCat || matchNew));
+      });
+    }
+
+    // Pill buttons
+    var catBtns = document.querySelectorAll('.cat-btn');
     catBtns.forEach(function(btn) {
       btn.addEventListener('click', function() {
         catBtns.forEach(function(b) { b.classList.remove('active'); });
         btn.classList.add('active');
-        const cat = btn.getAttribute('data-cat');
-        cards.forEach(function(card) {
-          var matchCat = cat === 'all' || card.getAttribute('data-cat') === cat;
-          var matchNew = cat === 'new' && card.getAttribute('data-new') === 'true';
-          if (matchCat || matchNew) {
-            card.classList.remove('hidden');
-          } else {
-            card.classList.add('hidden');
-          }
-        });
+        // Reset dropdown
+        document.querySelectorAll('.cat-dropdown-item').forEach(function(i){ i.classList.remove('active'); });
+        document.querySelector('.cat-dropdown-item[data-cat="all"]').classList.add('active');
+        filterCards(btn.getAttribute('data-cat'));
+      });
+    });
+
+    // Dropdown toggle open/close
+    var dropBtn = document.getElementById('dropdownToggle');
+    var dropMenu = document.getElementById('dropdownMenu');
+    dropBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      dropBtn.classList.toggle('open');
+      dropMenu.classList.toggle('open');
+    });
+    document.addEventListener('click', function() {
+      dropBtn.classList.remove('open');
+      dropMenu.classList.remove('open');
+    });
+
+    // Dropdown items
+    document.querySelectorAll('.cat-dropdown-item').forEach(function(item) {
+      item.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var cat = item.getAttribute('data-cat');
+        // Update dropdown active state
+        document.querySelectorAll('.cat-dropdown-item').forEach(function(i){ i.classList.remove('active'); });
+        item.classList.add('active');
+        // Reset pill buttons to "All"
+        catBtns.forEach(function(b) { b.classList.remove('active'); });
+        document.querySelector('.cat-btn[data-cat="all"]').classList.add('active');
+        // Update label
+        dropBtn.innerHTML = item.textContent.trim() + ' <span style="font-size:.7rem;">▼</span>';
+        dropMenu.classList.remove('open');
+        dropBtn.classList.remove('open');
+        filterCards(cat);
       });
     });
   </script>

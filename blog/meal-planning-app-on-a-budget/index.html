@@ -9,6 +9,9 @@
   <link rel="canonical" href="https://noxfitapp.com/blog/meal-planning-app-on-a-budget/"/>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Best Meal Planning App on a Budget","author":{"@type":"Organization","name":"NoxFit"},"datePublished":"2026-06-12","url":"https://noxfitapp.com/blog/meal-planning-app-on-a-budget/"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is NoxFit free to use for meal planning?","acceptedAnswer":{"@type":"Answer","text":"Yes — NoxFit's core meal planning features are completely free. No subscription required to get started."}},{"@type":"Question","name":"How does a meal planning app save money?","acceptedAnswer":{"@type":"Answer","text":"By planning meals in advance, you buy only what you need, waste less food, and avoid expensive last-minute takeout."}}]}</script>
+    <link rel="preload" href="/style.css" as="style"/>
+  <link rel="preconnect" href="https://images.unsplash.com"/>
+  <link rel="dns-prefetch" href="https://images.unsplash.com"/>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
   <link rel="stylesheet" href="/style.css"/>
   <style>
@@ -62,7 +65,7 @@
 <body>
   <header class="nav-wrap">
     <nav class="nav container">
-      <a href="/" class="logo"><img src="/logo.svg" alt="NoxFit icon" width="28" height="28" style="vertical-align:middle;margin-right:8px;">Nox<span>Fit</span></a>
+      <a href="/" class="logo"><img src="/logo.svg" alt="NoxFit icon" width="28" height="28" style="vertical-align:middle;margin-right:8px;" loading="eager">Nox<span>Fit</span></a>
       <ul class="nav-links">
         <li><a href="/features/">Features</a></li>
         <li><a href="/about/">About</a></li>
@@ -86,7 +89,7 @@
           <div><strong style="color:var(--text-primary);">NoxFit Team</strong><br>June 12, 2026 &nbsp;·&nbsp; 9 min read</div>
         </div>
       </div>
-      <img class="hero-img" src="https://images.unsplash.com/photo-1543352634-99a5d50ae78e?w=1200&q=80" alt="Healthy meal prep containers with fresh food" loading="lazy"/>
+      <img class="hero-img" src="https://images.unsplash.com/photo-1543352634-99a5d50ae78e?w=800&q=80" alt="Healthy meal prep containers with fresh food" fetchpriority="high"/>
       <div class="article-body">
         <p>Most meal planning apps charge $10–$20 per month. That's $240 a year just to be told what to eat. <span class="kw">NoxFit does it for free</span> — and goes further by tracking your grocery budget at the same time.</p>
         <p>In this guide, we'll cover exactly how to use a meal planning app to save money, what features actually matter, and why budget-conscious eaters are switching to NoxFit.</p>
@@ -118,7 +121,7 @@
         <h3>Recipes using cheap staples</h3>
         <p>A great budget meal app prioritizes affordable ingredients: eggs, oats, lentils, chicken thighs, frozen veg. NoxFit's 5,000+ recipe library is filtered by cost per serving.</p>
         <h2 id="comparison">App Comparison: Paid vs Free</h2>
-        <img class="inline-img" src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=1200&q=80" alt="Meal prep bowls with vegetables and grains" loading="lazy"/>
+        <img class="inline-img" src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&q=80" alt="Meal prep bowls with vegetables and grains" loading="lazy"/>
         <table class="data-table">
           <thead><tr><th>Feature</th><th>NoxFit (Free)</th><th>Typical Paid App</th></tr></thead>
           <tbody>
@@ -170,14 +173,14 @@
   </main>
   <footer class="footer">
     <div class="container footer-inner">
-      <div class="footer-brand"><a href="/" class="logo"><img src="/logo.svg" alt="NoxFit icon" width="28" height="28" style="vertical-align:middle;margin-right:8px;">Nox<span>Fit</span></a><p>Your all-in-one fitness companion.</p></div>
+      <div class="footer-brand"><a href="/" class="logo"><img src="/logo.svg" alt="NoxFit icon" width="28" height="28" style="vertical-align:middle;margin-right:8px;" loading="eager">Nox<span>Fit</span></a><p>Your all-in-one fitness companion.</p></div>
       <div class="footer-col"><strong>Features</strong><a href="/features/#workouts">Workouts</a><a href="/features/#meal-planning">Meal Planning</a><a href="/features/#grocery">Grocery Budgeting</a></div>
       <div class="footer-col"><strong>Company</strong><a href="/about/">About Us</a><a href="/blog/">Blog</a></div>
       <div class="footer-col"><strong>Legal</strong><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
     </div>
     <div class="footer-bottom container"><p>© 2026 NoxFit. All rights reserved.</p><div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Contact</a></div></div>
   </footer>
-  <script src="/theme.js"></script>
+  <script src="/theme.js" defer></script>
   <script>document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){var a=this.nextElementSibling;var icon=this.querySelector('.faq-icon');var open=a.style.display==='block';a.style.display=open?'none':'block';icon.style.transform=open?'rotate(0)':'rotate(45deg)';});});</script>
 </body>
 </html>

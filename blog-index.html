@@ -9,6 +9,9 @@
   <link rel="canonical" href="https://noxfitapp.com/blog/" />
   <meta property="og:title" content="NoxFit Blog – Fitness, Meal Planning & Saving Tips" />
   <meta property="og:url" content="https://noxfitapp.com/blog/" />
+    <link rel="preload" href="/style.css" as="style"/>
+  <link rel="preconnect" href="https://images.unsplash.com"/>
+  <link rel="dns-prefetch" href="https://images.unsplash.com"/>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="stylesheet" href="/style.css" />
   <style>
@@ -18,15 +21,9 @@
     .cat-btn.active { background:var(--accent); border-color:var(--accent); color:#fff; }
     .blog-card { transition: opacity .2s, transform .2s; }
     .blog-card.hidden { display:none; }
-    .cat-dropdown-wrap { position:relative; display:inline-block; }
-    .cat-dropdown-btn { padding:.55rem 1.25rem; border-radius:99px; border:1.5px solid var(--card-border); background:transparent; color:var(--text-secondary); font-size:.9rem; font-weight:600; cursor:pointer; transition:all .2s; display:flex; align-items:center; gap:.4rem; }
-    .cat-dropdown-btn:hover, .cat-dropdown-btn.open { border-color:var(--accent); color:var(--accent); }
-    .cat-dropdown-menu { display:none; position:absolute; top:calc(100% + .5rem); left:0; background:var(--card-bg); border:1px solid var(--card-border); border-radius:14px; padding:.5rem; min-width:200px; z-index:100; box-shadow:0 8px 32px rgba(0,0,0,.25); }
-    .cat-dropdown-menu.open { display:block; }
-    .cat-dropdown-item { display:flex; align-items:center; gap:.6rem; padding:.65rem 1rem; border-radius:9px; font-size:.9rem; font-weight:600; color:var(--text-secondary); cursor:pointer; transition:background .15s; }
-    .cat-dropdown-item:hover { background:var(--accent-alpha); color:var(--accent); }
-    .cat-dropdown-item.active { background:var(--accent); color:#fff; border-radius:9px; }
     .filter-label { font-size:.88rem; font-weight:600; color:var(--text-muted); white-space:nowrap; }
+    .cat-select { padding:.52rem 1.1rem; border-radius:99px; border:1.5px solid var(--card-border); background:var(--card-bg); color:var(--text-secondary); font-size:.9rem; font-weight:600; cursor:pointer; outline:none; transition:border-color .2s, color .2s; appearance:none; -webkit-appearance:none; padding-right:2rem; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2394a3b8' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right .75rem center; }
+    .cat-select:hover, .cat-select:focus { border-color:var(--accent); color:var(--accent); }
     /* Nav dropdown */
     .nav-item-drop { position:relative; }
     .nav-item-drop > a { display:flex; align-items:center; gap:.3rem; }
@@ -44,7 +41,7 @@
 
   <header class="nav-wrap">
     <nav class="nav container">
-      <a href="/" class="logo"><img src="/logo.svg" alt="NoxFit icon" width="28" height="28" style="vertical-align:middle;margin-right:8px;">Nox<span>Fit</span></a>
+      <a href="/" class="logo"><img src="/logo.svg" alt="NoxFit icon" width="28" height="28" style="vertical-align:middle;margin-right:8px;" loading="eager">Nox<span>Fit</span></a>
       <ul class="nav-links">
         <li><a href="/features/">Features</a></li>
         <li><a href="/about/">About</a></li>
@@ -104,17 +101,13 @@
         <span class="filter-label">Filter:</span>
         <button class="cat-btn active" data-cat="all">All</button>
         <button class="cat-btn" data-cat="new">🆕 New</button>
-        <!-- Dropdown -->
-        <div class="cat-dropdown-wrap">
-          <button class="cat-dropdown-btn" id="dropdownToggle">📂 Category <span style="font-size:.7rem;">▼</span></button>
-          <div class="cat-dropdown-menu" id="dropdownMenu">
-            <div class="cat-dropdown-item active" data-cat="all">🌐 All Posts</div>
-            <div class="cat-dropdown-item" data-cat="fitness">💪 Fitness</div>
-            <div class="cat-dropdown-item" data-cat="meal-planning">🥗 Meal Planning</div>
-            <div class="cat-dropdown-item" data-cat="recipe">🍳 Recipe</div>
-            <div class="cat-dropdown-item" data-cat="grocery">🛒 Grocery</div>
-          </div>
-        </div>
+        <select class="cat-select" id="catSelect" aria-label="Filter by category">
+          <option value="all">📂 All Categories</option>
+          <option value="fitness">💪 Fitness</option>
+          <option value="meal-planning">🥗 Meal Planning</option>
+          <option value="recipe">🍳 Recipe</option>
+          <option value="grocery">🛒 Grocery</option>
+        </select>
       </div>
 
       <div class="blog-grid" id="blogGrid">
@@ -230,7 +223,7 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <a href="/" class="logo"><img src="/logo.svg" alt="NoxFit icon" width="28" height="28" style="vertical-align:middle;margin-right:8px;">Nox<span>Fit</span></a>
+        <a href="/" class="logo"><img src="/logo.svg" alt="NoxFit icon" width="28" height="28" style="vertical-align:middle;margin-right:8px;" loading="eager">Nox<span>Fit</span></a>
         <p>Your all-in-one fitness companion.</p>
       </div>
       <div class="footer-col">
@@ -249,17 +242,11 @@
     </div>
   </footer>
 
-  <script src="/theme.js"></script>
+  <script src="/theme.js" defer></script>
   <script>
     var cards = document.querySelectorAll('#blogGrid .blog-card');
-
-    // Auto-filter from URL param e.g. /blog/?cat=fitness
-    var urlCat = new URLSearchParams(window.location.search).get('cat') || 'all';
-    if (urlCat !== 'all') {
-      document.querySelectorAll('.cat-btn').forEach(function(b){ b.classList.remove('active'); });
-      var matchBtn = document.querySelector('.cat-btn[data-cat="' + urlCat + '"]');
-      if (matchBtn) matchBtn.classList.add('active');
-    }
+    var catBtns = document.querySelectorAll('.cat-btn');
+    var catSelect = document.getElementById('catSelect');
 
     function filterCards(cat) {
       cards.forEach(function(card) {
@@ -269,53 +256,24 @@
       });
     }
 
+    function setActive(cat) {
+      catBtns.forEach(function(b) { b.classList.toggle('active', b.getAttribute('data-cat') === cat); });
+      catSelect.value = (cat === 'new') ? 'all' : cat;
+      filterCards(cat);
+    }
+
     // Pill buttons
-    var catBtns = document.querySelectorAll('.cat-btn');
     catBtns.forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        catBtns.forEach(function(b) { b.classList.remove('active'); });
-        btn.classList.add('active');
-        // Reset dropdown
-        document.querySelectorAll('.cat-dropdown-item').forEach(function(i){ i.classList.remove('active'); });
-        document.querySelector('.cat-dropdown-item[data-cat="all"]').classList.add('active');
-        filterCards(btn.getAttribute('data-cat'));
-      });
+      btn.addEventListener('click', function() { setActive(btn.getAttribute('data-cat')); });
     });
 
-    // Dropdown toggle open/close
-    var dropBtn = document.getElementById('dropdownToggle');
-    var dropMenu = document.getElementById('dropdownMenu');
-    dropBtn.addEventListener('click', function(e) {
-      e.stopPropagation();
-      dropBtn.classList.toggle('open');
-      dropMenu.classList.toggle('open');
-    });
-    document.addEventListener('click', function() {
-      dropBtn.classList.remove('open');
-      dropMenu.classList.remove('open');
-    });
+    // Select dropdown
+    catSelect.addEventListener('change', function() { setActive(catSelect.value); });
 
-    // Dropdown items
-    document.querySelectorAll('.cat-dropdown-item').forEach(function(item) {
-      item.addEventListener('click', function(e) {
-        e.stopPropagation();
-        var cat = item.getAttribute('data-cat');
-        // Update dropdown active state
-        document.querySelectorAll('.cat-dropdown-item').forEach(function(i){ i.classList.remove('active'); });
-        item.classList.add('active');
-        // Reset pill buttons to "All"
-        catBtns.forEach(function(b) { b.classList.remove('active'); });
-        document.querySelector('.cat-btn[data-cat="all"]').classList.add('active');
-        // Update label
-        dropBtn.innerHTML = item.textContent.trim() + ' <span style="font-size:.7rem;">▼</span>';
-        dropMenu.classList.remove('open');
-        dropBtn.classList.remove('open');
-        filterCards(cat);
-      });
-    });
-
-    // Apply URL param filter on load
-    filterCards(urlCat);
+    // Auto-filter from URL param e.g. /blog/?cat=fitness
+    var urlCat = new URLSearchParams(window.location.search).get('cat') || 'all';
+    setActive(urlCat);
   </script>
 </body>
 </html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               

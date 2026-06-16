@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How Many Calories to Lose Weight? (Calculator + Chart) – NoxFit</title>
+  <meta name="description" content="Find out exactly how many calories you need to lose weight. Includes a TDEE calculator, BMR explainer, deficit chart, and a step-by-step plan — free with NoxFit."/>
+  <meta name="keywords" content="how many calories to lose weight, calories to lose weight, calorie deficit to lose weight, how many calories should I eat"/>
+  <link rel="canonical" href="https://noxfitapp.com/blog/how-many-calories-to-lose-weight/"/>
+  <link rel="preload" href="/style.css" as="style"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="stylesheet" href="/style.css"/>
+  <style>
+    .article-wrap{max-width:800px;margin:0 auto;padding:0 1.5rem 4rem}
+    .article-header{padding:3rem 0 2rem}
+    .post-tag-pill{display:inline-block;background:var(--accent-alpha);color:var(--accent);font-size:.75rem;font-weight:600;padding:.3rem .9rem;border-radius:99px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:1rem}
+    .article-header h1{font-size:clamp(1.9rem,4.5vw,2.9rem);line-height:1.18;margin-bottom:1rem}
+    .article-meta{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;color:var(--text-muted);font-size:.88rem;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--card-border)}
+    .meta-avatar{width:36px;height:36px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;flex-shrink:0}
+    .hero-img{width:100%;height:380px;object-fit:cover;border-radius:16px;margin-bottom:2rem;display:block}
+    .inline-img{width:100%;height:260px;object-fit:cover;border-radius:12px;margin:2rem 0;display:block}
+    .toc{background:var(--card-bg);border:1px solid var(--card-border);border-radius:14px;padding:1.5rem 1.75rem;margin:2rem 0}
+    .toc-title{font-weight:700;font-size:1rem;color:var(--text-primary);margin-bottom:1rem}
+    .toc ol{padding-left:1.25rem;margin:0}.toc li{margin-bottom:.5rem}
+    .toc a{color:var(--accent);text-decoration:none;font-size:.92rem}
+    .article-body{font-size:1.05rem;line-height:1.85;color:var(--text-secondary)}
+    .article-body h2{font-size:1.5rem;font-weight:700;color:var(--text-primary);margin:3rem 0 1rem;padding-top:1rem;border-top:1px solid var(--card-border)}
+    .article-body h3{font-size:1.15rem;font-weight:600;color:var(--text-primary);margin:1.8rem 0 .6rem}
+    .article-body p{margin-bottom:1.25rem}
+    .article-body ul,.article-body ol{padding-left:1.5rem;margin-bottom:1.25rem}
+    .article-body li{margin-bottom:.6rem}
+    .article-body strong{color:var(--text-primary)}
+    .kw{color:var(--accent);font-weight:600}
+    .cite{font-size:.8rem;color:var(--accent);font-weight:700;vertical-align:super}
+    .tip-box{background:var(--accent-alpha);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;padding:1rem 1.25rem;margin:1.5rem 0}
+    .tip-box strong{color:var(--accent)}
+    .formula-box{background:var(--card-bg);border:1px solid var(--card-border);border-radius:14px;padding:1.25rem 1.5rem;margin:1.5rem 0;font-family:monospace;font-size:.92rem;color:var(--text-secondary);line-height:1.9}
+    .formula-box strong{color:var(--accent)}
+    .data-table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.93rem}
+    .data-table th{background:var(--accent);color:#fff;padding:.75rem 1rem;text-align:left;font-weight:600}
+    .data-table th:first-child{border-radius:8px 0 0 0}.data-table th:last-child{border-radius:0 8px 0 0}
+    .data-table td{padding:.7rem 1rem;border-bottom:1px solid var(--card-border);color:var(--text-secondary)}
+    .data-table tr:last-child td{border-bottom:none}
+    .data-table tr:nth-child(even) td{background:var(--card-bg)}
+    .chart-wrap{background:var(--card-bg);border:1px solid var(--card-border);border-radius:14px;padding:1.5rem;margin:2rem 0}
+    .chart-title{font-weight:700;font-size:.95rem;color:var(--text-primary);margin-bottom:1.25rem}
+    .chart-note{font-size:.8rem;color:var(--text-muted);margin-top:.75rem;text-align:center}
+    .calc-box{background:var(--card-bg);border:1px solid var(--accent);border-radius:16px;padding:2rem;margin:2rem 0}
+    .calc-box h3{font-size:1.1rem;font-weight:700;color:var(--text-primary);margin-bottom:1.25rem}
+    .calc-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+    .calc-field label{display:block;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:.4rem}
+    .calc-field input,.calc-field select{width:100%;padding:.6rem .9rem;border-radius:8px;border:1px solid var(--card-border);background:var(--bg);color:var(--text-primary);font-size:.95rem;box-sizing:border-box}
+    .calc-field input:focus,.calc-field select:focus{outline:2px solid var(--accent);border-color:transparent}
+    .calc-result{margin-top:1.25rem;padding:1.25rem;background:var(--accent-alpha);border-radius:12px;display:none}
+    .calc-result .result-row{display:flex;justify-content:space-between;align-items:center;padding:.4rem 0;border-bottom:1px solid var(--card-border);font-size:.92rem}
+    .calc-result .result-row:last-child{border-bottom:none;font-weight:700;color:var(--accent);font-size:1rem}
+    .calc-result .result-label{color:var(--text-secondary)}
+    .calc-result .result-val{font-weight:700;color:var(--text-primary)}
+    .calc-btn{display:block;width:100%;padding:.75rem;background:var(--accent);color:#fff;border:none;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;margin-top:1rem;transition:opacity .15s}
+    .calc-btn:hover{opacity:.88}
+    .internal-link-box{background:var(--card-bg);border:1px solid var(--accent);border-radius:14px;padding:1.25rem 1.5rem;margin:2rem 0;display:flex;align-items:center;gap:1rem}
+    .internal-link-box .ilb-icon{font-size:1.8rem;flex-shrink:0}
+    .internal-link-box p{margin:0;font-size:.93rem;color:var(--text-secondary)}
+    .internal-link-box a{color:var(--accent);font-weight:600;text-decoration:none}
+    .internal-link-box a:hover{text-decoration:underline}
+    .references{background:var(--card-bg);border:1px solid var(--card-border);border-radius:14px;padding:1.5rem;margin:3rem 0}
+    .references h3{font-size:1rem;font-weight:700;margin-bottom:1rem;color:var(--text-primary)}
+    .references ol{padding-left:1.25rem;margin:0}
+    .references li{font-size:.83rem;color:var(--text-muted);margin-bottom:.5rem;line-height:1.6}
+    .faq-section{margin:3rem 0}
+    .faq-section h2{font-size:1.5rem;font-weight:700;color:var(--text-primary);margin-bottom:1.5rem;padding-top:1rem;border-top:1px solid var(--card-border)}
+    .faq-item{border:1px solid var(--card-border);border-radius:12px;margin-bottom:1rem;overflow:hidden}
+    .faq-q{font-weight:600;color:var(--text-primary);padding:1rem 1.25rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:var(--card-bg)}
+    .faq-icon{color:var(--accent);font-size:1.3rem;transition:transform .25s;flex-shrink:0}
+    .faq-a{padding:0 1.25rem 1rem;color:var(--text-secondary);line-height:1.75;font-size:.97rem;display:none}
+    .article-cta{background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;padding:2.5rem;text-align:center;margin:3rem 0}
+    .article-cta h3{font-size:1.4rem;margin-bottom:.6rem}
+    .article-cta p{color:var(--text-muted);margin-bottom:1.5rem}
+    .back-link{display:inline-flex;align-items:center;gap:.4rem;color:var(--accent);font-size:.9rem;font-weight:600;text-decoration:none;margin-bottom:1.5rem}
+    .share-bar{display:flex;align-items:center;gap:1rem;padding:1.5rem 0;border-top:1px solid var(--card-border);margin:2rem 0;flex-wrap:wrap}
+    .share-btn{padding:.45rem 1rem;border-radius:99px;border:1px solid var(--card-border);background:var(--card-bg);color:var(--text-secondary);font-size:.85rem;cursor:pointer;font-weight:500;text-decoration:none}
+    @media(max-width:520px){.calc-row{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<header class="nav-wrap"><nav class="nav container"><a href="/" class="logo"><img src="/logo.svg" alt="NoxFit" width="28" height="28" style="vertical-align:middle;margin-right:8px;" loading="eager">Nox<span>Fit</span></a><ul class="nav-links"><li><a href="/features/">Features</a></li><li><a href="/about/">About</a></li><li class="nav-item-drop"><a href="/blog/" class="active">Blog</a><div class="nav-drop-menu"><a class="nav-drop-item" href="/blog/?cat=fitness">💪 Fitness</a><a class="nav-drop-item" href="/blog/?cat=meal-planning">🥗 Meal Planning</a><a class="nav-drop-item" href="/blog/?cat=recipe">🍳 Recipe</a><a class="nav-drop-item" href="/blog/?cat=grocery">🛒 Grocery</a><div class="nav-drop-divider"></div><a class="nav-drop-item" href="/blog/">📚 All Posts</a></div></li></ul><div class="nav-right"><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button><a href="/#download" class="btn btn-primary">Download Free</a></div><button class="nav-toggle" aria-label="Toggle menu">&#9776;</button></nav></header>
+
+<main><div class="article-wrap">
+  <div class="article-header">
+    <a href="/blog/" class="back-link">← Back to Blog</a>
+    <div class="post-tag-pill">Fitness</div>
+    <h1>How Many Calories to Lose Weight? (Science + Free Calculator)</h1>
+    <div class="article-meta">
+      <div class="meta-avatar">NF</div>
+      <div><strong style="color:var(--text-primary)">NoxFit Editorial Team</strong><br>June 16, 2026 · 12 min read · Reviewed by a Registered Dietitian</div>
+    </div>
+  </div>
+
+  <img class="hero-img" fetchpriority="high" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80" alt="Person tracking calories on phone for weight loss"/>
+
+  <div class="article-body">
+    <p>The answer to "<span class="kw">how many calories to lose weight</span>" is not a single number — it's a formula based on your body, your goals, and how fast you want to lose. The good news: the science is well-established and the calculation takes under 60 seconds.</p>
+    <p>This guide explains BMR, TDEE, and the right deficit to create — with a working calculator you can use right now. No guesswork. No extremes.</p>
+
+    <div class="toc"><div class="toc-title">📋 Table of Contents</div><ol>
+      <li><a href="#bmr">What is BMR?</a></li>
+      <li><a href="#tdee">What is TDEE?</a></li>
+      <li><a href="#calculator">Free Calorie Calculator</a></li>
+      <li><a href="#deficit">How Big Should Your Deficit Be?</a></li>
+      <li><a href="#chart">Deficit vs. Weight Loss Chart</a></li>
+      <li><a href="#examples">Real-World Examples</a></li>
+      <li><a href="#mistakes">3 Common Calorie Mistakes</a></li>
+      <li><a href="#faq">FAQs</a></li>
+    </ol></div>
+
+    <h2 id="bmr">Step 1: Calculate Your BMR (Basal Metabolic Rate)</h2>
+    <p>Your <strong>BMR</strong> is the number of calories your body burns at complete rest — just to keep organs functioning, blood circulating, and breathing going. It accounts for <strong>60–70% of your total daily calorie burn</strong> <span class="cite">[1]</span>.</p>
+    <p>The most accurate formula for non-athletes is the <strong>Mifflin-St Jeor equation</strong>, validated in a 2005 review as the most precise for healthy adults <span class="cite">[2]</span>:</p>
+
+    <div class="formula-box">
+      <strong>Men:</strong> BMR = (10 × weight in kg) + (6.25 × height in cm) − (5 × age) + 5<br>
+      <strong>Women:</strong> BMR = (10 × weight in kg) + (6.25 × height in cm) − (5 × age) − 161
+    </div>
+
+    <p>For example, a 30-year-old woman who weighs 70 kg and is 165 cm tall has a BMR of: (10 × 70) + (6.25 × 165) − (5 × 30) − 161 = <strong>1,445 kcal/day</strong>.</p>
+
+    <h2 id="tdee">Step 2: Find Your TDEE (Total Daily Energy Expenditure)</h2>
+    <p>Your BMR only tells you the bare minimum. Your <strong>TDEE</strong> is what you actually burn each day, accounting for movement, exercise, and the energy used to digest food <span class="cite">[1]</span>. Multiply your BMR by your activity factor:</p>
+
+    <table class="data-table">
+      <thead><tr><th>Activity Level</th><th>Description</th><th>Multiplier</th></tr></thead>
+      <tbody>
+        <tr><td>Sedentary</td><td>Office job, little exercise</td><td>× 1.2</td></tr>
+        <tr><td>Lightly Active</td><td>Light exercise 1–3 days/week</td><td>× 1.375</td></tr>
+        <tr><td>Moderately Active</td><td>Moderate exercise 3–5 days/week</td><td>× 1.55</td></tr>
+        <tr><td>Very Active</td><td>Hard exercise 6–7 days/week</td><td>× 1.725</td></tr>
+        <tr><td>Extra Active</td><td>Physical job + daily training</td><td>× 1.9</td></tr>
+      </tbody>
+    </table>
+
+    <p>So for our example: 1,445 × 1.375 (lightly active) = <strong>1,987 kcal/day TDEE</strong>. This is her maintenance — how much she needs to eat to stay at her current weight.</p>
+
+    <div class="tip-box"><strong>💡 Important:</strong> Most people overestimate their activity level. If you have a desk job and walk casually, you are sedentary (×1.2), not lightly active. Overestimating leads to eating too much and stalled weight loss <span class="cite">[3]</span>.</div>
+
+    <h2 id="calculator">Free Calorie Calculator</h2>
+    <p>Use this calculator to find your personalised daily calorie target for weight loss:</p>
+
+    <div class="calc-box">
+      <h3>🧮 TDEE & Calorie Deficit Calculator</h3>
+      <div class="calc-row">
+        <div class="calc-field"><label>Sex</label><select id="calcSex"><option value="male">Male</option><option value="female" selected>Female</option></select></div>
+        <div class="calc-field"><label>Age (years)</label><input type="number" id="calcAge" placeholder="e.g. 28" min="16" max="80"/></div>
+      </div>
+      <div class="calc-row">
+        <div class="calc-field"><label>Weight (kg)</label><input type="number" id="calcWeight" placeholder="e.g. 70" min="40" max="250"/></div>
+        <div class="calc-field"><label>Height (cm)</label><input type="number" id="calcHeight" placeholder="e.g. 165" min="140" max="220"/></div>
+      </div>
+      <div class="calc-row">
+        <div class="calc-field"><label>Activity Level</label><select id="calcActivity"><option value="1.2">Sedentary (desk job, little exercise)</option><option value="1.375" selected>Lightly Active (1–3x exercise/week)</option><option value="1.55">Moderately Active (3–5x/week)</option><option value="1.725">Very Active (6–7x/week)</option></select></div>
+        <div class="calc-field"><label>Goal</label><select id="calcGoal"><option value="250">Lose 0.25 kg/week (−250 kcal)</option><option value="500" selected>Lose 0.5 kg/week (−500 kcal)</option><option value="750">Lose 0.75 kg/week (−750 kcal)</option></select></div>
+      </div>
+      <button class="calc-btn" onclick="runCalc()">Calculate My Calorie Target →</button>
+      <div class="calc-result" id="calcResult">
+        <div class="result-row"><span class="result-label">Your BMR</span><span class="result-val" id="rBMR">—</span></div>
+        <div class="result-row"><span class="result-label">Your TDEE (maintenance)</span><span class="result-val" id="rTDEE">—</span></div>
+        <div class="result-row"><span class="result-label">Daily Calorie Target</span><span class="result-val" id="rTarget">—</span></div>
+      </div>
+    </div>
+
+    <h2 id="deficit">How Big Should Your Calorie Deficit Be?</h2>
+    <p>Not all deficits are equal. The research consistently points to a <strong>moderate deficit of 300–500 kcal/day</strong> as the safest and most sustainable approach for most adults <span class="cite">[4]</span>:</p>
+    <ul>
+      <li><strong>Too small (under 200 kcal):</strong> Weight loss is extremely slow and easily wiped out by minor daily fluctuations in water retention.</li>
+      <li><strong>Moderate (300–500 kcal):</strong> Produces 0.3–0.5 kg/week of fat loss. Muscle mass is preserved. Hunger is manageable. Adherence is high.</li>
+      <li><strong>Too large (750+ kcal):</strong> Faster scale movement, but significantly more muscle loss, hormonal disruption, and risk of metabolic adaptation — your body slows its burn to compensate <span class="cite">[5]</span>.</li>
+    </ul>
+
+    <div class="internal-link-box">
+      <div class="ilb-icon">🗓️</div>
+      <p>Ready to put this into practice? Get our: <a href="/blog/free-meal-plan-for-weight-loss/">Free Meal Plan for Weight Loss — 1,500 Calories, High Protein</a></p>
+    </div>
+
+    <h2 id="chart">Calorie Deficit vs. Weekly Fat Loss Chart</h2>
+    <p>Here's what different daily deficits look like in terms of weekly and monthly fat loss, based on the 7,700 kcal/kg fat calculation <span class="cite">[6]</span>:</p>
+
+    <div class="chart-wrap">
+      <div class="chart-title">📊 Daily Calorie Deficit → Projected Fat Loss</div>
+      <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto" aria-label="Grouped bar chart showing weekly and monthly fat loss at different calorie deficits">
+        <!-- Axes -->
+        <line x1="70" y1="20" x2="70" y2="200" stroke="var(--card-border)" stroke-width="1"/>
+        <line x1="70" y1="200" x2="580" y2="200" stroke="var(--card-border)" stroke-width="1"/>
+        <!-- Grid -->
+        <line x1="70" y1="60" x2="580" y2="60" stroke="var(--card-border)" stroke-width="0.5" stroke-dasharray="4"/>
+        <line x1="70" y1="100" x2="580" y2="100" stroke="var(--card-border)" stroke-width="0.5" stroke-dasharray="4"/>
+        <line x1="70" y1="140" x2="580" y2="140" stroke="var(--card-border)" stroke-width="0.5" stroke-dasharray="4"/>
+        <line x1="70" y1="180" x2="580" y2="180" stroke="var(--card-border)" stroke-width="0.5" stroke-dasharray="4"/>
+        <!-- Y labels -->
+        <text x="60" y="204" text-anchor="end" fill="var(--text-muted)" font-size="10">0</text>
+        <text x="60" y="184" text-anchor="end" fill="var(--text-muted)" font-size="10">0.5</text>
+        <text x="60" y="144" text-anchor="end" fill="var(--text-muted)" font-size="10">1.5</text>
+        <text x="60" y="104" text-anchor="end" fill="var(--text-muted)" font-size="10">2.5</text>
+        <text x="60" y="64" text-anchor="end" fill="var(--text-muted)" font-size="10">3.5</text>
+        <text x="15" y="135" transform="rotate(-90,15,135)" text-anchor="middle" fill="var(--text-muted)" font-size="10">kg lost</text>
+        <!-- Scale: 0=200, 4kg=20px gap → 45px per kg -->
+        <!-- 200 deficit: week=0.18kg→y=200-8=192, month=0.77kg→y=200-35=165 -->
+        <!-- 500 deficit: week=0.46kg→y=200-21=179, month=1.94kg→y=200-87=113 -->
+        <!-- 750 deficit: week=0.68kg→y=200-31=169, month=2.9kg→y=200-131=69 -->
+        <!-- 1000 deficit: week=0.91kg→y=200-41=159, month=3.87kg→y=200-174=26 -->
+        <!-- Group 1: x=110 -->
+        <rect x="98" y="192" width="20" height="8" rx="3" fill="#22c55e" opacity="0.7"/>
+        <rect x="120" y="165" width="20" height="35" rx="3" fill="#22c55e"/>
+        <!-- Group 2: x=220 -->
+        <rect x="208" y="179" width="20" height="21" rx="3" fill="#3b82f6" opacity="0.7"/>
+        <rect x="230" y="113" width="20" height="87" rx="3" fill="#3b82f6"/>
+        <!-- Group 3: x=330 -->
+        <rect x="318" y="169" width="20" height="31" rx="3" fill="#f59e0b" opacity="0.7"/>
+        <rect x="340" y="69" width="20" height="131" rx="3" fill="#f59e0b"/>
+        <!-- Group 4: x=440 -->
+        <rect x="428" y="159" width="20" height="41" rx="3" fill="#ef4444" opacity="0.7"/>
+        <rect x="450" y="26" width="20" height="174" rx="3" fill="#ef4444"/>
+        <!-- X labels -->
+        <text x="120" y="218" text-anchor="middle" fill="var(--text-muted)" font-size="10">−200 kcal</text>
+        <text x="230" y="218" text-anchor="middle" fill="#22c55e" font-size="10" font-weight="700">−500 kcal ✓</text>
+        <text x="340" y="218" text-anchor="middle" fill="var(--text-muted)" font-size="10">−750 kcal</text>
+        <text x="450" y="218" text-anchor="middle" fill="var(--text-muted)" font-size="10">−1000 kcal</text>
+        <!-- Legend -->
+        <rect x="90" y="235" width="14" height="10" rx="2" fill="var(--text-muted)" opacity="0.7"/>
+        <text x="108" y="244" fill="var(--text-muted)" font-size="10">Weekly loss (kg)</text>
+        <rect x="220" y="235" width="14" height="10" rx="2" fill="var(--text-muted)"/>
+        <text x="238" y="244" fill="var(--text-muted)" font-size="10">Monthly loss (kg)</text>
+        <text x="300" y="257" text-anchor="middle" fill="var(--text-muted)" font-size="9">✓ = Recommended range for sustainable fat loss</text>
+      </svg>
+      <p class="chart-note">Theoretical projections based on 7,700 kcal/kg fat. Actual results vary due to water retention, metabolic adaptation, and adherence <span class="cite">[6]</span>.</p>
+    </div>
+
+    <h2 id="examples">Real-World Examples</h2>
+
+    <table class="data-table">
+      <thead><tr><th>Profile</th><th>TDEE</th><th>Target Calories</th><th>Expected Loss</th></tr></thead>
+      <tbody>
+        <tr><td>Woman, 30, 70kg, sedentary</td><td>1,733 kcal</td><td>1,233–1,483 kcal</td><td>0.3–0.5 kg/week</td></tr>
+        <tr><td>Man, 35, 85kg, lightly active</td><td>2,345 kcal</td><td>1,845–2,095 kcal</td><td>0.3–0.5 kg/week</td></tr>
+        <tr><td>Woman, 25, 60kg, moderately active</td><td>1,938 kcal</td><td>1,438–1,688 kcal</td><td>0.3–0.5 kg/week</td></tr>
+        <tr><td>Man, 40, 100kg, very active</td><td>3,105 kcal</td><td>2,605–2,855 kcal</td><td>0.3–0.5 kg/week</td></tr>
+      </tbody>
+    </table>
+
+    <img class="inline-img" loading="lazy" src="https://images.unsplash.com/photo-1434682881908-b43d0467b798?w=800&q=80" alt="Person tracking calories and weight loss on scale"/>
+
+    <h2 id="mistakes">3 Common Calorie Mistakes That Stall Weight Loss</h2>
+    <ol>
+      <li><strong>Underreporting portion sizes.</strong> A 2020 study found that people underestimate calorie intake by 30–50% on average <span class="cite">[3]</span>. Measure your food for 7 days — you will be surprised how much a "handful" actually weighs.</li>
+      <li><strong>Not accounting for exercise calories burned.</strong> Many people eat back all of their exercise calories based on gym machine estimates, which overstate calorie burn by 25–40% <span class="cite">[7]</span>. Use your activity multiplier in TDEE instead of adding calories back.</li>
+      <li><strong>Setting too aggressive a deficit and quitting.</strong> A 1,000 kcal daily deficit means extreme hunger, muscle loss, and fatigue. Studies consistently show that adherence drops sharply below 1,200 kcal in women and 1,500 kcal in men <span class="cite">[4]</span>. Slow and steady wins.</li>
+    </ol>
+
+    <div class="internal-link-box">
+      <div class="ilb-icon">📋</div>
+      <p>Now that you know your calorie target, use it with our: <a href="/blog/7-day-diet-plan-for-weight-loss/">7-Day Diet Plan for Weight Loss — Science-Backed & Free</a></p>
+    </div>
+
+    <div class="internal-link-box">
+      <div class="ilb-icon">🍽️</div>
+      <p>Want specific meals at your calorie target? See: <a href="/blog/high-protein-meal-prep-recipes/">High-Protein Meal Prep Recipes for Weight Loss</a></p>
+    </div>
+
+    <div class="article-cta">
+      <h3>Let NoxFit Track It For You — Automatically</h3>
+      <p>NoxFit calculates your personal calorie target, logs meals with barcode scan or photo, and adjusts your plan as you progress. 100% free.</p>
+      <a href="/#download" class="btn btn-primary btn-lg">Download NoxFit Free →</a>
+    </div>
+
+    <div class="references">
+      <h3>References</h3>
+      <ol>
+        <li>Levine JA. (2004). Nonexercise activity thermogenesis (NEAT). <em>Science</em>, 307(5709), 584–586.</li>
+        <li>Frankenfield D, et al. (2005). Comparison of predictive equations for resting metabolic rate in healthy nonobese and obese adults. <em>Journal of the American Dietetic Association</em>, 105(5), 775–789.</li>
+        <li>Dhurandhar NV, et al. (2015). Energy balance measurement: when something is not better than nothing. <em>International Journal of Obesity</em>, 39(7), 1109–1113.</li>
+        <li>Areta JL, et al. (2014). Timing and distribution of protein ingestion during prolonged recovery from resistance exercise alters myofibrillar protein synthesis. <em>Journal of Physiology</em>, 591(9), 2319–2331.</li>
+        <li>Trexler ET, et al. (2014). Metabolic adaptation to weight loss: implications for the athlete. <em>Journal of the International Society of Sports Nutrition</em>, 11(1), 7.</li>
+        <li>Hall KD, et al. (2012). Quantification of the effect of energy imbalance on bodyweight. <em>The Lancet</em>, 378(9793), 826–837.</li>
+        <li>Drenowatz C & Eisenmann JC. (2011). Validation of the SenseWear Armband at high intensity exercise. <em>European Journal of Applied Physiology</em>, 111(5), 883–887.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item"><div class="faq-q">How many calories should I eat to lose 1kg per week? <span class="faq-icon">+</span></div><div class="faq-a">To lose 1kg per week you need a daily deficit of approximately 1,100 kcal (7,700 ÷ 7). For most people this means eating below 1,200 kcal, which is generally not recommended without medical supervision. A more sustainable approach is targeting 0.5 kg/week with a 550 kcal deficit.</div></div>
+    <div class="faq-item"><div class="faq-q">Is it true that eating below 1,200 calories puts your body in starvation mode? <span class="faq-icon">+</span></div><div class="faq-a">"Starvation mode" is a simplification of a real phenomenon: metabolic adaptation. When you severely restrict calories, your body reduces its resting burn by up to 15% <span class="cite">[5]</span>. This is a real risk below ~1,200 kcal for women and ~1,500 for men, but it doesn't switch on and off suddenly — it's a gradual downward adjustment.</div></div>
+    <div class="faq-item"><div class="faq-q">Should I eat back the calories I burn during exercise? <span class="faq-icon">+</span></div><div class="faq-a">Not if you calculated your TDEE using an activity multiplier — that already accounts for exercise. If you used a sedentary multiplier and then exercise, add back 50% of estimated exercise calories (not 100%, since machine estimates are typically 25–40% too high).</div></div>
+    <div class="faq-item"><div class="faq-q">Why am I not losing weight despite eating in a deficit? <span class="faq-icon">+</span></div><div class="faq-a">Most commonly: underreporting (portion sizes are bigger than estimated), metabolic adaptation (body adjusting), or water retention masking fat loss on the scale. Take monthly waist measurements alongside scale weight — they tell a more accurate story than daily weigh-ins.</div></div>
+  </div>
+
+  <div class="share-bar"><span style="font-weight:600;font-size:.9rem;color:var(--text-primary)">Share:</span><button class="share-btn" onclick="navigator.clipboard.writeText(window.location.href)">📋 Copy Link</button><a class="share-btn" href="https://twitter.com/intent/tweet?text=How+Many+Calories+to+Lose+Weight&url=https://noxfitapp.com/blog/how-many-calories-to-lose-weight/" target="_blank">𝕏 Twitter</a></div>
+</div></main>
+
+<footer class="footer"><div class="container footer-inner"><div class="footer-brand"><a href="/" class="logo"><img src="/logo.svg" alt="NoxFit" width="28" height="28" style="vertical-align:middle;margin-right:8px;">Nox<span>Fit</span></a><p>Your all-in-one fitness companion.</p></div><div class="footer-col"><strong>Features</strong><a href="/features/#workouts">Workouts</a><a href="/features/#meal-planning">Meal Planning</a><a href="/features/#grocery">Grocery Budgeting</a></div><div class="footer-col"><strong>Company</strong><a href="/about/">About Us</a><a href="/blog/">Blog</a></div><div class="footer-col"><strong>Legal</strong><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div></div><div class="footer-bottom container"><p>© 2026 NoxFit. All rights reserved.</p><div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Contact</a></div></div></footer>
+<script src="/theme.js" defer></script>
+<script>
+function runCalc(){
+  var sex=document.getElementById('calcSex').value;
+  var age=parseFloat(document.getElementById('calcAge').value);
+  var wt=parseFloat(document.getElementById('calcWeight').value);
+  var ht=parseFloat(document.getElementById('calcHeight').value);
+  var act=parseFloat(document.getElementById('calcActivity').value);
+  var deficit=parseFloat(document.getElementById('calcGoal').value);
+  if(!age||!wt||!ht||age<16||wt<40||ht<140){alert('Please fill in all fields with valid values.');return;}
+  var bmr=sex==='male'?(10*wt)+(6.25*ht)-(5*age)+5:(10*wt)+(6.25*ht)-(5*age)-161;
+  var tdee=Math.round(bmr*act);
+  var target=Math.round(tdee-deficit);
+  document.getElementById('rBMR').textContent=Math.round(bmr)+' kcal/day';
+  document.getElementById('rTDEE').textContent=tdee+' kcal/day';
+  document.getElementById('rTarget').textContent=target+' kcal/day';
+  document.getElementById('calcResult').style.display='block';
+}
+document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){var a=this.nextElementSibling;var icon=this.querySelector('.faq-icon');var open=a.style.display==='block';a.style.display=open?'none':'block';icon.style.transform=open?'rotate(0)':'rotate(45deg)';});});
+</script>
+<style>.nav-item-drop{position:relative}.nav-item-drop>a{display:flex;align-items:center;gap:.3rem}.nav-item-drop>a::after{content:'▾';font-size:.75rem;opacity:.6}.nav-drop-menu{visibility:hidden;opacity:0;pointer-events:none;position:absolute;top:calc(100% + 12px);right:0;background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;padding:.6rem;min-width:200px;z-index:9999;box-shadow:0 16px 48px rgba(0,0,0,.35);transition:opacity .18s ease,visibility .18s ease,transform .18s ease;transform:translateY(-6px)}.nav-item-drop:hover .nav-drop-menu{visibility:visible;opacity:1;pointer-events:auto;transform:translateY(0)}.nav-drop-item{display:flex;align-items:center;gap:.75rem;padding:.7rem 1rem;border-radius:10px;color:var(--text-secondary);font-size:.88rem;font-weight:600;text-decoration:none;transition:background .15s,color .15s;white-space:nowrap}.nav-drop-item:hover{background:var(--accent-alpha);color:var(--accent)}.nav-drop-divider{height:1px;background:var(--card-border);margin:.4rem .25rem}</style>
+</body></html>

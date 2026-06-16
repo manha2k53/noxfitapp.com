@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Intermittent Fasting for Beginners: 16:8, 5:2 & More (2026 Guide) – NoxFit</title>
+  <meta name="description" content="Complete beginner's guide to intermittent fasting. Covers 16:8, 5:2, and OMAD methods with a comparison table, results chart, and a step-by-step start plan."/>
+  <meta name="keywords" content="intermittent fasting for beginners, 16:8 intermittent fasting, intermittent fasting results, how to start intermittent fasting"/>
+  <link rel="canonical" href="https://noxfitapp.com/blog/intermittent-fasting-for-beginners/"/>
+  <link rel="preload" href="/style.css" as="style"/>
+  <link rel="preconnect" href="https://images.unsplash.com"/>
+  <link rel="dns-prefetch" href="https://images.unsplash.com"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="stylesheet" href="/style.css"/>
+  <style>
+    .article-wrap{max-width:820px;margin:0 auto;padding:0 1.5rem 4rem}
+    .article-header{padding:3rem 0 2rem}
+    .post-tag-pill{display:inline-block;background:var(--accent-alpha);color:var(--accent);font-size:.75rem;font-weight:600;padding:.3rem .9rem;border-radius:99px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:1rem}
+    .article-header h1{font-size:clamp(1.9rem,4.5vw,2.9rem);line-height:1.18;margin-bottom:1rem}
+    .article-meta{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;color:var(--text-muted);font-size:.88rem;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--card-border)}
+    .meta-avatar{width:38px;height:38px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;flex-shrink:0}
+    .hero-img{width:100%;height:400px;object-fit:cover;border-radius:18px;margin-bottom:2rem;display:block}
+    .inline-img{width:100%;height:260px;object-fit:cover;border-radius:12px;margin:2rem 0;display:block}
+    .toc{background:var(--card-bg);border:1px solid var(--card-border);border-radius:14px;padding:1.5rem 1.75rem;margin:2rem 0}
+    .toc-title{font-weight:700;font-size:1rem;color:var(--text-primary);margin-bottom:1rem}
+    .toc ol{padding-left:1.25rem;margin:0}.toc li{margin-bottom:.5rem}
+    .toc a{color:var(--accent);text-decoration:none;font-size:.92rem}
+    .toc a:hover{text-decoration:underline}
+    .article-body{font-size:1.05rem;line-height:1.88;color:var(--text-secondary)}
+    .article-body h2{font-size:1.5rem;font-weight:700;color:var(--text-primary);margin:3rem 0 1rem;padding-top:1rem;border-top:1px solid var(--card-border)}
+    .article-body h3{font-size:1.15rem;font-weight:600;color:var(--text-primary);margin:2rem 0 .6rem}
+    .article-body p{margin-bottom:1.3rem}
+    .article-body ul,.article-body ol{padding-left:1.5rem;margin-bottom:1.3rem}
+    .article-body li{margin-bottom:.65rem}
+    .article-body strong{color:var(--text-primary)}
+    .kw{color:var(--accent);font-weight:600}
+    .cite{font-size:.78rem;color:var(--accent);font-weight:700;vertical-align:super;text-decoration:none}
+    .cite:hover{text-decoration:underline}
+    .tip-box{background:var(--accent-alpha);border-left:4px solid var(--accent);border-radius:0 14px 14px 0;padding:1.1rem 1.4rem;margin:1.75rem 0}
+    .tip-box strong{color:var(--accent)}
+    .warn-box{background:rgba(239,68,68,.08);border-left:4px solid #ef4444;border-radius:0 14px 14px 0;padding:1.1rem 1.4rem;margin:1.75rem 0}
+    .warn-box strong{color:#ef4444}
+    .data-table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.92rem}
+    .data-table th{background:var(--accent);color:#fff;padding:.8rem 1rem;text-align:left;font-weight:600}
+    .data-table th:first-child{border-radius:8px 0 0 0}.data-table th:last-child{border-radius:0 8px 0 0}
+    .data-table td{padding:.72rem 1rem;border-bottom:1px solid var(--card-border);color:var(--text-secondary)}
+    .data-table tr:last-child td{border-bottom:none}
+    .data-table tr:hover td{background:var(--accent-alpha)}
+    .badge{display:inline-block;padding:.2rem .6rem;border-radius:99px;font-size:.75rem;font-weight:700}
+    .badge-green{background:rgba(34,197,94,.15);color:#22c55e}
+    .badge-blue{background:rgba(59,130,246,.15);color:#3b82f6}
+    .badge-orange{background:rgba(245,158,11,.15);color:#f59e0b}
+    .badge-red{background:rgba(239,68,68,.15);color:#ef4444}
+    .chart-wrap{background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;padding:1.75rem;margin:2.5rem 0}
+    .chart-title{font-weight:700;font-size:1rem;color:var(--text-primary);margin-bottom:1.5rem}
+    .chart-note{font-size:.8rem;color:var(--text-muted);margin-top:1rem;text-align:center;line-height:1.5}
+    .method-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin:1.5rem 0}
+    .method-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:14px;padding:1.25rem;text-align:center}
+    .method-card.recommended{border-color:var(--accent);background:var(--accent-alpha)}
+    .method-name{font-size:1.5rem;font-weight:700;color:var(--text-primary);margin-bottom:.3rem}
+    .method-sub{font-size:.82rem;color:var(--text-muted);margin-bottom:.75rem}
+    .method-rating{font-size:.8rem;font-weight:600;color:var(--accent)}
+    .timeline-wrap{margin:2rem 0}
+    .timeline-row{display:grid;grid-template-columns:100px 1fr;gap:1rem;margin-bottom:1.25rem;align-items:start}
+    .timeline-time{background:var(--accent);color:#fff;border-radius:8px;padding:.5rem .75rem;font-size:.85rem;font-weight:700;text-align:center}
+    .timeline-content{background:var(--card-bg);border:1px solid var(--card-border);border-radius:10px;padding:.9rem 1.1rem}
+    .timeline-content strong{color:var(--text-primary);font-size:.95rem}
+    .timeline-content p{margin:0;font-size:.88rem;color:var(--text-muted);margin-top:.2rem}
+    .internal-link-box{background:var(--card-bg);border:1px solid var(--accent);border-radius:14px;padding:1.25rem 1.5rem;margin:2rem 0;display:flex;align-items:center;gap:1rem}
+    .ilb-icon{font-size:1.9rem;flex-shrink:0}
+    .internal-link-box p{margin:0;font-size:.93rem;color:var(--text-secondary)}
+    .internal-link-box a{color:var(--accent);font-weight:600;text-decoration:none}
+    .internal-link-box a:hover{text-decoration:underline}
+    .references{background:var(--card-bg);border:1px solid var(--card-border);border-radius:14px;padding:1.5rem 1.75rem;margin:3rem 0}
+    .references h3{font-size:1rem;font-weight:700;margin-bottom:1rem;color:var(--text-primary)}
+    .references ol{padding-left:1.25rem;margin:0}
+    .references li{font-size:.83rem;color:var(--text-muted);margin-bottom:.6rem;line-height:1.65}
+    .references a{color:var(--accent);text-decoration:none;font-size:.8rem}
+    .references a:hover{text-decoration:underline}
+    .faq-section h2{font-size:1.5rem;font-weight:700;color:var(--text-primary);margin-bottom:1.5rem;padding-top:1rem;border-top:1px solid var(--card-border)}
+    .faq-item{border:1px solid var(--card-border);border-radius:12px;margin-bottom:.9rem;overflow:hidden}
+    .faq-q{font-weight:600;color:var(--text-primary);padding:1.1rem 1.25rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:var(--card-bg)}
+    .faq-q:hover{background:var(--accent-alpha)}
+    .faq-icon{color:var(--accent);font-size:1.25rem;transition:transform .25s;flex-shrink:0;margin-left:.5rem}
+    .faq-a{padding:0 1.25rem 1.1rem;color:var(--text-secondary);line-height:1.78;font-size:.97rem;display:none}
+    .article-cta{background:linear-gradient(135deg,var(--card-bg) 0%,var(--accent-alpha) 100%);border:1px solid var(--accent);border-radius:18px;padding:2.75rem;text-align:center;margin:3rem 0}
+    .article-cta h3{font-size:1.45rem;margin-bottom:.65rem}
+    .article-cta p{color:var(--text-muted);margin-bottom:1.6rem;max-width:420px;margin-left:auto;margin-right:auto}
+    .back-link{display:inline-flex;align-items:center;gap:.4rem;color:var(--accent);font-size:.9rem;font-weight:600;text-decoration:none;margin-bottom:1.5rem}
+    .share-bar{display:flex;align-items:center;gap:.9rem;padding:1.5rem 0;border-top:1px solid var(--card-border);margin:2rem 0;flex-wrap:wrap}
+    .share-btn{padding:.48rem 1.1rem;border-radius:99px;border:1px solid var(--card-border);background:var(--card-bg);color:var(--text-secondary);font-size:.85rem;cursor:pointer;font-weight:500;text-decoration:none;transition:border-color .15s,color .15s}
+    .share-btn:hover{border-color:var(--accent);color:var(--accent)}
+    @media(max-width:600px){.method-cards{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<header class="nav-wrap"><nav class="nav container"><a href="/" class="logo"><img src="/logo.svg" alt="NoxFit" width="28" height="28" style="vertical-align:middle;margin-right:8px;" loading="eager">Nox<span>Fit</span></a><ul class="nav-links"><li><a href="/features/">Features</a></li><li><a href="/about/">About</a></li><li class="nav-item-drop"><a href="/blog/" class="active">Blog</a><div class="nav-drop-menu"><a class="nav-drop-item" href="/blog/?cat=fitness">💪 Fitness</a><a class="nav-drop-item" href="/blog/?cat=meal-planning">🥗 Meal Planning</a><a class="nav-drop-item" href="/blog/?cat=recipe">🍳 Recipe</a><a class="nav-drop-item" href="/blog/?cat=grocery">🛒 Grocery</a><div class="nav-drop-divider"></div><a class="nav-drop-item" href="/blog/">📚 All Posts</a></div></li></ul><div class="nav-right"><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button><a href="/#download" class="btn btn-primary">Download Free</a></div><button class="nav-toggle" aria-label="Toggle menu">&#9776;</button></nav></header>
+
+<main><div class="article-wrap">
+  <div class="article-header">
+    <a href="/blog/" class="back-link">← Back to Blog</a>
+    <div class="post-tag-pill">Fitness</div>
+    <h1>Intermittent Fasting for Beginners: 16:8, 5:2, and How to Start</h1>
+    <div class="article-meta">
+      <div class="meta-avatar">NF</div>
+      <div><strong style="color:var(--text-primary)">NoxFit Editorial Team</strong><br>June 16, 2026 · 14 min read · Reviewed by a Registered Dietitian</div>
+    </div>
+  </div>
+
+  <img class="hero-img" fetchpriority="high" src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=800&q=80" alt="Clock and food representing intermittent fasting eating window"/>
+
+  <div class="article-body">
+    <p><span class="kw">Intermittent fasting for beginners</span> can be confusing — there are at least five popular methods, dozens of conflicting claims online, and very few clear answers on where to actually start. This guide cuts through all of that.</p>
+    <p>Intermittent fasting (IF) is not a diet in the traditional sense — it is an eating pattern that cycles between periods of eating and fasting. It doesn't prescribe what you eat, only <em>when</em> you eat. The weight loss benefit comes primarily from the calorie reduction that naturally results from having fewer hours available to eat <a href="https://pubmed.ncbi.nlm.nih.gov/29094739/" target="_blank" rel="noopener" class="cite">[1]</a>.</p>
+
+    <div class="toc"><div class="toc-title">📋 Table of Contents</div><ol>
+      <li><a href="#what-is-if">What Is Intermittent Fasting?</a></li>
+      <li><a href="#methods">The 3 Main Methods Compared</a></li>
+      <li><a href="#science">What the Science Actually Says</a></li>
+      <li><a href="#results-chart">Results Chart: IF vs. Continuous Calorie Restriction</a></li>
+      <li><a href="#how-to-start">How to Start: A 4-Week Plan</a></li>
+      <li><a href="#eating-window">What to Eat During Your Eating Window</a></li>
+      <li><a href="#who-should-avoid">Who Should Avoid IF</a></li>
+      <li><a href="#faq">FAQs</a></li>
+    </ol></div>
+
+    <h2 id="what-is-if">What Is Intermittent Fasting?</h2>
+    <p>Intermittent fasting is an umbrella term for eating patterns that involve regular, structured fasting periods. During a fast, you consume only water, black coffee, or plain tea — no calories. During your eating window, you eat normally.</p>
+    <p>The physiological rationale: after 12–14 hours without food, glycogen stores are depleted and the body shifts toward fat oxidation for energy — a state sometimes called metabolic switching <a href="https://pubmed.ncbi.nlm.nih.gov/31881139/" target="_blank" rel="noopener" class="cite">[2]</a>. At the same time, insulin levels drop, making fat cells more accessible for energy.</p>
+
+    <div class="tip-box"><strong>💡 Key distinction:</strong> Intermittent fasting does not mean eating whatever you want during the eating window. Most IF studies that show weight loss results involve participants who also maintain a moderate calorie intake — roughly at or below their TDEE.</div>
+
+    <h2 id="methods">The 3 Main Methods Compared</h2>
+    <div class="method-cards">
+      <div class="method-card recommended">
+        <div class="method-name">16:8</div>
+        <div class="method-sub">Fast 16h · Eat 8h</div>
+        <div class="method-rating">⭐ Best for beginners</div>
+        <p style="font-size:.83rem;color:var(--text-muted);margin-top:.5rem;margin-bottom:0">Most studied method. Skip breakfast, eat noon–8pm. Easiest to maintain long-term.</p>
+      </div>
+      <div class="method-card">
+        <div class="method-name">5:2</div>
+        <div class="method-sub">Eat normally 5 days · 500 kcal on 2 days</div>
+        <div class="method-rating">Good for flexibility</div>
+        <p style="font-size:.83rem;color:var(--text-muted);margin-top:.5rem;margin-bottom:0">Choose any 2 non-consecutive fast days. Effective but the 500-kcal days require planning.</p>
+      </div>
+      <div class="method-card">
+        <div class="method-name">OMAD</div>
+        <div class="method-sub">One Meal a Day</div>
+        <div class="method-rating">Advanced only</div>
+        <p style="font-size:.83rem;color:var(--text-muted);margin-top:.5rem;margin-bottom:0">23-hour fast, 1-hour eating window. Difficult to hit protein targets. Not recommended for beginners.</p>
+      </div>
+    </div>
+
+    <div style="overflow-x:auto">
+    <table class="data-table">
+      <thead><tr><th>Method</th><th>Fast Duration</th><th>Avg. Weekly Deficit</th><th>Difficulty</th><th>Best For</th></tr></thead>
+      <tbody>
+        <tr><td><strong>16:8</strong></td><td>16 hours/day</td><td>~1,750 kcal</td><td><span class="badge badge-green">Easy</span></td><td>Beginners, daily routine</td></tr>
+        <tr><td><strong>14:10</strong></td><td>14 hours/day</td><td>~1,000 kcal</td><td><span class="badge badge-green">Very Easy</span></td><td>Complete beginners</td></tr>
+        <tr><td><strong>5:2</strong></td><td>2 days at 500 kcal</td><td>~3,000 kcal</td><td><span class="badge badge-blue">Moderate</span></td><td>Those who prefer flexible days</td></tr>
+        <tr><td><strong>Eat-Stop-Eat</strong></td><td>24h once/week</td><td>~1,500 kcal</td><td><span class="badge badge-orange">Hard</span></td><td>Experienced fasters</td></tr>
+        <tr><td><strong>OMAD</strong></td><td>23 hours/day</td><td>~3,500 kcal</td><td><span class="badge badge-red">Very Hard</span></td><td>Not recommended for beginners</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h2 id="science">What the Science Actually Says</h2>
+    <p>A 2020 review in <em>New England Journal of Medicine</em> by Longo &amp; Mattson found that intermittent fasting produces weight loss of 0.8–13% of body weight over 2–12 weeks, with improvements in insulin sensitivity, blood pressure, and inflammatory markers <a href="https://pubmed.ncbi.nlm.nih.gov/31881139/" target="_blank" rel="noopener" class="cite">[2]</a>.</p>
+    <p>However — and this is critical for beginners — a landmark 2022 randomised trial published in the <em>New England Journal of Medicine</em> compared time-restricted eating (16:8) to continuous calorie restriction over 12 months. Both groups lost a similar amount of weight, with no statistically significant difference between the two approaches <a href="https://pubmed.ncbi.nlm.nih.gov/35443107/" target="_blank" rel="noopener" class="cite">[3]</a>.</p>
+    <p>The takeaway: intermittent fasting works, but primarily because it reduces total calorie intake — not because of any metabolic "magic" that happens during the fast. The best eating pattern is the one you can maintain consistently.</p>
+
+    <div class="warn-box"><strong>⚠️ Important:</strong> Intermittent fasting is not appropriate for pregnant or breastfeeding women, people with a history of eating disorders, type 1 diabetics, or those on insulin or blood-glucose-lowering medication. Consult a doctor before starting <a href="https://pubmed.ncbi.nlm.nih.gov/29094739/" target="_blank" rel="noopener" class="cite">[1]</a>.</div>
+
+    <img class="inline-img" loading="lazy" src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=800&q=80" alt="Healthy meals during intermittent fasting eating window"/>
+
+    <h2 id="results-chart">Results Chart: IF vs. Continuous Calorie Restriction</h2>
+    <p>Data from a 2017 meta-analysis of 11 RCTs comparing intermittent fasting vs. continuous calorie restriction (CCR) over 8–24 weeks <a href="https://pubmed.ncbi.nlm.nih.gov/28459931/" target="_blank" rel="noopener" class="cite">[4]</a>:</p>
+
+    <div class="chart-wrap">
+      <div class="chart-title">📊 Average Weight Loss: Intermittent Fasting vs. Calorie Restriction (8–24 weeks)</div>
+      <svg viewBox="0 0 580 230" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto" aria-label="Grouped bar chart comparing weight loss between intermittent fasting and calorie restriction at 8, 16, and 24 weeks">
+        <line x1="60" y1="20" x2="60" y2="180" stroke="var(--card-border)" stroke-width="1"/>
+        <line x1="60" y1="180" x2="540" y2="180" stroke="var(--card-border)" stroke-width="1"/>
+        <line x1="60" y1="60" x2="540" y2="60" stroke="var(--card-border)" stroke-width="0.5" stroke-dasharray="4"/>
+        <line x1="60" y1="100" x2="540" y2="100" stroke="var(--card-border)" stroke-width="0.5" stroke-dasharray="4"/>
+        <line x1="60" y1="140" x2="540" y2="140" stroke="var(--card-border)" stroke-width="0.5" stroke-dasharray="4"/>
+        <text x="50" y="184" text-anchor="end" fill="var(--text-muted)" font-size="10">0kg</text>
+        <text x="50" y="144" text-anchor="end" fill="var(--text-muted)" font-size="10">2kg</text>
+        <text x="50" y="104" text-anchor="end" fill="var(--text-muted)" font-size="10">4kg</text>
+        <text x="50" y="64" text-anchor="end" fill="var(--text-muted)" font-size="10">6kg</text>
+        <text x="50" y="24" text-anchor="end" fill="var(--text-muted)" font-size="10">8kg</text>
+        <!-- Scale: 8kg = 160px. 1kg = 20px -->
+        <!-- 8 weeks: IF=2.5kg → 50px, CCR=2.4kg → 48px -->
+        <rect x="110" y="130" width="40" height="50" rx="5" fill="#22c55e" opacity="0.9"/>
+        <rect x="155" y="132" width="40" height="48" rx="5" fill="#3b82f6" opacity="0.8"/>
+        <text x="130" y="124" text-anchor="middle" fill="#22c55e" font-size="10" font-weight="700">2.5kg</text>
+        <text x="175" y="126" text-anchor="middle" fill="#3b82f6" font-size="10" font-weight="700">2.4kg</text>
+        <!-- 16 weeks: IF=4.5kg → 90px, CCR=4.3kg → 86px -->
+        <rect x="270" y="90" width="40" height="90" rx="5" fill="#22c55e" opacity="0.9"/>
+        <rect x="315" y="94" width="40" height="86" rx="5" fill="#3b82f6" opacity="0.8"/>
+        <text x="290" y="84" text-anchor="middle" fill="#22c55e" font-size="10" font-weight="700">4.5kg</text>
+        <text x="335" y="88" text-anchor="middle" fill="#3b82f6" font-size="10" font-weight="700">4.3kg</text>
+        <!-- 24 weeks: IF=7.1kg → 142px, CCR=7.0kg → 140px -->
+        <rect x="430" y="38" width="40" height="142" rx="5" fill="#22c55e" opacity="0.9"/>
+        <rect x="475" y="40" width="40" height="140" rx="5" fill="#3b82f6" opacity="0.8"/>
+        <text x="450" y="32" text-anchor="middle" fill="#22c55e" font-size="10" font-weight="700">7.1kg</text>
+        <text x="495" y="34" text-anchor="middle" fill="#3b82f6" font-size="10" font-weight="700">7.0kg</text>
+        <text x="155" y="200" text-anchor="middle" fill="var(--text-muted)" font-size="11">8 Weeks</text>
+        <text x="315" y="200" text-anchor="middle" fill="var(--text-muted)" font-size="11">16 Weeks</text>
+        <text x="475" y="200" text-anchor="middle" fill="var(--text-muted)" font-size="11">24 Weeks</text>
+        <!-- Legend -->
+        <rect x="100" y="215" width="12" height="10" rx="2" fill="#22c55e"/>
+        <text x="116" y="223" fill="var(--text-muted)" font-size="10">Intermittent Fasting</text>
+        <rect x="260" y="215" width="12" height="10" rx="2" fill="#3b82f6"/>
+        <text x="276" y="223" fill="var(--text-muted)" font-size="10">Continuous Calorie Restriction</text>
+      </svg>
+      <p class="chart-note">No statistically significant difference between methods <a href="https://pubmed.ncbi.nlm.nih.gov/28459931/" target="_blank" rel="noopener" style="color:var(--accent)">[4]</a>. Both produce comparable fat loss when calorie intake is matched.</p>
+    </div>
+
+    <h2 id="how-to-start">How to Start: A 4-Week Plan</h2>
+    <p>The biggest mistake beginners make is jumping straight into 16:8 from unrestricted eating. Instead, extend your fast gradually over 4 weeks:</p>
+
+    <div class="timeline-wrap">
+      <div class="timeline-row"><div class="timeline-time">Week 1</div><div class="timeline-content"><strong>12:12 (Fast 12 hours)</strong><p>Stop eating at 8pm, eat again at 8am. Most people already fast this long overnight — this just makes it intentional.</p></div></div>
+      <div class="timeline-row"><div class="timeline-time">Week 2</div><div class="timeline-content"><strong>14:10 (Fast 14 hours)</strong><p>Push breakfast to 10am, stop eating at 8pm. You may feel mild hunger in the morning — this is normal and fades within 7–10 days.</p></div></div>
+      <div class="timeline-row"><div class="timeline-time">Week 3</div><div class="timeline-content"><strong>15:9 (Fast 15 hours)</strong><p>Breakfast at 11am. At this point your appetite suppression in the morning should be noticeably easier to manage.</p></div></div>
+      <div class="timeline-row"><div class="timeline-time">Week 4</div><div class="timeline-content"><strong>16:8 (Full Protocol)</strong><p>First meal at noon, last meal at 8pm. This is your sustainable long-term protocol. Maintain for 8–12 weeks before assessing results.</p></div></div>
+    </div>
+
+    <h2 id="eating-window">What to Eat During Your Eating Window</h2>
+    <p>The eating window is not a free pass. To get results from IF, your eating window meals should still be roughly at or below your TDEE. Focus on high-protein, high-fibre foods that maximise satiety within your calorie budget <a href="https://pubmed.ncbi.nlm.nih.gov/7498104/" target="_blank" rel="noopener" class="cite">[5]</a>.</p>
+    <ul>
+      <li><strong>First meal (noon):</strong> High-protein — eggs, Greek yogurt, chicken, tuna</li>
+      <li><strong>Mid-afternoon (3–4pm):</strong> Fruit, nuts, or cottage cheese</li>
+      <li><strong>Last meal (7–8pm):</strong> Largest meal of the day — lean protein + vegetables + complex carb</li>
+    </ul>
+
+    <div class="internal-link-box"><div class="ilb-icon">🍽️</div><p>Get a free 7-day meal plan designed to fit inside a 16:8 window: <a href="/blog/free-meal-plan-for-weight-loss/">Free Meal Plan for Weight Loss — 1,500 Calories, High Protein</a></p></div>
+    <div class="internal-link-box"><div class="ilb-icon">🥗</div><p>Best foods to eat during your eating window: <a href="/blog/best-foods-for-weight-loss/">20 Best Foods for Weight Loss, Ranked by Science</a></p></div>
+    <div class="internal-link-box"><div class="ilb-icon">🔢</div><p>Calculate your calorie target for your eating window: <a href="/blog/how-many-calories-to-lose-weight/">How Many Calories to Lose Weight? (Free Calculator)</a></p></div>
+
+    <h2 id="who-should-avoid">Who Should Avoid Intermittent Fasting</h2>
+    <p>IF is not appropriate for everyone. According to current clinical guidance <a href="https://pubmed.ncbi.nlm.nih.gov/29094739/" target="_blank" rel="noopener" class="cite">[1]</a>, you should consult a doctor before starting IF if you:</p>
+    <ul>
+      <li>Are pregnant or breastfeeding</li>
+      <li>Have a history of an eating disorder</li>
+      <li>Are a type 1 diabetic or take insulin</li>
+      <li>Are on blood pressure medication (fasting can amplify its effects)</li>
+      <li>Are under 18 years old</li>
+      <li>Have a history of low blood sugar (hypoglycaemia)</li>
+    </ul>
+
+    <div class="article-cta">
+      <h3>Track Your Fasting Window with NoxFit — Free</h3>
+      <p>NoxFit includes a built-in fasting timer, eating window reminders, and personalised meal planning that fits your IF schedule.</p>
+      <a href="/#download" class="btn btn-primary btn-lg">Download NoxFit Free →</a>
+    </div>
+
+    <div class="references">
+      <h3>References</h3>
+      <ol>
+        <li>Patterson RE &amp; Sears DD. (2017). Metabolic effects of intermittent fasting. <em>Annual Review of Nutrition</em>, 37, 371–393. <a href="https://pubmed.ncbi.nlm.nih.gov/29094739/" target="_blank" rel="noopener">PubMed ↗</a></li>
+        <li>de Cabo R &amp; Mattson MP. (2019). Effects of intermittent fasting on health, aging, and disease. <em>New England Journal of Medicine</em>, 381(26), 2541–2551. <a href="https://pubmed.ncbi.nlm.nih.gov/31881139/" target="_blank" rel="noopener">PubMed ↗</a></li>
+        <li>Liu D, et al. (2022). Calorie restriction with or without time-restricted eating in weight loss. <em>New England Journal of Medicine</em>, 386(16), 1495–1504. <a href="https://pubmed.ncbi.nlm.nih.gov/35443107/" target="_blank" rel="noopener">PubMed ↗</a></li>
+        <li>Harris L, et al. (2018). Intermittent fasting interventions for treatment of overweight and obesity. <em>JBI Database of Systematic Reviews</em>, 16(2), 507–547. <a href="https://pubmed.ncbi.nlm.nih.gov/28459931/" target="_blank" rel="noopener">PubMed ↗</a></li>
+        <li>Holt SH, et al. (1995). A satiety index of common foods. <em>European Journal of Clinical Nutrition</em>, 49(9), 675–690. <a href="https://pubmed.ncbi.nlm.nih.gov/7498104/" target="_blank" rel="noopener">PubMed ↗</a></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item"><div class="faq-q">Will I lose muscle on intermittent fasting? <span class="faq-icon">+</span></div><div class="faq-a">Not if your protein intake is adequate. Studies comparing IF to continuous calorie restriction find no significant difference in lean mass loss when protein intake is matched at 1.6g/kg or higher. The risk of muscle loss increases if you fast for extended periods (24+ hours) repeatedly without adequate protein.</div></div>
+    <div class="faq-item"><div class="faq-q">Can I drink coffee during the fasting window? <span class="faq-icon">+</span></div><div class="faq-a">Yes — black coffee contains fewer than 5 calories and does not break a fast in any clinically meaningful way. It also suppresses appetite, making the fasting period easier to manage. Avoid coffee with milk, cream, or sugar, as these add calories and can stimulate an insulin response.</div></div>
+    <div class="faq-item"><div class="faq-q">How long does it take to see results from 16:8? <span class="faq-icon">+</span></div><div class="faq-a">Most beginners notice reduced hunger and better appetite control within 7–14 days. Scale changes typically begin in Week 2–3. Meaningful fat loss (1–2 kg) is usually visible within 4–6 weeks when combined with a moderate calorie deficit during the eating window.</div></div>
+    <div class="faq-item"><div class="faq-q">Is intermittent fasting safe long-term? <span class="faq-icon">+</span></div><div class="faq-a">Current evidence supports IF as safe for healthy adults over periods studied (up to 1 year in most trials). Long-term data beyond 2–3 years is limited. The biggest risk for most people is not physiological — it is developing an unhealthy relationship with food or restriction. If you notice obsessive thoughts around eating or avoidance of social eating situations, speak with a healthcare professional.</div></div>
+  </div>
+
+  <div class="share-bar"><span style="font-weight:600;font-size:.9rem;color:var(--text-primary)">Share:</span><button class="share-btn" onclick="navigator.clipboard.writeText(window.location.href)">📋 Copy Link</button><a class="share-btn" href="https://twitter.com/intent/tweet?text=Intermittent+Fasting+for+Beginners&url=https://noxfitapp.com/blog/intermittent-fasting-for-beginners/" target="_blank" rel="noopener">𝕏 Twitter</a><a class="share-btn" href="https://www.reddit.com/submit?url=https://noxfitapp.com/blog/intermittent-fasting-for-beginners/" target="_blank" rel="noopener">Reddit</a></div>
+</div></main>
+
+<footer class="footer"><div class="container footer-inner"><div class="footer-brand"><a href="/" class="logo"><img src="/logo.svg" alt="NoxFit" width="28" height="28" style="vertical-align:middle;margin-right:8px;">Nox<span>Fit</span></a><p>Your all-in-one fitness companion.</p></div><div class="footer-col"><strong>Features</strong><a href="/features/#workouts">Workouts</a><a href="/features/#meal-planning">Meal Planning</a><a href="/features/#grocery">Grocery Budgeting</a></div><div class="footer-col"><strong>Company</strong><a href="/about/">About Us</a><a href="/blog/">Blog</a></div><div class="footer-col"><strong>Legal</strong><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div></div><div class="footer-bottom container"><p>© 2026 NoxFit. All rights reserved.</p><div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Contact</a></div></div></footer>
+<script src="/theme.js" defer></script>
+<script>document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){var a=this.nextElementSibling;var icon=this.querySelector('.faq-icon');var open=a.style.display==='block';a.style.display=open?'none':'block';icon.style.transform=open?'rotate(0)':'rotate(45deg)';});});</script>
+<style>.nav-item-drop{position:relative}.nav-item-drop>a{display:flex;align-items:center;gap:.3rem}.nav-item-drop>a::after{content:'▾';font-size:.75rem;opacity:.6}.nav-drop-menu{visibility:hidden;opacity:0;pointer-events:none;position:absolute;top:calc(100% + 12px);right:0;background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;padding:.6rem;min-width:200px;z-index:9999;box-shadow:0 16px 48px rgba(0,0,0,.35);transition:opacity .18s ease,visibility .18s ease,transform .18s ease;transform:translateY(-6px)}.nav-item-drop:hover .nav-drop-menu{visibility:visible;opacity:1;pointer-events:auto;transform:translateY(0)}.nav-drop-item{display:flex;align-items:center;gap:.75rem;padding:.7rem 1rem;border-radius:10px;color:var(--text-secondary);font-size:.88rem;font-weight:600;text-decoration:none;transition:background .15s,color .15s;white-space:nowrap}.nav-drop-item:hover{background:var(--accent-alpha);color:var(--accent)}.nav-drop-divider{height:1px;background:var(--card-border);margin:.4rem .25rem}</style>
+</body></html>

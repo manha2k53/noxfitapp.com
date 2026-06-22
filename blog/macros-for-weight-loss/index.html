@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Macros for Weight Loss: How to Calculate & Hit Your Targets – NoxFit</title>
+  <meta name="description" content="Learn exactly what macros to eat for weight loss — the right protein, carb, and fat split, how to calculate your targets, and a free macro calculator."/>
+  <meta name="keywords" content="macros for weight loss, macronutrients for weight loss, macro calculator, how to count macros, protein carbs fat ratio weight loss"/>
+  <link rel="canonical" href="https://noxfitapp.com/blog/macros-for-weight-loss/"/>
+  <link rel="preload" href="/style.css" as="style"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="stylesheet" href="/style.css"/>
+  <style>
+    .article-wrap{max-width:820px;margin:0 auto;padding:0 1.5rem 4rem}
+    .article-header{padding:3rem 0 2rem}
+    .post-tag-pill{display:inline-block;background:var(--accent-alpha);color:var(--accent);font-size:.75rem;font-weight:600;padding:.3rem .9rem;border-radius:99px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:1rem}
+    .article-header h1{font-size:clamp(1.9rem,4.5vw,2.9rem);line-height:1.18;margin-bottom:1rem}
+    .article-meta{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;color:var(--text-muted);font-size:.88rem;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--card-border)}
+    .meta-avatar{width:38px;height:38px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;flex-shrink:0}
+    .hero-img{width:100%;height:400px;object-fit:cover;border-radius:18px;margin-bottom:2rem;display:block}
+    .toc{background:var(--card-bg);border:1px solid var(--card-border);border-radius:14px;padding:1.5rem 1.75rem;margin:2rem 0}
+    .toc-title{font-weight:700;font-size:1rem;color:var(--text-primary);margin-bottom:1rem}
+    .toc ol{padding-left:1.25rem;margin:0}.toc li{margin-bottom:.5rem}
+    .toc a{color:var(--accent);text-decoration:none;font-size:.92rem}.toc a:hover{text-decoration:underline}
+    .article-body{font-size:1.05rem;line-height:1.88;color:var(--text-secondary)}
+    .article-body h2{font-size:1.5rem;font-weight:700;color:var(--text-primary);margin:3rem 0 1rem;padding-top:1rem;border-top:1px solid var(--card-border)}
+    .article-body p{margin-bottom:1.3rem}
+    .article-body ul{padding-left:1.5rem;margin-bottom:1.3rem}
+    .article-body li{margin-bottom:.65rem}
+    .article-body strong{color:var(--text-primary)}
+    .kw{color:var(--accent);font-weight:600}
+    .cite{font-size:.78rem;color:var(--accent);font-weight:700;vertical-align:super;text-decoration:none}.cite:hover{text-decoration:underline}
+    .tip-box{background:var(--accent-alpha);border-left:4px solid var(--accent);border-radius:0 14px 14px 0;padding:1.1rem 1.4rem;margin:1.75rem 0}
+    .tip-box strong{color:var(--accent)}
+    .macro-visual{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin:1.75rem 0}
+    .macro-card{border-radius:14px;padding:1.4rem;text-align:center;border:1px solid var(--card-border)}
+    .macro-card.protein{background:rgba(34,197,94,.08);border-color:rgba(34,197,94,.3)}
+    .macro-card.carb{background:rgba(59,130,246,.08);border-color:rgba(59,130,246,.3)}
+    .macro-card.fat{background:rgba(249,115,22,.08);border-color:rgba(249,115,22,.3)}
+    .macro-pct{font-size:2rem;font-weight:800;margin-bottom:.25rem}
+    .macro-card.protein .macro-pct{color:#22c55e}
+    .macro-card.carb .macro-pct{color:#3b82f6}
+    .macro-card.fat .macro-pct{color:#f97316}
+    .macro-name{font-weight:700;color:var(--text-primary);margin-bottom:.4rem}
+    .macro-detail{font-size:.82rem;color:var(--text-muted)}
+    .calc-box{background:var(--card-bg);border:2px solid var(--accent);border-radius:18px;padding:2rem;margin:2rem 0}
+    .calc-title{font-weight:700;font-size:1.1rem;color:var(--text-primary);margin-bottom:1.25rem;text-align:center}
+    .calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+    .calc-field label{display:block;font-size:.83rem;font-weight:600;color:var(--text-muted);margin-bottom:.4rem}
+    .calc-field input,.calc-field select{width:100%;background:var(--card-border);border:1px solid var(--card-border);border-radius:8px;padding:.6rem .85rem;color:var(--text-primary);font-size:.92rem;box-sizing:border-box}
+    .calc-field input:focus,.calc-field select:focus{outline:2px solid var(--accent);border-color:var(--accent)}
+    .calc-btn{width:100%;background:var(--accent);color:#fff;border:none;border-radius:10px;padding:.85rem;font-weight:700;font-size:1rem;cursor:pointer;margin-top:.5rem}
+    .calc-result{display:none;margin-top:1.25rem}
+    .cr-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:.75rem;margin-bottom:.75rem}
+    .cr-item{text-align:center;background:var(--card-bg);border-radius:10px;padding:.85rem;border:1px solid var(--card-border)}
+    .cr-val{font-size:1.2rem;font-weight:700;color:var(--accent)}
+    .cr-lbl{font-size:.72rem;color:var(--text-muted);margin-top:.2rem}
+    .data-table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.92rem}
+    .data-table th{background:var(--accent);color:#fff;padding:.8rem 1rem;text-align:left;font-weight:600}
+    .data-table th:first-child{border-radius:8px 0 0 0}.data-table th:last-child{border-radius:0 8px 0 0}
+    .data-table td{padding:.72rem 1rem;border-bottom:1px solid var(--card-border);color:var(--text-secondary)}
+    .data-table tr:last-child td{border-bottom:none}
+    .data-table tr:hover td{background:var(--accent-alpha)}
+    .chart-wrap{background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;padding:1.75rem;margin:2.5rem 0}
+    .chart-title{font-weight:700;font-size:1rem;color:var(--text-primary);margin-bottom:1.5rem}
+    .chart-note{font-size:.8rem;color:var(--text-muted);margin-top:1rem;text-align:center;line-height:1.5}
+    .internal-link-box{background:var(--card-bg);border:1px solid var(--accent);border-radius:14px;padding:1.25rem 1.5rem;margin:2rem 0;display:flex;align-items:center;gap:1rem}
+    .ilb-icon{font-size:1.9rem;flex-shrink:0}
+    .internal-link-box p{margin:0;font-size:.93rem;color:var(--text-secondary)}
+    .internal-link-box a{color:var(--accent);font-weight:600;text-decoration:none}.internal-link-box a:hover{text-decoration:underline}
+    .references{background:var(--card-bg);border:1px solid var(--card-border);border-radius:14px;padding:1.5rem 1.75rem;margin:3rem 0}
+    .references h3{font-size:1rem;font-weight:700;margin-bottom:1rem;color:var(--text-primary)}
+    .references ol{padding-left:1.25rem;margin:0}
+    .references li{font-size:.83rem;color:var(--text-muted);margin-bottom:.6rem;line-height:1.65}
+    .references a{color:var(--accent);text-decoration:none}.references a:hover{text-decoration:underline}
+    .faq-section h2{font-size:1.5rem;font-weight:700;color:var(--text-primary);margin-bottom:1.5rem;padding-top:1rem;border-top:1px solid var(--card-border)}
+    .faq-item{border:1px solid var(--card-border);border-radius:12px;margin-bottom:.9rem;overflow:hidden}
+    .faq-q{font-weight:600;color:var(--text-primary);padding:1.1rem 1.25rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:var(--card-bg)}.faq-q:hover{background:var(--accent-alpha)}
+    .faq-icon{color:var(--accent);font-size:1.25rem;transition:transform .25s;flex-shrink:0;margin-left:.5rem}
+    .faq-a{padding:0 1.25rem 1.1rem;color:var(--text-secondary);line-height:1.78;font-size:.97rem;display:none}
+    .article-cta{background:linear-gradient(135deg,var(--card-bg) 0%,var(--accent-alpha) 100%);border:1px solid var(--accent);border-radius:18px;padding:2.75rem;text-align:center;margin:3rem 0}
+    .article-cta h3{font-size:1.45rem;margin-bottom:.65rem}
+    .article-cta p{color:var(--text-muted);margin-bottom:1.6rem;max-width:420px;margin-left:auto;margin-right:auto}
+    .back-link{display:inline-flex;align-items:center;gap:.4rem;color:var(--accent);font-size:.9rem;font-weight:600;text-decoration:none;margin-bottom:1.5rem}
+    .share-bar{display:flex;align-items:center;gap:.9rem;padding:1.5rem 0;border-top:1px solid var(--card-border);margin:2rem 0;flex-wrap:wrap}
+    .share-btn{padding:.48rem 1.1rem;border-radius:99px;border:1px solid var(--card-border);background:var(--card-bg);color:var(--text-secondary);font-size:.85rem;cursor:pointer;font-weight:500;text-decoration:none;transition:border-color .15s,color .15s}.share-btn:hover{border-color:var(--accent);color:var(--accent)}
+    @media(max-width:580px){.macro-visual{grid-template-columns:1fr}.calc-grid{grid-template-columns:1fr}.cr-grid{grid-template-columns:1fr 1fr}}
+  </style>
+</head>
+<body>
+<header class="nav-wrap"><nav class="nav container"><a href="/" class="logo"><img src="/logo.svg" alt="NoxFit" width="28" height="28" style="vertical-align:middle;margin-right:8px;" loading="eager">Nox<span>Fit</span></a><ul class="nav-links"><li><a href="/features/">Features</a></li><li><a href="/about/">About</a></li><li class="nav-item-drop"><a href="/blog/" class="active">Blog</a><div class="nav-drop-menu"><a class="nav-drop-item" href="/blog/?cat=fitness">💪 Fitness</a><a class="nav-drop-item" href="/blog/?cat=meal-planning">🥗 Meal Planning</a><a class="nav-drop-item" href="/blog/?cat=recipe">🍳 Recipe</a><a class="nav-drop-item" href="/blog/?cat=grocery">🛒 Grocery</a><div class="nav-drop-divider"></div><a class="nav-drop-item" href="/blog/">📚 All Posts</a></div></li></ul><div class="nav-right"><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button><a href="/#download" class="btn btn-primary">Download Free</a></div><button class="nav-toggle" aria-label="Toggle menu">&#9776;</button></nav></header>
+
+<main><div class="article-wrap">
+  <div class="article-header">
+    <a href="/blog/" class="back-link">← Back to Blog</a>
+    <div class="post-tag-pill">Fitness</div>
+    <h1>Macros for Weight Loss: How to Calculate &amp; Hit Your Targets</h1>
+    <div class="article-meta">
+      <div class="meta-avatar">NF</div>
+      <div><strong style="color:var(--text-primary)">NoxFit Editorial Team</strong><br>June 21, 2026 · 11 min read · Reviewed by a Registered Dietitian</div>
+    </div>
+  </div>
+  <img class="hero-img" fetchpriority="high" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80" alt="Healthy food showing macronutrients for weight loss — protein, carbs and fat"/>
+
+  <div class="article-body">
+    <p>Counting <span class="kw">macros for weight loss</span> — protein, carbohydrates, and fat — gives you more precise control over your diet than calorie counting alone. While a calorie deficit is the non-negotiable foundation of fat loss, the macro split determines how much of that weight comes from fat versus muscle, how hungry you feel, and how much energy you have. Get it right and weight loss feels manageable. Get it wrong and you lose muscle, feel exhausted, and give up.</p>
+
+    <div class="toc"><div class="toc-title">📋 Table of Contents</div><ol>
+      <li><a href="#what-are-macros">What Are Macros?</a></li>
+      <li><a href="#best-split">Best Macro Split for Weight Loss</a></li>
+      <li><a href="#calculator">Free Macro Calculator</a></li>
+      <li><a href="#each-macro">Deep Dive: Each Macro's Role</a></li>
+      <li><a href="#diet-comparison">Macro Splits by Diet Type</a></li>
+      <li><a href="#faq">FAQs</a></li>
+    </ol></div>
+
+    <h2 id="what-are-macros">What Are Macros?</h2>
+    <p>Macronutrients are the three main categories of food that provide energy. Every food you eat is a combination of these three, in different proportions:</p>
+    <ul>
+      <li><strong>Protein</strong> — 4 kcal/gram. Builds and repairs muscle, keeps you full, and has the highest thermic effect of food (20–30% of calories burned in digestion).</li>
+      <li><strong>Carbohydrates</strong> — 4 kcal/gram. Primary fuel for the brain and high-intensity exercise. Stored as glycogen in muscles and liver.</li>
+      <li><strong>Fat</strong> — 9 kcal/gram. Essential for hormones, fat-soluble vitamins (A/D/E/K), and brain function. The most calorie-dense macro.</li>
+    </ul>
+    <p>Alcohol is sometimes called a "4th macro" at 7 kcal/gram — but it has no nutritional value and is metabolised before fat, effectively halting fat burning while present in the system.</p>
+
+    <h2 id="best-split">Best Macro Split for Weight Loss</h2>
+    <p>Research consistently shows that <strong>high protein intake is the most important macro variable for weight loss</strong>. A high-protein diet preserves muscle during a deficit, reduces hunger by 25–30%, and increases metabolic rate through the thermic effect of food <a href="https://pubmed.ncbi.nlm.nih.gov/25926512/" target="_blank" rel="noopener" class="cite">[1]</a>. The carb/fat split matters less than the protein target.</p>
+
+    <div class="macro-visual">
+      <div class="macro-card protein"><div class="macro-pct">30–40%</div><div class="macro-name">Protein</div><div class="macro-detail">1.6–2.4g/kg/day<br>Priority #1</div></div>
+      <div class="macro-card carb"><div class="macro-pct">30–40%</div><div class="macro-name">Carbohydrates</div><div class="macro-detail">From whole grains, fruit, veg<br>Adjust to preference</div></div>
+      <div class="macro-card fat"><div class="macro-pct">20–35%</div><div class="macro-name">Fat</div><div class="macro-detail">≥0.5g/kg/day minimum<br>Essential for hormones</div></div>
+    </div>
+
+    <div class="tip-box"><strong>💡 The #1 rule:</strong> Set protein first (1.6–2.4g/kg bodyweight), then divide the remaining calories between carbs and fat based on your preference and diet style. Whether you prefer more carbs or more fat doesn't significantly affect fat loss outcomes — protein is the lever that matters most <a href="https://pubmed.ncbi.nlm.nih.gov/22215165/" target="_blank" rel="noopener" class="cite">[2]</a>.</div>
+
+    <h2 id="calculator">Free Macro Calculator</h2>
+    <div class="calc-box">
+      <div class="calc-title">🧮 Calculate Your Daily Macros</div>
+      <div class="calc-grid">
+        <div class="calc-field"><label>Sex</label><select id="mSex"><option value="male">Male</option><option value="female">Female</option></select></div>
+        <div class="calc-field"><label>Age</label><input type="number" id="mAge" placeholder="e.g. 28" min="15" max="80"/></div>
+        <div class="calc-field"><label>Weight (kg)</label><input type="number" id="mWeight" placeholder="e.g. 75"/></div>
+        <div class="calc-field"><label>Height (cm)</label><input type="number" id="mHeight" placeholder="e.g. 170"/></div>
+        <div class="calc-field"><label>Activity Level</label><select id="mActivity">
+          <option value="1.2">Sedentary (desk job, no exercise)</option>
+          <option value="1.375">Lightly active (1–3 days/week)</option>
+          <option value="1.55" selected>Moderately active (3–5 days/week)</option>
+          <option value="1.725">Very active (6–7 days/week)</option>
+        </select></div>
+        <div class="calc-field"><label>Goal</label><select id="mGoal">
+          <option value="500">Lose weight (500 kcal deficit)</option>
+          <option value="250">Slow cut (250 kcal deficit)</option>
+          <option value="0">Maintain weight</option>
+        </select></div>
+      </div>
+      <button class="calc-btn" onclick="runMacroCalc()">Calculate My Macros →</button>
+      <div class="calc-result" id="macroResult">
+        <div class="cr-grid">
+          <div class="cr-item"><div class="cr-val" id="rCals">—</div><div class="cr-lbl">Daily Calories</div></div>
+          <div class="cr-item"><div class="cr-val" id="rProt" style="color:#22c55e">—</div><div class="cr-lbl">Protein (g)</div></div>
+          <div class="cr-item"><div class="cr-val" id="rCarb" style="color:#3b82f6">—</div><div class="cr-lbl">Carbs (g)</div></div>
+          <div class="cr-item"><div class="cr-val" id="rFat" style="color:#f97316">—</div><div class="cr-lbl">Fat (g)</div></div>
+        </div>
+        <p id="mSummary" style="font-size:.85rem;color:var(--text-muted);margin:0;text-align:center"></p>
+      </div>
+    </div>
+
+    <h2 id="each-macro">Deep Dive: Each Macro's Role in Weight Loss</h2>
+    <p><strong>Protein (30–40% of calories):</strong> The most important macro for weight loss. High protein intake (1.6–2.4g/kg/day) during a calorie deficit preserves lean muscle mass — which keeps your metabolic rate up, ensures you're losing fat rather than muscle, and maintains strength. Protein also has the highest satiety per calorie, reducing hunger better than carbs or fat <a href="https://pubmed.ncbi.nlm.nih.gov/25926512/" target="_blank" rel="noopener" class="cite">[1]</a>. Best sources: chicken breast, Greek yogurt, eggs, cottage cheese, fish, tofu, legumes.</p>
+    <p><strong>Carbohydrates (30–40% of calories):</strong> Carbs are not the enemy — the type matters more than the amount. Refined carbs (white bread, sugar, juice) spike blood sugar and drive fat storage. Complex carbs (oats, sweet potato, brown rice, vegetables) digest slowly, provide sustained energy, and support gut health through fibre. Don't go below 100g/day without a specific reason — the brain requires ~130g glucose daily <a href="https://pubmed.ncbi.nlm.nih.gov/22900948/" target="_blank" rel="noopener" class="cite">[3]</a>.</p>
+    <p><strong>Fat (20–35% of calories):</strong> Don't go below 0.5g/kg/day — fat is essential for hormone production including testosterone and estrogen. Too little fat on a diet causes hormonal disruption, poor mood, and impaired absorption of vitamins A, D, E, and K. Prioritise unsaturated fats (olive oil, avocado, nuts, fish) over saturated fats from processed foods.</p>
+
+    <h2 id="diet-comparison">Macro Splits by Diet Type</h2>
+    <table class="data-table">
+      <thead><tr><th>Diet</th><th>Protein</th><th>Carbs</th><th>Fat</th><th>Best For</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Standard (recommended)</strong></td><td>30–35%</td><td>35–40%</td><td>25–30%</td><td>Most people — sustainable, flexible</td></tr>
+        <tr><td><strong>High Protein</strong></td><td>40%+</td><td>30%</td><td>25–30%</td><td>Athletes, muscle preservation</td></tr>
+        <tr><td><strong>Keto / Low-Carb</strong></td><td>25–35%</td><td>5–10%</td><td>60–70%</td><td>Carb-sensitive individuals, epilepsy</td></tr>
+        <tr><td><strong>Low Fat</strong></td><td>20–30%</td><td>50–60%</td><td>10–20%</td><td>Heart disease history, personal preference</td></tr>
+        <tr><td><strong>Mediterranean</strong></td><td>15–20%</td><td>45–55%</td><td>30–35%</td><td>Long-term health, older adults</td></tr>
+      </tbody>
+    </table>
+    <p>Research comparing different macro splits consistently finds that <strong>total calorie intake and protein content predict weight loss outcomes — not the carb/fat ratio</strong>. A meta-analysis of 48 studies found no significant difference in fat loss between low-fat and low-carb diets when protein and calories were matched <a href="https://pubmed.ncbi.nlm.nih.gov/22215165/" target="_blank" rel="noopener" class="cite">[2]</a>.</p>
+
+    <div class="internal-link-box"><div class="ilb-icon">🧮</div><p>Calculate your calorie deficit first: <a href="/blog/calorie-deficit-for-weight-loss/">Calorie Deficit for Weight Loss — How Big Should It Be?</a></p></div>
+    <div class="internal-link-box"><div class="ilb-icon">🥩</div><p>Hit your protein target with the right foods: <a href="/blog/high-protein-foods-list/">High Protein Foods List: 30 Best Sources Ranked</a></p></div>
+    <div class="internal-link-box"><div class="ilb-icon">📋</div><p>See macros in action across a full week: <a href="/blog/7-day-diet-plan-for-weight-loss/">Free 7-Day Diet Plan for Weight Loss</a></p></div>
+
+    <div class="article-cta">
+      <h3>Track Macros Automatically</h3>
+      <p>NoxFit tracks protein, carbs, and fat for every meal — scan a barcode or search 6 million foods. Free forever.</p>
+      <a href="/#download" class="btn btn-primary btn-lg">Download NoxFit Free →</a>
+    </div>
+
+    <div class="references">
+      <h3>References</h3>
+      <ol>
+        <li>Leidy HJ, et al. (2015). The role of protein in weight loss and maintenance. <em>American Journal of Clinical Nutrition</em>, 101(6). <a href="https://pubmed.ncbi.nlm.nih.gov/25926512/" target="_blank" rel="noopener">PubMed ↗</a></li>
+        <li>Hu T, et al. (2012). Effects of low-carbohydrate diets versus low-fat diets on metabolic risk factors. <em>American Journal of Epidemiology</em>. <a href="https://pubmed.ncbi.nlm.nih.gov/22215165/" target="_blank" rel="noopener">PubMed ↗</a></li>
+        <li>Institute of Medicine. (2002). Dietary reference intakes for energy, carbohydrate, fiber, fat, fatty acids, cholesterol, protein, and amino acids. <a href="https://pubmed.ncbi.nlm.nih.gov/22900948/" target="_blank" rel="noopener">PubMed ↗</a></li>
+        <li>Halton TL, Hu FB. (2004). The effects of high protein diets on thermogenesis, satiety and weight loss. <em>Journal of the American College of Nutrition</em>. <a href="https://pubmed.ncbi.nlm.nih.gov/15466943/" target="_blank" rel="noopener">PubMed ↗</a></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item"><div class="faq-q">What is the best macro ratio for weight loss? <span class="faq-icon">+</span></div><div class="faq-a">The most evidence-backed ratio is 30–35% protein, 35–40% carbs, 25–30% fat. However, the research shows that total calories and protein intake matter far more than the carb/fat ratio. If you hit your protein target (1.6–2.2g/kg) and maintain a calorie deficit, you can distribute the remaining calories between carbs and fat based on personal preference and still lose fat effectively.</div></div>
+    <div class="faq-item"><div class="faq-q">Should I count macros or just calories for weight loss? <span class="faq-icon">+</span></div><div class="faq-a">Counting macros is more effective than counting calories alone because it ensures you hit your protein target — which protects muscle mass and reduces hunger. However, if tracking macros feels overwhelming, starting with calories + a protein target (just two numbers) gives you most of the benefit with less complexity. You can add carb and fat tracking later.</div></div>
+    <div class="faq-item"><div class="faq-q">How many grams of protein should I eat per day to lose weight? <span class="faq-icon">+</span></div><div class="faq-a">1.6–2.4g per kg of bodyweight per day. For a 70 kg person, that's 112–168g of protein daily. Aim for the higher end (2.0–2.4g/kg) if you're training hard or have a larger calorie deficit, as more protein is needed to protect muscle when eating less. Spread it across 3–5 meals for best muscle protein synthesis.</div></div>
+    <div class="faq-item"><div class="faq-q">Is it bad to eat low fat while dieting? <span class="faq-icon">+</span></div><div class="faq-a">Going too low on fat (below 0.5g/kg/day) is harmful — it disrupts hormone production including testosterone and oestrogen, impairs absorption of vitamins A, D, E, and K, and can cause gallstone formation. Minimum fat intake during a deficit should be 40–50g/day for most people. Fat doesn't make you fat — excess calories do.</div></div>
+  </div>
+
+  <div class="share-bar"><span style="font-weight:600;font-size:.9rem;color:var(--text-primary)">Share:</span><button class="share-btn" onclick="navigator.clipboard.writeText(window.location.href)">📋 Copy Link</button><a class="share-btn" href="https://twitter.com/intent/tweet?text=Macros+for+Weight+Loss&url=https://noxfitapp.com/blog/macros-for-weight-loss/" target="_blank" rel="noopener">𝕏 Twitter</a><a class="share-btn" href="https://www.reddit.com/submit?url=https://noxfitapp.com/blog/macros-for-weight-loss/" target="_blank" rel="noopener">Reddit</a></div>
+</div></main>
+
+<footer class="footer"><div class="container footer-inner"><div class="footer-brand"><a href="/" class="logo"><img src="/logo.svg" alt="NoxFit" width="28" height="28" style="vertical-align:middle;margin-right:8px;">Nox<span>Fit</span></a><p>Your all-in-one fitness companion.</p></div><div class="footer-col"><strong>Features</strong><a href="/features/#workouts">Workouts</a><a href="/features/#meal-planning">Meal Planning</a><a href="/features/#grocery">Grocery Budgeting</a></div><div class="footer-col"><strong>Company</strong><a href="/about/">About Us</a><a href="/blog/">Blog</a></div><div class="footer-col"><strong>Legal</strong><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div></div><div class="footer-bottom container"><p>© 2026 NoxFit. All rights reserved.</p><div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Contact</a></div></div></footer>
+<script src="/theme.js" defer></script>
+<script>
+function runMacroCalc(){
+  var sex=document.getElementById('mSex').value;
+  var age=parseFloat(document.getElementById('mAge').value);
+  var wt=parseFloat(document.getElementById('mWeight').value);
+  var ht=parseFloat(document.getElementById('mHeight').value);
+  var act=parseFloat(document.getElementById('mActivity').value);
+  var deficit=parseFloat(document.getElementById('mGoal').value);
+  if(!age||!wt||!ht){alert('Please fill in all fields.');return;}
+  var bmr=sex==='male'?(10*wt)+(6.25*ht)-(5*age)+5:(10*wt)+(6.25*ht)-(5*age)-161;
+  var tdee=Math.round(bmr*act);
+  var cals=Math.round(tdee-deficit);
+  var prot=Math.round(wt*2.0);
+  var protCals=prot*4;
+  var remaining=cals-protCals;
+  var fatG=Math.round((remaining*0.3)/9);
+  var carbG=Math.round((remaining*0.7)/4);
+  document.getElementById('rCals').textContent=cals+' kcal';
+  document.getElementById('rProt').textContent=prot+'g';
+  document.getElementById('rCarb').textContent=carbG+'g';
+  document.getElementById('rFat').textContent=fatG+'g';
+  document.getElementById('mSummary').textContent='Protein: '+Math.round(prot*4)+' kcal | Carbs: '+Math.round(carbG*4)+' kcal | Fat: '+Math.round(fatG*9)+' kcal';
+  document.getElementById('macroResult').style.display='block';
+}
+document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){var a=this.nextElementSibling;var icon=this.querySelector('.faq-icon');var open=a.style.display==='block';a.style.display=open?'none':'block';icon.style.transform=open?'rotate(0)':'rotate(45deg)';});});
+</script>
+<style>.nav-item-drop{position:relative}.nav-item-drop>a{display:flex;align-items:center;gap:.3rem}.nav-item-drop>a::after{content:'▾';font-size:.75rem;opacity:.6}.nav-drop-menu{visibility:hidden;opacity:0;pointer-events:none;position:absolute;top:calc(100% + 12px);right:0;background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;padding:.6rem;min-width:200px;z-index:9999;box-shadow:0 16px 48px rgba(0,0,0,.35);transition:opacity .18s ease,visibility .18s ease,transform .18s ease;transform:translateY(-6px)}.nav-item-drop:hover .nav-drop-menu{visibility:visible;opacity:1;pointer-events:auto;transform:translateY(0)}.nav-drop-item{display:flex;align-items:center;gap:.75rem;padding:.7rem 1rem;border-radius:10px;color:var(--text-secondary);font-size:.88rem;font-weight:600;text-decoration:none;transition:background .15s,color .15s;white-space:nowrap}.nav-drop-item:hover{background:var(--accent-alpha);color:var(--accent)}.nav-drop-divider{height:1px;background:var(--card-border);margin:.4rem .25rem}</style>
+</body></html>

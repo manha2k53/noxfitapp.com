@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calorie Cycling: How to Eat More on Some Days and Still Lose Weight – NoxFit</title>
+  <meta name="description" content="Calorie cycling lets you eat more on training days and less on rest days — improving fat loss and making dieting more sustainable. Here's the exact method with a sample plan."/>
+  <meta name="keywords" content="calorie cycling, calorie cycling for weight loss, calorie cycling plan, high low calorie days, zigzag diet"/>
+  <link rel="canonical" href="https://noxfitapp.com/blog/calorie-cycling/"/>
+  <link rel="preload" href="/style.css" as="style"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="stylesheet" href="/style.css"/>
+  <style>
+    .article-wrap{max-width:820px;margin:0 auto;padding:0 1.5rem 4rem;}
+    .article-header{padding:3rem 0 2rem;}
+    .article-tag{display:inline-block;background:var(--accent);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .9rem;border-radius:99px;margin-bottom:1.2rem;}
+    .article-title{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;line-height:1.2;margin-bottom:1rem;}
+    .article-meta{color:var(--text-muted);font-size:.9rem;margin-bottom:2rem;}
+    .hero-img{width:100%;height:360px;object-fit:cover;border-radius:16px;margin-bottom:2.5rem;}
+    .toc{background:var(--card-bg);border:1px solid var(--card-border);border-radius:14px;padding:1.5rem 2rem;margin-bottom:2.5rem;}
+    .toc h2{font-size:1rem;font-weight:700;margin-bottom:.8rem;color:var(--text-secondary);}
+    .toc ol{margin:0;padding-left:1.4rem;}
+    .toc li{margin-bottom:.4rem;font-size:.95rem;}
+    .toc a{color:var(--accent);text-decoration:none;}
+    .article-body h2{font-size:1.55rem;font-weight:800;margin:2.5rem 0 1rem;}
+    .article-body p{line-height:1.8;color:var(--text-secondary);margin-bottom:1.1rem;}
+    .article-body ul{padding-left:1.5rem;color:var(--text-secondary);line-height:1.8;margin-bottom:1.1rem;}
+    .article-body li{margin-bottom:.4rem;}
+    .callout{background:var(--accent-alpha);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:1rem 1.4rem;margin:1.5rem 0;color:var(--text-secondary);}
+    .callout strong{color:var(--text-primary);}
+    table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.92rem;}
+    th{background:var(--accent);color:#fff;padding:.7rem 1rem;text-align:left;}
+    td{padding:.65rem 1rem;border-bottom:1px solid var(--card-border);color:var(--text-secondary);}
+    tr:nth-child(even) td{background:var(--card-bg);}
+    .week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:.5rem;margin:1.5rem 0;}
+    @media(max-width:600px){.week-grid{grid-template-columns:repeat(4,1fr);}}
+    .day-box{background:var(--card-bg);border:1px solid var(--card-border);border-radius:10px;padding:.8rem .5rem;text-align:center;}
+    .day-box .d-name{font-size:.75rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;margin-bottom:.3rem;}
+    .day-box .d-cal{font-size:1rem;font-weight:800;color:var(--accent);}
+    .day-box .d-type{font-size:.7rem;color:var(--text-muted);margin-top:.2rem;}
+    .day-box.high{border-color:var(--accent);}
+    .day-box.low{border-color:var(--card-border);opacity:.8;}
+    .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.5rem 0;}
+    .stat-box{background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:1.2rem;text-align:center;}
+    .stat-box .num{font-size:1.8rem;font-weight:800;color:var(--accent);}
+    .stat-box .lbl{font-size:.82rem;color:var(--text-muted);margin-top:.2rem;}
+    .faq-section{margin:2.5rem 0;}
+    .faq-item{border:1px solid var(--card-border);border-radius:12px;margin-bottom:.7rem;overflow:hidden;}
+    .faq-q{padding:1rem 1.2rem;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:var(--text-primary);}
+    .faq-q::after{content:'+';font-size:1.3rem;color:var(--accent);transition:transform .2s;}
+    .faq-item.open .faq-q::after{transform:rotate(45deg);}
+    .faq-a{display:none;padding:0 1.2rem 1rem;color:var(--text-secondary);line-height:1.7;}
+    .faq-item.open .faq-a{display:block;}
+    .share-bar{display:flex;align-items:center;gap:1rem;padding:1.5rem 0;border-top:1px solid var(--card-border);margin-top:2rem;flex-wrap:wrap;}
+    .share-bar span{font-weight:700;color:var(--text-secondary);}
+    .share-btn{padding:.5rem 1.1rem;border-radius:99px;border:1.5px solid var(--card-border);background:transparent;color:var(--text-secondary);font-size:.88rem;font-weight:600;cursor:pointer;text-decoration:none;transition:all .2s;}
+    .share-btn:hover{border-color:var(--accent);color:var(--accent);}
+    .nav-item-drop{position:relative;}.nav-item-drop>a{display:flex;align-items:center;gap:.3rem;}.nav-item-drop>a::after{content:'▾';font-size:.75rem;opacity:.6;transition:transform .2s;}.nav-item-drop:hover>a::after{transform:rotate(180deg);}.nav-drop-menu{display:none;position:absolute;top:calc(100% + .75rem);left:50%;transform:translateX(-50%);background:var(--card-bg);border:1px solid var(--card-border);border-radius:14px;padding:.5rem;min-width:210px;z-index:200;box-shadow:0 12px 40px rgba(0,0,0,.3);}.nav-item-drop:hover .nav-drop-menu{display:block;}.nav-drop-item{display:flex;align-items:center;gap:.7rem;padding:.65rem 1rem;border-radius:9px;color:var(--text-secondary);font-size:.9rem;font-weight:600;text-decoration:none;transition:background .15s,color .15s;white-space:nowrap;}.nav-drop-item:hover{background:var(--accent-alpha);color:var(--accent);}.nav-drop-divider{height:1px;background:var(--card-border);margin:.3rem .5rem;}
+  </style>
+</head>
+<body>
+<header class="nav-wrap">
+  <nav class="nav container">
+    <a href="/" class="logo"><img src="/logo.svg" alt="NoxFit icon" width="28" height="28" style="vertical-align:middle;margin-right:8px;" loading="eager">Nox<span>Fit</span></a>
+    <ul class="nav-links">
+      <li><a href="/features/">Features</a></li><li><a href="/about/">About</a></li>
+      <li class="nav-item-drop"><a href="/blog/" class="active">Blog</a>
+        <div class="nav-drop-menu">
+          <a class="nav-drop-item" href="/blog/?cat=fitness">💪 Fitness</a>
+          <a class="nav-drop-item" href="/blog/?cat=meal-planning">🥗 Meal Planning</a>
+          <a class="nav-drop-item" href="/blog/?cat=recipe">🍳 Recipe</a>
+          <a class="nav-drop-item" href="/blog/?cat=grocery">🛒 Grocery</a>
+          <div class="nav-drop-divider"></div>
+          <a class="nav-drop-item" href="/blog/">📚 All Posts</a>
+        </div>
+      </li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+      <a href="/#download" class="btn btn-primary">Download Free</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+  </nav>
+</header>
+<main>
+  <div class="article-wrap">
+    <div class="article-header">
+      <div class="article-tag">Meal Planning</div>
+      <h1 class="article-title">Calorie Cycling: How to Eat More on Some Days and Still Lose Weight</h1>
+      <div class="article-meta">By NoxFit Team &nbsp;·&nbsp; 11 min read &nbsp;·&nbsp; June 2026</div>
+    </div>
+    <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=1200&q=80" alt="Calorie cycling meal planning for weight loss" class="hero-img" loading="eager"/>
+    <div class="toc">
+      <h2>📋 Table of Contents</h2>
+      <ol>
+        <li><a href="#what">What Is Calorie Cycling?</a></li>
+        <li><a href="#science">The Science Behind It</a></li>
+        <li><a href="#how">How to Set Up Calorie Cycling</a></li>
+        <li><a href="#plan">Sample 7-Day Calorie Cycling Plan</a></li>
+        <li><a href="#who">Who Should (and Shouldn't) Try It</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </div>
+    <div class="article-body">
+
+      <div class="stat-row">
+        <div class="stat-box"><div class="num">Same</div><div class="lbl">Weekly calorie total as standard dieting</div></div>
+        <div class="stat-box"><div class="num">↑ T3</div><div class="lbl">Thyroid hormone maintained better vs continuous deficit</div></div>
+        <div class="stat-box"><div class="num">20%</div><div class="lbl">More diet adherence vs flat-calorie approaches (Davoodi 2014)</div></div>
+      </div>
+
+      <h2 id="what">What Is Calorie Cycling?</h2>
+      <p>Calorie cycling (also called the zigzag diet) means alternating between higher and lower calorie days throughout the week, while keeping your weekly total the same as a standard calorie deficit. Instead of eating 1,700 calories every single day, you might eat 2,100 on training days and 1,400 on rest days — averaging the same weekly total.</p>
+      <p>The key insight: your body doesn't care about daily calories — it cares about energy balance over time. What happens over a week (or several weeks) determines fat loss, not what you eat on any single Tuesday.</p>
+
+      <div class="callout"><strong>Bottom line up front:</strong> Calorie cycling doesn't produce more fat loss than flat-calorie dieting at the same weekly deficit. Its real advantage is psychological — making dieting more sustainable by giving you built-in higher-calorie days.</div>
+
+      <h2 id="science">The Science Behind Calorie Cycling</h2>
+      <p>The theoretical basis for calorie cycling goes beyond just adherence. Continuous severe calorie restriction causes several metabolic adaptations that slow fat loss:</p>
+      <ul>
+        <li><strong>Metabolic adaptation:</strong> Prolonged deficit reduces TDEE by 10–15% (your body burns less to compensate)</li>
+        <li><strong>Leptin decline:</strong> Leptin (fullness/metabolism hormone) drops significantly after 1–2 weeks of deficit</li>
+        <li><strong>T3 thyroid hormone:</strong> Falls with sustained restriction, further slowing metabolism</li>
+        <li><strong>Muscle catabolism risk:</strong> Increases with prolonged deep deficits</li>
+      </ul>
+      <p>Higher-calorie days ("refeeds") temporarily raise leptin, restore glycogen, and give the metabolism a signal that food isn't scarce. A 2014 study in the International Journal of Preventive Medicine found calorie cycling produced 20% better long-term adherence than fixed-calorie dieting — and adherence is what actually determines results.</p>
+
+      <!-- SVG: Calorie cycling vs flat deficit -->
+      <svg viewBox="0 0 580 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;border-radius:12px;background:var(--card-bg);padding:1rem;margin:1.5rem 0;">
+        <text x="290" y="22" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor">Calorie Cycling vs Flat Deficit — Same Weekly Total</text>
+        <line x1="50" y1="160" x2="550" y2="160" stroke="var(--card-border)" stroke-width="1.5"/>
+        <!-- Days -->
+        <text x="90" y="178" text-anchor="middle" font-size="10" fill="var(--text-muted)">Mon</text>
+        <text x="160" y="178" text-anchor="middle" font-size="10" fill="var(--text-muted)">Tue</text>
+        <text x="230" y="178" text-anchor="middle" font-size="10" fill="var(--text-muted)">Wed</text>
+        <text x="300" y="178" text-anchor="middle" font-size="10" fill="var(--text-muted)">Thu</text>
+        <text x="370" y="178" text-anchor="middle" font-size="10" fill="var(--text-muted)">Fri</text>
+        <text x="440" y="178" text-anchor="middle" font-size="10" fill="var(--text-muted)">Sat</text>
+        <text x="510" y="178" text-anchor="middle" font-size="10" fill="var(--text-muted)">Sun</text>
+        <!-- Flat deficit line -->
+        <line x1="60" y1="100" x2="540" y2="100" stroke="#64748b" stroke-width="2" stroke-dasharray="6,4"/>
+        <text x="56" y="104" text-anchor="end" font-size="9" fill="#64748b">1,700</text>
+        <!-- Calorie cycling bars -->
+        <rect x="68" y="65" width="44" height="95" rx="4" fill="var(--accent)" opacity="0.8"/>
+        <text x="90" y="60" text-anchor="middle" font-size="9" fill="var(--accent)" font-weight="700">2,100</text>
+        <rect x="138" y="115" width="44" height="45" rx="4" fill="var(--accent)" opacity="0.5"/>
+        <text x="160" y="110" text-anchor="middle" font-size="9" fill="var(--text-muted)">1,400</text>
+        <rect x="208" y="65" width="44" height="95" rx="4" fill="var(--accent)" opacity="0.8"/>
+        <text x="230" y="60" text-anchor="middle" font-size="9" fill="var(--accent)" font-weight="700">2,100</text>
+        <rect x="278" y="115" width="44" height="45" rx="4" fill="var(--accent)" opacity="0.5"/>
+        <text x="300" y="110" text-anchor="middle" font-size="9" fill="var(--text-muted)">1,400</text>
+        <rect x="348" y="65" width="44" height="95" rx="4" fill="var(--accent)" opacity="0.8"/>
+        <text x="370" y="60" text-anchor="middle" font-size="9" fill="var(--accent)" font-weight="700">2,100</text>
+        <rect x="418" y="115" width="44" height="45" rx="4" fill="var(--accent)" opacity="0.5"/>
+        <text x="440" y="110" text-anchor="middle" font-size="9" fill="var(--text-muted)">1,400</text>
+        <rect x="488" y="115" width="44" height="45" rx="4" fill="var(--accent)" opacity="0.5"/>
+        <text x="510" y="110" text-anchor="middle" font-size="9" fill="var(--text-muted)">1,400</text>
+        <!-- Legend -->
+        <rect x="60" y="192" width="12" height="8" rx="2" fill="var(--accent)" opacity="0.8"/>
+        <text x="76" y="200" font-size="10" fill="var(--text-muted)">High day (training)</text>
+        <rect x="220" y="192" width="12" height="8" rx="2" fill="var(--accent)" opacity="0.5"/>
+        <text x="236" y="200" font-size="10" fill="var(--text-muted)">Low day (rest)</text>
+        <line x1="380" y1="196" x2="406" y2="196" stroke="#64748b" stroke-width="2" stroke-dasharray="5,3"/>
+        <text x="410" y="200" font-size="10" fill="var(--text-muted)">Flat 1,700/day</text>
+      </svg>
+
+      <h2 id="how">How to Set Up Calorie Cycling</h2>
+      <p><strong>Step 1: Find your TDEE.</strong> Use an online calculator (or our <a href="/blog/how-many-calories-to-lose-weight/" style="color:var(--accent)">calorie calculator guide</a>). Example: TDEE = 2,200 kcal/day.</p>
+      <p><strong>Step 2: Set your weekly deficit.</strong> Aim for 3,500 kcal/week deficit (0.5kg fat loss/week). Weekly calorie budget = (2,200 × 7) − 3,500 = 11,900 kcal/week.</p>
+      <p><strong>Step 3: Split between high and low days.</strong> Classic 3-high / 4-low split:</p>
+      <ul>
+        <li><strong>High days (training days):</strong> TDEE − 100 kcal (eat close to maintenance — e.g. 2,100)</li>
+        <li><strong>Low days (rest days):</strong> Fill in remaining calories — e.g. (11,900 − 3×2,100) ÷ 4 = 1,400</li>
+      </ul>
+      <p><strong>Step 4: Match high days to workouts.</strong> Put your highest-calorie days on your hardest training days. Your body needs the fuel most then, and carbs consumed on training days are more likely to be used for muscle glycogen than stored as fat.</p>
+
+      <h2 id="plan">Sample 7-Day Calorie Cycling Plan</h2>
+      <p>Based on TDEE of 2,200, targeting 0.5kg/week fat loss (11,900 kcal/week total):</p>
+
+      <div class="week-grid">
+        <div class="day-box high"><div class="d-name">Mon</div><div class="d-cal">2,100</div><div class="d-type">🏋️ Training</div></div>
+        <div class="day-box low"><div class="d-name">Tue</div><div class="d-cal">1,400</div><div class="d-type">😴 Rest</div></div>
+        <div class="day-box high"><div class="d-name">Wed</div><div class="d-cal">2,100</div><div class="d-type">🏋️ Training</div></div>
+        <div class="day-box low"><div class="d-name">Thu</div><div class="d-cal">1,400</div><div class="d-type">😴 Rest</div></div>
+        <div class="day-box high"><div class="d-name">Fri</div><div class="d-cal">2,100</div><div class="d-type">🏋️ Training</div></div>
+        <div class="day-box low"><div class="d-name">Sat</div><div class="d-cal">1,400</div><div class="d-type">🚶 Walk</div></div>
+        <div class="day-box low"><div class="d-name">Sun</div><div class="d-cal">1,400</div><div class="d-type">😴 Rest</div></div>
+      </div>
+
+      <p><strong>Weekly total: 11,900 kcal</strong> (same as eating 1,700/day flat). Same deficit, more flexibility.</p>
+
+      <table>
+        <thead><tr><th>Day Type</th><th>Calories</th><th>Protein</th><th>Carbs</th><th>Fat</th></tr></thead>
+        <tbody>
+          <tr><td>High (training)</td><td>2,100</td><td>175g</td><td>220g</td><td>65g</td></tr>
+          <tr><td>Low (rest)</td><td>1,400</td><td>160g</td><td>90g</td><td>55g</td></tr>
+        </tbody>
+      </table>
+      <p>Note: protein stays high on both days. The main variable cycled is carbohydrates — higher on training days (muscle fuel), lower on rest days.</p>
+
+      <h2 id="who">Who Should (and Shouldn't) Try Calorie Cycling</h2>
+      <ul>
+        <li><strong>Good for:</strong> People who struggle with the monotony of eating the same calories every day · Active people with clear training vs rest day patterns · Anyone who wants to eat more on weekends socially</li>
+        <li><strong>Not ideal for:</strong> Complete beginners who find tracking complex · People with inconsistent schedules (no clear training vs rest days) · Anyone with a history of disordered eating (high/low cycles can trigger restriction mindset)</li>
+      </ul>
+
+      <div class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <div class="faq-q">Does calorie cycling produce faster weight loss than regular dieting?</div>
+          <div class="faq-a">At the same weekly calorie total, fat loss rate is essentially the same. The advantage is adherence — if calorie cycling makes you more likely to stick to your weekly target, you'll lose more fat over time. It's a psychological tool as much as a metabolic one.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How low should my low days go?</div>
+          <div class="faq-a">Don't go below 1,200 calories for women or 1,400 for men on low days. Extremely low days increase muscle catabolism risk and make the next day's training harder. A moderate low day (300–500 below your average daily target) is more effective than a severe one.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Should I change my macros on high vs low days?</div>
+          <div class="faq-a">Yes — the main macro to cycle is carbohydrates. On high days, increase carbs significantly (they fuel training and replenish glycogen). On low days, reduce carbs and keep protein and fat similar. Protein should stay high on both days (at least 1.6g/kg bodyweight).</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Can I do calorie cycling on an intermittent fasting schedule?</div>
+          <div class="faq-a">Yes — they're compatible. Many people combine 16:8 IF with calorie cycling: eating window stays consistent, but the amount consumed within that window varies by day. Just ensure your low-day calories still meet minimum nutritional needs within the eating window.</div>
+        </div>
+      </div>
+
+      <div class="share-bar">
+        <span>Share:</span>
+        <a href="https://twitter.com/intent/tweet?url=https://noxfitapp.com/blog/calorie-cycling/" target="_blank" rel="noopener" class="share-btn">Twitter</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://noxfitapp.com/blog/calorie-cycling/" target="_blank" rel="noopener" class="share-btn">Facebook</a>
+        <a href="https://www.reddit.com/submit?url=https://noxfitapp.com/blog/calorie-cycling/" target="_blank" rel="noopener" class="share-btn">Reddit</a>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand"><a href="/" class="logo"><img src="/logo.svg" alt="NoxFit icon" width="28" height="28" style="vertical-align:middle;margin-right:8px;" loading="eager">Nox<span>Fit</span></a><p>Your all-in-one fitness companion.</p></div>
+    <div class="footer-col"><strong>Product</strong><a href="/features/#workouts">Workouts</a><a href="/features/#meal-planning">Meal Planning</a><a href="/features/#grocery">Grocery Budgeting</a><a href="/features/">All Features</a></div>
+    <div class="footer-col"><strong>Company</strong><a href="/about/">About Us</a><a href="/blog/">Blog</a></div>
+    <div class="footer-col"><strong>Legal</strong><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+  </div>
+  <div class="footer-bottom container"><p>© 2026 NoxFit. All rights reserved.</p><div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Contact</a></div></div>
+</footer>
+<script src="/theme.js" defer></script>
+<script>document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){q.parentElement.classList.toggle('open');});});</script>
+</body>
+</html>

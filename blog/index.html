@@ -9,52 +9,26 @@
   <link rel="canonical" href="https://noxfitapp.com/blog/" />
   <meta property="og:title" content="NoxFit Blog – Fitness, Meal Planning & Saving Tips" />
   <meta property="og:url" content="https://noxfitapp.com/blog/" />
-  <link rel="preload" href="/style.css" as="style"/>
-  <link rel="preconnect" href="https://images.unsplash.com"/>
-  <link rel="dns-prefetch" href="https://images.unsplash.com"/>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="stylesheet" href="/style.css" />
   <style>
-    .category-bar { display:flex; align-items:center; gap:.75rem; flex-wrap:wrap; margin-bottom:2.5rem; }
+    .category-bar { display:flex; gap:.75rem; flex-wrap:wrap; margin-bottom:2.5rem; }
     .cat-btn { padding:.55rem 1.25rem; border-radius:99px; border:1.5px solid var(--card-border); background:transparent; color:var(--text-secondary); font-size:.9rem; font-weight:600; cursor:pointer; transition:all .2s; }
     .cat-btn:hover { border-color:var(--accent); color:var(--accent); }
     .cat-btn.active { background:var(--accent); border-color:var(--accent); color:#fff; }
     .blog-card { transition: opacity .2s, transform .2s; }
     .blog-card.hidden { display:none; }
-    .filter-label { font-size:.88rem; font-weight:600; color:var(--text-muted); white-space:nowrap; }
-    .cat-select { padding:.52rem 1.1rem; border-radius:99px; border:1.5px solid var(--card-border); background:var(--card-bg); color:var(--text-secondary); font-size:.9rem; font-weight:600; cursor:pointer; outline:none; transition:border-color .2s, color .2s; appearance:none; -webkit-appearance:none; padding-right:2rem; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2394a3b8' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right .75rem center; }
-    .cat-select:hover, .cat-select:focus { border-color:var(--accent); color:var(--accent); }
-    .nav-item-drop { position:relative; }
-    .nav-item-drop > a { display:flex; align-items:center; gap:.3rem; }
-    .nav-item-drop > a::after { content:'▾'; font-size:.75rem; opacity:.6; transition:transform .2s; }
-    .nav-item-drop:hover > a::after { transform:rotate(180deg); }
-    .nav-drop-menu { display:none; position:absolute; top:calc(100% + .75rem); left:50%; transform:translateX(-50%); background:var(--card-bg); border:1px solid var(--card-border); border-radius:14px; padding:.5rem; min-width:210px; z-index:200; box-shadow:0 12px 40px rgba(0,0,0,.3); }
-    .nav-item-drop:hover .nav-drop-menu { display:block; }
-    .nav-drop-menu::before { content:''; position:absolute; top:-6px; left:50%; transform:translateX(-50%); border:6px solid transparent; border-bottom-color:var(--card-border); border-top:none; }
-    .nav-drop-item { display:flex; align-items:center; gap:.7rem; padding:.65rem 1rem; border-radius:9px; color:var(--text-secondary); font-size:.9rem; font-weight:600; text-decoration:none; transition:background .15s, color .15s; white-space:nowrap; }
-    .nav-drop-item:hover { background:var(--accent-alpha); color:var(--accent); }
-    .nav-drop-divider { height:1px; background:var(--card-border); margin:.3rem .5rem; }
   </style>
 </head>
 <body>
 
   <header class="nav-wrap">
     <nav class="nav container">
-      <a href="/" class="logo"><img src="/logo.svg" alt="NoxFit icon" width="28" height="28" style="vertical-align:middle;margin-right:8px;" loading="eager">Nox<span>Fit</span></a>
+      <a href="/" class="logo"><img src="/logo.svg" alt="NoxFit icon" width="28" height="28" style="vertical-align:middle;margin-right:8px;">Nox<span>Fit</span></a>
       <ul class="nav-links">
         <li><a href="/features/">Features</a></li>
         <li><a href="/about/">About</a></li>
-        <li class="nav-item-drop">
-          <a href="/blog/" class="active">Blog</a>
-          <div class="nav-drop-menu">
-            <a class="nav-drop-item" href="/blog/?cat=fitness">💪 Fitness</a>
-            <a class="nav-drop-item" href="/blog/?cat=meal-planning">🥗 Meal Planning</a>
-            <a class="nav-drop-item" href="/blog/?cat=recipe">🍳 Recipe</a>
-            <a class="nav-drop-item" href="/blog/?cat=grocery">🛒 Grocery</a>
-            <div class="nav-drop-divider"></div>
-            <a class="nav-drop-item" href="/blog/">📚 All Posts</a>
-          </div>
-        </li>
+        <li><a href="/blog/" class="active">Blog</a></li>
       </ul>
       <div class="nav-right">
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
@@ -95,452 +69,495 @@
         <h2>Browse by<br><span class="gradient-text">Category</span></h2>
       </div>
 
-      <!-- Category filter -->
+      <!-- Category filter buttons -->
       <div class="category-bar">
-        <span class="filter-label">Filter:</span>
         <button class="cat-btn active" data-cat="all">All</button>
-        <button class="cat-btn" data-cat="new">🆕 New</button>
-        <select class="cat-select" id="catSelect" aria-label="Filter by category">
-          <option value="all">📂 All Categories</option>
-          <option value="fitness">💪 Fitness</option>
-          <option value="meal-planning">🥗 Meal Planning</option>
-          <option value="recipe">🍳 Recipe</option>
-          <option value="grocery">🛒 Grocery</option>
-        </select>
+        <button class="cat-btn" data-cat="fitness">💪 Fitness</button>
+        <button class="cat-btn" data-cat="meal-planning">🥗 Meal Planning</button>
+        <button class="cat-btn" data-cat="grocery">🛒 Grocery</button>
       </div>
 
       <div class="blog-grid" id="blogGrid">
 
-        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);">
-          <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-          <h3><a href="/blog/how-to-start-your-fitness-journey/">How to Start Your Fitness Journey (Complete Beginner Guide)</a></h3>
-          <p>Never worked out before? Step-by-step guide covering your first workout, what to eat, and how to stay consistent — no gym needed.</p>
-          <div class="blog-meta"><span>NoxFit Team · 10 min read · Jun 2026</span></div>
-        </article>
-
-        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);">
-          <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-          <h3><a href="/blog/meal-planning-on-a-budget/">Meal Planning on a Budget: Eat Healthy for Less</a></h3>
-          <p>How to meal plan on a budget — includes a full 7-day meal plan under $60, cheapest healthy foods list, and grocery saving tips.</p>
-          <div class="blog-meta"><span>NoxFit Team · 12 min read · Jun 2026</span></div>
-        </article>
-
-        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);">
-          <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-          <h3><a href="/blog/meal-planning-app-on-a-budget/">Best Meal Planning App on a Budget (Save $150/Month)</a></h3>
-          <p>How NoxFit helps you plan healthy meals without breaking the bank — includes app comparison table and real cost-saving tips.</p>
-          <div class="blog-meta"><span>NoxFit Team · 8 min read · Jun 2026</span></div>
-        </article>
-
-        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);">
-          <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-          <h3><a href="/blog/home-workout-app-for-beginners/">Best Home Workout App for Beginners (No Gym Needed)</a></h3>
-          <p>Start your fitness journey from home with zero equipment. Includes a sample beginner workout plan and what to look for in a home workout app.</p>
-          <div class="blog-meta"><span>NoxFit Team · 7 min read · Jun 2026</span></div>
-        </article>
-
-        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);">
-          <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-          <h3><a href="/blog/healthy-eating-on-a-budget-app/">Best App for Healthy Eating on a Budget (2026)</a></h3>
-          <p>Healthy eating doesn't have to be expensive. See how NoxFit helps you eat nutritious meals for under $5 per serving.</p>
-          <div class="blog-meta"><span>NoxFit Team · 7 min read · Jun 2026</span></div>
-        </article>
-
-        <article class="blog-card" data-cat="grocery" data-new="true" style="border:1px solid var(--accent);">
-          <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-          <h3><a href="/blog/grocery-budgeting-app/">Best Grocery Budgeting App — Track Spending, Cut Waste, Save More</a></h3>
-          <p>The only grocery app that connects your budget to your meal plan. Save $100–$280/month with smarter shopping habits.</p>
-          <div class="blog-meta"><span>NoxFit Team · 8 min read · Jun 2026</span></div>
-        </article>
-
-        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);">
-          <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-          <h3><a href="/blog/fitness-app-for-beginners-free/">Best Free Fitness App for Beginners — Everything You Need</a></h3>
-          <p>NoxFit is 100% free — workouts, meal planning, grocery budgeting, and progress tracking. No paywalls, no hidden fees.</p>
-          <div class="blog-meta"><span>NoxFit Team · 9 min read · Jun 2026</span></div>
-        </article>
-
-        <article class="blog-card" data-cat="recipe" data-new="true" style="border:1px solid var(--accent);">
-          <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-          <h3><a href="/blog/high-protein-meal-prep-recipes/">5 High-Protein Meal Prep Recipes Under $5 Per Serving</a></h3>
-          <p>Cook once, eat all week. Five quick recipes with full macros — perfect for hitting your protein goals on a budget.</p>
-          <div class="blog-meta"><span>NoxFit Team · 9 min read · Jun 2026</span></div>
-        </article>
-
-        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);">
-          <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-          <h3><a href="/blog/7-day-meal-plan-for-weight-loss/">7-Day Meal Plan for Weight Loss — Simple, Budget-Friendly & Effective</a></h3>
-          <p>A complete week of meals averaging 1,450 calories and 120g protein. Grocery list and meal prep tips included.</p>
-          <div class="blog-meta"><span>NoxFit Team · 10 min read · Jun 2026</span></div>
-        </article>
-
-        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);">
-          <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-          <h3><a href="/blog/how-to-build-a-home-gym-on-a-budget/">How to Build a Home Gym on a Budget (Under $200)</a></h3>
-          <p>Skip the expensive gym membership. This guide shows exactly what to buy, what to skip, and how to train effectively at home.</p>
-          <div class="blog-meta"><span>NoxFit Team · 8 min read · Jun 2026</span></div>
-        </article>
-
-        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);">
-          <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-          <h3><a href="/blog/7-day-diet-plan-for-weight-loss/">7-Day Diet Plan for Weight Loss — Science-Backed & Free</a></h3>
-          <p>A structured 7-day diet plan with daily meals, calorie targets, grocery list, and a progress chart. High protein, whole foods only.</p>
-          <div class="blog-meta"><span>NoxFit Team · 11 min read · Jun 2026</span></div>
-        </article>
-
-        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);">
-          <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-          <h3><a href="/blog/free-meal-plan-for-weight-loss/">Free Meal Plan for Weight Loss — 1,500 Calories, High Protein</a></h3>
-          <p>A complete free meal plan for weight loss — 7 days of 1,500-calorie meals with a full grocery breakdown. No sign-up required.</p>
-          <div class="blog-meta"><span>NoxFit Team · 10 min read · Jun 2026</span></div>
-        </article>
-
-        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);">
-          <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-          <h3><a href="/blog/how-many-calories-to-lose-weight/">How Many Calories to Lose Weight? (Calculator + Chart)</a></h3>
-          <p>Find your exact daily calorie target using BMR and TDEE. Includes a working calculator, deficit chart, and real-world examples.</p>
-          <div class="blog-meta"><span>NoxFit Team · 12 min read · Jun 2026</span></div>
-        </article>
-
-        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);">
-          <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-          <h3><a href="/blog/best-foods-for-weight-loss/">20 Best Foods for Weight Loss, Ranked by Science</a></h3>
-          <p>Every food ranked by satiety index, protein density, and calorie density. Includes a full comparison table and satiety chart backed by PubMed research.</p>
-          <div class="blog-meta"><span>NoxFit Team · 13 min read · Jun 2026</span></div>
-        </article>
-
-        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);">
-          <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-          <h3><a href="/blog/intermittent-fasting-for-beginners/">Intermittent Fasting for Beginners: 16:8, 5:2 &amp; How to Start</a></h3>
-          <p>The complete beginner's guide to IF — 16:8, 5:2, and OMAD compared. Includes a results chart, 4-week start plan, and what the latest RCTs actually say.</p>
-          <div class="blog-meta"><span>NoxFit Team · 14 min read · Jun 2026</span></div>
-        </article>
-
-        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);">
-          <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-          <h3><a href="/blog/high-protein-foods-list/">High Protein Foods List: 30 Best Sources Ranked by Protein Content</a></h3>
-          <p>Complete ranked list of 30 high-protein foods with grams per 100g and per serving. Includes animal, plant, and dairy sources with a bar chart. Backed by USDA data.</p>
-          <div class="blog-meta"><span>NoxFit Team · 12 min read · Jun 2026</span></div>
-        </article>
-
         <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/how-to-lose-weight-fast/" style="display:block"><img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80" alt="How to lose weight fast" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <a href="/blog/weight-loss-tips/" style="display:block"><img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80" alt="25 Weight Loss Tips That Are Actually Backed by Science" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
           <div style="padding:20px 24px 24px">
             <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-            <h3><a href="/blog/how-to-lose-weight-fast/">How to Lose Weight Fast: 6 Evidence-Based Strategies</a></h3>
-            <p>The fastest safe ways to lose weight — 12-week results chart, speed comparison table, and PubMed-backed strategies.</p>
-            <div class="blog-meta"><span>NoxFit Team · 11 min read · Jun 2026</span></div>
+            <h3><a href="/blog/weight-loss-tips/">25 Weight Loss Tips That Are Actually Backed by Science</a></h3>
+            <p>25 science-backed weight loss tips that actually work — covering diet, exercise, sleep, stress, and mindset. No fads, just evidence.</p>
+            <div class="blog-meta"><span>NoxFit Team · 10 min · Jul 2026</span></div>
           </div>
         </article>
-
         <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/meal-prep-for-beginners/" style="display:block"><img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=80" alt="Meal prep for beginners" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <a href="/blog/pre-workout-meal/" style="display:block"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80" alt="Pre-Workout Meal: What to Eat Before Exercise for Max Results" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
           <div style="padding:20px 24px 24px">
             <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-            <h3><a href="/blog/meal-prep-for-beginners/">Meal Prep for Beginners: Complete Guide to Saving Time &amp; Eating Healthy</a></h3>
-            <p>The 2-hour Sunday system that saves $37/week — equipment, what to cook, storage guide, and 5 beginner mistakes.</p>
-            <div class="blog-meta"><span>NoxFit Team · 12 min read · Jun 2026</span></div>
+            <h3><a href="/blog/pre-workout-meal/">Pre-Workout Meal: What to Eat Before Exercise for Max Results</a></h3>
+            <p>Eat these foods 1–3 hours before your workout for more energy, better performance, and faster recovery. Includes timing guide and meal ideas.</p>
+            <div class="blog-meta"><span>NoxFit Team · 7 min · Jul 2026</span></div>
           </div>
         </article>
-
-        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/best-workout-for-weight-loss/" style="display:block"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="Best workout for weight loss" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
-          <div style="padding:20px 24px 24px">
-            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-            <h3><a href="/blog/best-workout-for-weight-loss/">Best Workout for Weight Loss: What the Science Says (2026)</a></h3>
-            <p>HIIT vs strength vs cardio vs walking — ranked by calorie burn and afterburn effect. Includes a free 4-week beginner plan.</p>
-            <div class="blog-meta"><span>NoxFit Team · 13 min read · Jun 2026</span></div>
-          </div>
-        </article>
-
-        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/how-to-build-muscle-for-beginners/" style="display:block"><img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=600&q=80" alt="How to build muscle for beginners" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
-          <div style="padding:20px 24px 24px">
-            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-            <h3><a href="/blog/how-to-build-muscle-for-beginners/">How to Build Muscle for Beginners: Complete Science-Backed Guide</a></h3>
-            <p>The 4 core principles, a full 3-day program, strength progression chart, and nutrition targets — everything you need for your first year of training.</p>
-            <div class="blog-meta"><span>NoxFit Team · 14 min read · Jun 2026</span></div>
-          </div>
-        </article>
-
         <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/keto-diet-for-beginners/" style="display:block"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80" alt="Keto diet for beginners" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <a href="/blog/omega-3-and-weight-loss/" style="display:block"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80" alt="Omega-3 and Weight Loss: What the Research Actually Shows" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
           <div style="padding:20px 24px 24px">
             <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-            <h3><a href="/blog/keto-diet-for-beginners/">Keto Diet for Beginners: Complete Guide + Free 7-Day Meal Plan</a></h3>
-            <p>What to eat, what to avoid, how to survive the keto flu, and a full 7-day meal plan. Includes a macro split visual and weight loss timeline chart.</p>
-            <div class="blog-meta"><span>NoxFit Team · 13 min read · Jun 2026</span></div>
+            <h3><a href="/blog/omega-3-and-weight-loss/">Omega-3 and Weight Loss: What the Research Actually Shows</a></h3>
+            <p>Can omega-3 fatty acids help you lose weight? We break down 6 key studies and explain the best food sources vs. supplements.</p>
+            <div class="blog-meta"><span>NoxFit Team · 8 min · Jul 2026</span></div>
           </div>
         </article>
-
+        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/best-protein-foods/" style="display:block"><img src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=600&q=80" alt="30 Best High-Protein Foods: Complete List with Macros" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/best-protein-foods/">30 Best High-Protein Foods: Complete List with Macros</a></h3>
+            <p>Complete ranked list of the highest-protein foods — animal and plant-based — with exact grams per serving and the cheapest options.</p>
+            <div class="blog-meta"><span>NoxFit Team · 8 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/sugar-and-weight-gain/" style="display:block"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Sugar and Weight Gain: How Much Is Too Much and Where It Hides" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/sugar-and-weight-gain/">Sugar and Weight Gain: How Much Is Too Much and Where It Hides</a></h3>
+            <p>Sugar drives weight gain in ways most people don't realize. Learn the daily limit, hidden sources, and practical strategies to cut back.</p>
+            <div class="blog-meta"><span>NoxFit Team · 9 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/metabolism-boosting-foods/" style="display:block"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80" alt="Metabolism Boosting Foods: What Science Actually Says" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/metabolism-boosting-foods/">Metabolism Boosting Foods: What Science Actually Says</a></h3>
+            <p>Do metabolism-boosting foods actually work? The honest science behind protein, chili, caffeine, and other claimed metabolism boosters.</p>
+            <div class="blog-meta"><span>NoxFit Team · 8 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/healthy-snacks-for-weight-loss/" style="display:block"><img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=80" alt="20 Healthy Snacks for Weight Loss (High Protein, Low Calorie)" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/healthy-snacks-for-weight-loss/">20 Healthy Snacks for Weight Loss (High Protein, Low Calorie)</a></h3>
+            <p>20 smart snacks that keep you full and on track — all high in protein or fiber, low in empty calories, with simple prep ideas.</p>
+            <div class="blog-meta"><span>NoxFit Team · 7 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/fiber-and-weight-loss/" style="display:block"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80" alt="Fiber and Weight Loss: How Much You Need and the Best Sources" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/fiber-and-weight-loss/">Fiber and Weight Loss: How Much You Need and the Best Sources</a></h3>
+            <p>Dietary fiber is one of the most underrated weight loss tools. Here's how much you need, why it works, and the best high-fiber foods to eat.</p>
+            <div class="blog-meta"><span>NoxFit Team · 9 min · Jul 2026</span></div>
+          </div>
+        </article>
         <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/best-protein-powder-for-weight-loss/" style="display:block"><img src="https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=600&q=80" alt="Best protein powder for weight loss" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <a href="/blog/how-to-start-your-fitness-journey/" style="display:block"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80" alt="How to Start Your Fitness Journey (Complete Beginner Guide)" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
           <div style="padding:20px 24px 24px">
             <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-            <h3><a href="/blog/best-protein-powder-for-weight-loss/">Best Protein Powder for Weight Loss (2026): Ranked &amp; Reviewed</a></h3>
-            <p>Whey isolate vs casein vs pea protein — ranked by protein per calorie. Includes a full comparison table and how to use powder to actually lose fat.</p>
-            <div class="blog-meta"><span>NoxFit Team · 11 min read · Jun 2026</span></div>
+            <h3><a href="/blog/how-to-start-your-fitness-journey/">How to Start Your Fitness Journey (Complete Beginner Guide)</a></h3>
+            <p>Never worked out before? This step-by-step guide covers your first workout, what to eat, and how to stay consistent — no gym needed.</p>
+            <div class="blog-meta"><span>NoxFit Team · 10 min · Jul 2026</span></div>
           </div>
         </article>
-
+        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/meal-planning-on-a-budget/" style="display:block"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600&q=80" alt="Meal Planning on a Budget: Eat Healthy for Less" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/meal-planning-on-a-budget/">Meal Planning on a Budget: Eat Healthy for Less</a></h3>
+            <p>How to meal plan on a budget — includes a full 7-day plan under $60, cheapest healthy foods list, and grocery saving tips.</p>
+            <div class="blog-meta"><span>NoxFit Team · 12 min · Jul 2026</span></div>
+          </div>
+        </article>
         <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/how-to-lose-belly-fat/" style="display:block"><img src="https://images.unsplash.com/photo-1483721310020-03333e577078?w=600&q=80" alt="How to lose belly fat" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
-          <div style="padding:20px 24px 24px">
-            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-            <h3><a href="/blog/how-to-lose-belly-fat/">How to Lose Belly Fat: 7 Science-Backed Methods</a></h3>
-            <p>Spot reduction is a myth — here's what actually works. Covers visceral vs subcutaneous fat, the best dietary strategies, and a waist loss timeline chart.</p>
-            <div class="blog-meta"><span>NoxFit Team · 12 min read · Jun 2026</span></div>
-          </div>
-        </article>
-
-        <article class="blog-card" data-cat="recipe" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/healthy-breakfast-ideas-for-weight-loss/" style="display:block"><img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=600&q=80" alt="Healthy breakfast ideas for weight loss" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
-          <div style="padding:20px 24px 24px">
-            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-            <h3><a href="/blog/healthy-breakfast-ideas-for-weight-loss/">15 Healthy Breakfast Ideas for Weight Loss (Under 400 kcal)</a></h3>
-            <p>Fifteen quick, high-protein breakfast options with calories, protein, and prep time — plus a satiety score chart so you know what actually keeps you full.</p>
-            <div class="blog-meta"><span>NoxFit Team · 11 min read · Jun 2026</span></div>
-          </div>
-        </article>
-
-        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/calorie-deficit-for-weight-loss/" style="display:block"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80" alt="Calorie deficit for weight loss" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <a href="/blog/calorie-deficit-for-weight-loss/" style="display:block"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="Calorie Deficit for Weight Loss: How Big Should It Be?" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
           <div style="padding:20px 24px 24px">
             <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
             <h3><a href="/blog/calorie-deficit-for-weight-loss/">Calorie Deficit for Weight Loss: How Big Should It Be?</a></h3>
-            <p>Free TDEE + deficit calculator, a deficit size table with risk ratings, and a 16-week projection chart for three different deficit sizes.</p>
-            <div class="blog-meta"><span>NoxFit Team · 12 min read · Jun 2026</span></div>
+            <p>A 500-calorie deficit isn't right for everyone. Learn exactly how big your deficit should be based on your goals and body weight.</p>
+            <div class="blog-meta"><span>NoxFit Team · 9 min · Jul 2026</span></div>
           </div>
         </article>
-
-        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/how-to-get-abs/" style="display:block"><img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80" alt="How to get abs" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
-          <div style="padding:20px 24px 24px">
-            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-            <h3><a href="/blog/how-to-get-abs/">How to Get Abs: The Complete Science-Backed Guide</a></h3>
-            <p>Body fat targets for ab visibility, the top 6 ab exercises ranked by EMG activation, a 12-week training plan, and a realistic timeline chart.</p>
-            <div class="blog-meta"><span>NoxFit Team · 13 min read · Jun 2026</span></div>
-          </div>
-        </article>
-
-        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/macros-for-weight-loss/" style="display:block"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80" alt="Macros for weight loss" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
-          <div style="padding:20px 24px 24px">
-            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-            <h3><a href="/blog/macros-for-weight-loss/">Macros for Weight Loss: How to Calculate Your Targets</a></h3>
-            <p>How to set protein, carb, and fat targets for fat loss — with a free macro calculator and a comparison table across 5 diet types.</p>
-            <div class="blog-meta"><span>NoxFit Team · 11 min read · Jun 2026</span></div>
-          </div>
-        </article>
-
-        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/how-to-lose-weight-without-exercise/" style="display:block"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80" alt="How to lose weight without exercise" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
-          <div style="padding:20px 24px 24px">
-            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-            <h3><a href="/blog/how-to-lose-weight-without-exercise/">How to Lose Weight Without Exercise: 10 Methods That Work</a></h3>
-            <p>Ten evidence-based ways to create a calorie deficit without the gym — with daily calorie savings per method and a food swap table.</p>
-            <div class="blog-meta"><span>NoxFit Team · 11 min read · Jun 2026</span></div>
-          </div>
-        </article>
-
-        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/how-to-break-a-weight-loss-plateau/" style="display:block"><img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80" alt="How to break a weight loss plateau" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
-          <div style="padding:20px 24px 24px">
-            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-            <h3><a href="/blog/how-to-break-a-weight-loss-plateau/">How to Break a Weight Loss Plateau: 8 Science-Backed Methods</a></h3>
-            <p>Why the scale stopped moving and exactly how to get it moving again — with a troubleshooting table and diet break strategy.</p>
-            <div class="blog-meta"><span>NoxFit Team · 11 min read · Jun 2026</span></div>
-          </div>
-        </article>
-
-        <article class="blog-card" data-cat="recipe" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/low-calorie-high-protein-meals/" style="display:block"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80" alt="Low calorie high protein meals" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
-          <div style="padding:20px 24px 24px">
-            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-            <h3><a href="/blog/low-calorie-high-protein-meals/">20 Low Calorie High Protein Meals (Under 400 kcal, 30g+ Protein)</a></h3>
-            <p>20 filling, quick meal ideas for breakfast, lunch, and dinner — each under 400 kcal with at least 30g protein.</p>
-            <div class="blog-meta"><span>NoxFit Team · 10 min read · Jun 2026</span></div>
-          </div>
-        </article>
-
-        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/how-much-protein-per-day/" style="display:block"><img src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=600&q=80" alt="How much protein per day" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
-          <div style="padding:20px 24px 24px">
-            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-            <h3><a href="/blog/how-much-protein-per-day/">How Much Protein Per Day Do You Actually Need?</a></h3>
-            <p>Science-backed targets for weight loss and muscle building, a free calculator, and how to spread protein across the day.</p>
-            <div class="blog-meta"><span>NoxFit Team · 11 min read · Jun 2026</span></div>
-          </div>
-        </article>
-
-        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/best-diet-for-weight-loss/" style="display:block"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80" alt="Best diet for weight loss" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
-          <div style="padding:20px 24px 24px">
-            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-            <h3><a href="/blog/best-diet-for-weight-loss/">Best Diet for Weight Loss in 2026: 7 Diets Compared by Science</a></h3>
-            <p>Mediterranean vs keto vs high-protein vs IF — compared by 12-month fat loss, adherence rate, and sustainability. With a head-to-head chart.</p>
-            <div class="blog-meta"><span>NoxFit Team · 13 min read · Jun 2026</span></div>
-          </div>
-        </article>
-
-        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/hiit-workout-for-beginners/" style="display:block"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80" alt="HIIT workout for beginners" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
-          <div style="padding:20px 24px 24px">
-            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-            <h3><a href="/blog/hiit-workout-for-beginners/">HIIT Workout for Beginners: 20-Minute Plan + What the Science Says</a></h3>
-            <p>A complete no-equipment 20-minute beginner HIIT workout, 4-week progression plan, and calorie burn comparison chart. Start today.</p>
-            <div class="blog-meta"><span>NoxFit Team · 12 min read · Jun 2026</span></div>
-          </div>
-        </article>
-
-        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/foods-to-avoid-for-weight-loss/" style="display:block"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Foods to avoid for weight loss" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
-          <div style="padding:20px 24px 24px">
-            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-            <h3><a href="/blog/foods-to-avoid-for-weight-loss/">Foods to Avoid for Weight Loss: 12 Biggest Calorie Traps</a></h3>
-            <p>The 12 foods that most commonly derail weight loss — with calorie counts, why they're tricky, and a smart swap for each one.</p>
-            <div class="blog-meta"><span>NoxFit Team · 10 min read · Jun 2026</span></div>
-          </div>
-        </article>
-
-        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/weight-loss-tips/" style="display:block"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="Weight loss tips" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
-          <div style="padding:20px 24px 24px">
-            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-            <h3><a href="/blog/weight-loss-tips/">25 Weight Loss Tips That Actually Work (Science-Backed)</a></h3>
-            <p>25 evidence-based strategies ranked by impact — from dietary changes to habits, exercise, and sleep. No fads, just what works.</p>
-            <div class="blog-meta"><span>NoxFit Team · 14 min read · Jun 2026</span></div>
-          </div>
-        </article>
-
-        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/running-for-beginners/" style="display:block"><img src="https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=600&q=80" alt="Running for beginners" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
-          <div style="padding:20px 24px 24px">
-            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-            <h3><a href="/blog/running-for-beginners/">Running for Beginners: 8-Week Plan to Run 5K Without Stopping</a></h3>
-            <p>Complete beginner running guide with an 8-week run/walk plan, weekly mileage chart, and 6 common mistakes to avoid.</p>
-            <div class="blog-meta"><span>NoxFit Team · 12 min read · Jun 2026</span></div>
-          </div>
-        </article>
-
-        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/how-to-count-calories/" style="display:block"><img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=600&q=80" alt="How to count calories" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/how-to-count-calories/" style="display:block"><img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=600&q=80" alt="How to Count Calories for Weight Loss: Beginner's Complete Guide" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
           <div style="padding:20px 24px 24px">
             <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
             <h3><a href="/blog/how-to-count-calories/">How to Count Calories for Weight Loss: Beginner's Complete Guide</a></h3>
-            <p>Step-by-step: find your target, weigh food accurately, read labels, and avoid the 5 mistakes that cause calorie counting to fail.</p>
-            <div class="blog-meta"><span>NoxFit Team · 11 min read · Jun 2026</span></div>
-          </div>
-        </article>
-
-        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/low-carb-diet-for-beginners/" style="display:block"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80" alt="Low carb diet for beginners" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
-          <div style="padding:20px 24px 24px">
-            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-            <h3><a href="/blog/low-carb-diet-for-beginners/">Low Carb Diet for Beginners: Complete Guide + Free 7-Day Meal Plan</a></h3>
-            <p>What to eat, what to avoid, 7-day meal plan, and how to beat low carb flu — backed by NEJM and PubMed research.</p>
-            <div class="blog-meta"><span>NoxFit Team · 13 min read · Jun 2026</span></div>
+            <p>Everything you need to count calories accurately — TDEE calculation, food tracking apps, macro splits, and common mistakes to avoid.</p>
+            <div class="blog-meta"><span>NoxFit Team · 10 min · Jul 2026</span></div>
           </div>
         </article>
         <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/sleep-and-weight-loss/" style="display:block"><img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=600&q=80" alt="Sleep and weight loss" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <a href="/blog/how-many-calories-to-lose-weight/" style="display:block"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="How Many Calories to Lose Weight? (Calculator + Chart)" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
           <div style="padding:20px 24px 24px">
             <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-            <h3><a href="/blog/sleep-and-weight-loss/">Sleep and Weight Loss: How Poor Sleep Makes You Fat (Science)</a></h3>
-            <p>Bad sleep raises ghrelin, drops leptin, and adds 300 extra calories/day. Here's what the research says and 8 tips to fix it.</p>
-            <div class="blog-meta"><span>NoxFit Team · 11 min read · Jun 2026</span></div>
+            <h3><a href="/blog/how-many-calories-to-lose-weight/">How Many Calories to Lose Weight? (Calculator + Chart)</a></h3>
+            <p>Find your exact daily calorie target for weight loss using our simple formula — with real examples for men and women of different sizes.</p>
+            <div class="blog-meta"><span>NoxFit Team · 8 min · Jul 2026</span></div>
           </div>
         </article>
-        <article class="blog-card" data-cat="recipe" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/protein-shake-recipes/" style="display:block"><img src="https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=600&q=80" alt="Protein shake recipes" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/how-much-protein-per-day/" style="display:block"><img src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=600&q=80" alt="How Much Protein Per Day Do You Actually Need? (2026 Guide)" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/how-much-protein-per-day/">How Much Protein Per Day Do You Actually Need? (2026 Guide)</a></h3>
+            <p>The research-based answer to protein needs for weight loss, muscle building, and general health — and the easiest ways to hit your target.</p>
+            <div class="blog-meta"><span>NoxFit Team · 8 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/macros-for-weight-loss/" style="display:block"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80" alt="Macros for Weight Loss: How to Calculate &amp; Hit Your Targets" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/macros-for-weight-loss/">Macros for Weight Loss: How to Calculate &amp; Hit Your Targets</a></h3>
+            <p>Forget just counting calories — tracking protein, carbs, and fat gives you a huge edge. Here's how to set your macros and actually stick to them.</p>
+            <div class="blog-meta"><span>NoxFit Team · 10 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/best-diet-for-weight-loss/" style="display:block"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80" alt="Best Diet for Weight Loss in 2026: 7 Diets Compared by Science" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/best-diet-for-weight-loss/">Best Diet for Weight Loss in 2026: 7 Diets Compared by Science</a></h3>
+            <p>Keto, Mediterranean, intermittent fasting, low-carb — we compared 7 popular diets head-to-head using the latest research. Here's the winner.</p>
+            <div class="blog-meta"><span>NoxFit Team · 12 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/low-carb-diet-for-beginners/" style="display:block"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80" alt="Low Carb Diet for Beginners: Complete Guide (2026)" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/low-carb-diet-for-beginners/">Low Carb Diet for Beginners: Complete Guide (2026)</a></h3>
+            <p>Everything you need to start a low-carb diet: what to eat, what to avoid, a sample meal plan, and what to expect in the first two weeks.</p>
+            <div class="blog-meta"><span>NoxFit Team · 11 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/7-day-diet-plan-for-weight-loss/" style="display:block"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80" alt="7-Day Diet Plan for Weight Loss (Proven &amp; Free)" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/7-day-diet-plan-for-weight-loss/">7-Day Diet Plan for Weight Loss (Proven &amp; Free)</a></h3>
+            <p>A full 7-day meal plan designed for steady, sustainable weight loss — with calorie counts, macros, and a simple grocery list included.</p>
+            <div class="blog-meta"><span>NoxFit Team · 10 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/7-day-meal-plan-for-weight-loss/" style="display:block"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600&q=80" alt="7-Day Meal Plan for Weight Loss (Free PDF + App)" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/7-day-meal-plan-for-weight-loss/">7-Day Meal Plan for Weight Loss (Free PDF + App)</a></h3>
+            <p>Download our free 7-day weight loss meal plan — ~1,500 kcal/day, 30% protein, balanced macros. Includes prep tips and NoxFit app pairing.</p>
+            <div class="blog-meta"><span>NoxFit Team · 9 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/free-meal-plan-for-weight-loss/" style="display:block"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600&q=80" alt="Free Meal Plan for Weight Loss (1,500 kcal, Printable)" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/free-meal-plan-for-weight-loss/">Free Meal Plan for Weight Loss (1,500 kcal, Printable)</a></h3>
+            <p>Our most popular free meal plan: 1,500 calories, 120g protein, 5 days of meals, zero-fuss prep. Works with any budget.</p>
+            <div class="blog-meta"><span>NoxFit Team · 8 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/best-foods-for-weight-loss/" style="display:block"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80" alt="20 Best Foods for Weight Loss (Science-Backed List)" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/best-foods-for-weight-loss/">20 Best Foods for Weight Loss (Science-Backed List)</a></h3>
+            <p>These 20 foods make losing weight easier — they're filling, nutritious, and either speed up metabolism or blunt hunger naturally.</p>
+            <div class="blog-meta"><span>NoxFit Team · 9 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/foods-to-avoid-for-weight-loss/" style="display:block"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Foods to Avoid for Weight Loss: 12 Biggest Calorie Traps" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/foods-to-avoid-for-weight-loss/">Foods to Avoid for Weight Loss: 12 Biggest Calorie Traps</a></h3>
+            <p>These 12 foods quietly destroy your calorie deficit. Learn which foods to cut first and what to eat instead — with practical swaps for each.</p>
+            <div class="blog-meta"><span>NoxFit Team · 8 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/healthy-breakfast-ideas-for-weight-loss/" style="display:block"><img src="https://images.unsplash.com/photo-1494390248081-4e521a5940db?w=600&q=80" alt="15 Healthy Breakfast Ideas for Weight Loss (Quick &amp; Easy)" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/healthy-breakfast-ideas-for-weight-loss/">15 Healthy Breakfast Ideas for Weight Loss (Quick &amp; Easy)</a></h3>
+            <p>15 fast, high-protein breakfasts that keep you full until lunch — with calorie counts, prep times, and a mix of sweet and savory options.</p>
+            <div class="blog-meta"><span>NoxFit Team · 8 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/high-protein-foods-list/" style="display:block"><img src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=600&q=80" alt="High Protein Foods List: 30 Best Sources (With Grams Per Serving)" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/high-protein-foods-list/">High Protein Foods List: 30 Best Sources (With Grams Per Serving)</a></h3>
+            <p>Every major protein source ranked by grams per serving, cost, and ease of prep — including plant-based options and budget-friendly picks.</p>
+            <div class="blog-meta"><span>NoxFit Team · 7 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/low-calorie-high-protein-meals/" style="display:block"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80" alt="20 Low Calorie High Protein Meals (Under 400 kcal, 30g+ Protein)" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/low-calorie-high-protein-meals/">20 Low Calorie High Protein Meals (Under 400 kcal, 30g+ Protein)</a></h3>
+            <p>20 satisfying meals under 400 calories with 30+ grams of protein each — perfect for fat loss while keeping your muscles fueled.</p>
+            <div class="blog-meta"><span>NoxFit Team · 9 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/high-protein-meal-prep-recipes/" style="display:block"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600&q=80" alt="5 High-Protein Meal Prep Recipes for the Week (2026)" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/high-protein-meal-prep-recipes/">5 High-Protein Meal Prep Recipes for the Week (2026)</a></h3>
+            <p>These 5 batch-cook recipes give you 5 days of high-protein lunches and dinners in under 2 hours. Macros and shopping list included.</p>
+            <div class="blog-meta"><span>NoxFit Team · 8 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/meal-prep-for-beginners/" style="display:block"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600&q=80" alt="Meal Prep for Beginners: Complete Guide (Save Time &amp; Money)" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/meal-prep-for-beginners/">Meal Prep for Beginners: Complete Guide (Save Time &amp; Money)</a></h3>
+            <p>How to start meal prepping from scratch — what equipment you need, how to batch cook safely, and a simple first-week plan to follow.</p>
+            <div class="blog-meta"><span>NoxFit Team · 10 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/protein-shake-recipes/" style="display:block"><img src="https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=600&q=80" alt="10 Best Protein Shake Recipes (High Protein, Low Calorie)" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
           <div style="padding:20px 24px 24px">
             <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
             <h3><a href="/blog/protein-shake-recipes/">10 Best Protein Shake Recipes (High Protein, Low Calorie)</a></h3>
-            <p>10 shake recipes with full macros — for weight loss, muscle gain, and meal replacement. Under 400 calories, 30–50g protein each.</p>
-            <div class="blog-meta"><span>NoxFit Team · 10 min read · Jun 2026</span></div>
-          </div>
-        </article>
-        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/walking-for-weight-loss/" style="display:block"><img src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=600&q=80" alt="Walking for weight loss" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
-          <div style="padding:20px 24px 24px">
-            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-            <h3><a href="/blog/walking-for-weight-loss/">Walking for Weight Loss: How Many Steps, Miles & Minutes Per Day?</a></h3>
-            <p>The exact step count, pace, and incline for fat loss — plus a 4-week beginner walking plan backed by research.</p>
-            <div class="blog-meta"><span>NoxFit Team · 10 min read · Jun 2026</span></div>
-          </div>
-        </article>
-        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/stress-and-weight-gain/" style="display:block"><img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=600&q=80" alt="Stress and weight gain" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
-          <div style="padding:20px 24px 24px">
-            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-            <h3><a href="/blog/stress-and-weight-gain/">Stress and Weight Gain: Why Chronic Stress Makes You Fat</a></h3>
-            <p>Cortisol, sleep disruption, and stress eating explained — plus 8 evidence-based ways to break the cycle.</p>
-            <div class="blog-meta"><span>NoxFit Team · 12 min read · Jun 2026</span></div>
-          </div>
-        </article>
-        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/body-recomposition/" style="display:block"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80" alt="Body recomposition" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
-          <div style="padding:20px 24px 24px">
-            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-            <h3><a href="/blog/body-recomposition/">Body Recomposition: Lose Fat and Build Muscle at the Same Time</a></h3>
-            <p>The science of recomp — who it works for, the calorie strategy, protein targets, and a full 3-day training plan.</p>
-            <div class="blog-meta"><span>NoxFit Team · 13 min read · Jun 2026</span></div>
-          </div>
-        </article>
-        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/creatine-for-weight-loss/" style="display:block"><img src="https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=600&q=80" alt="Creatine for weight loss" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
-          <div style="padding:20px 24px 24px">
-            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-            <h3><a href="/blog/creatine-for-weight-loss/">Creatine for Weight Loss: Does It Help or Hurt? (The Science)</a></h3>
-            <p>Creatine doesn't burn fat directly — but it preserves muscle in a deficit. Here's what it actually does and whether to take it on a cut.</p>
-            <div class="blog-meta"><span>NoxFit Team · 10 min read · Jun 2026</span></div>
+            <p>10 protein shake recipes that actually taste good — each with 30+ grams of protein, under 350 calories, and full macro breakdown.</p>
+            <div class="blog-meta"><span>NoxFit Team · 7 min · Jul 2026</span></div>
           </div>
         </article>
         <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/calorie-cycling/" style="display:block"><img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=600&q=80" alt="Calorie cycling plan" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <a href="/blog/best-protein-powder-for-weight-loss/" style="display:block"><img src="https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=600&q=80" alt="Best Protein Powder for Weight Loss (2026): Ranked &amp; Reviewed" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
           <div style="padding:20px 24px 24px">
             <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-            <h3><a href="/blog/calorie-cycling/">Calorie Cycling: How to Eat More on Some Days and Still Lose Weight</a></h3>
-            <p>Alternate high and low calorie days, keep the same weekly total, and make dieting more sustainable. Includes a full 7-day example plan.</p>
-            <div class="blog-meta"><span>NoxFit Team · 11 min read · Jun 2026</span></div>
+            <h3><a href="/blog/best-protein-powder-for-weight-loss/">Best Protein Powder for Weight Loss (2026): Ranked &amp; Reviewed</a></h3>
+            <p>We tested and ranked the top protein powders for fat loss — based on protein percentage, ingredients, taste, and value per gram.</p>
+            <div class="blog-meta"><span>NoxFit Team · 10 min · Jul 2026</span></div>
           </div>
         </article>
-        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/gym-workout-for-beginners/" style="display:block"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80" alt="Gym workout for beginners" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
-          <div style="padding:20px 24px 24px">
-            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-            <h3><a href="/blog/gym-workout-for-beginners/">Gym Workout for Beginners: Complete First-Month Plan</a></h3>
-            <p>What to do on day 1, a full 4-week A/B workout plan, what to eat, and the 7 mistakes that derail beginner progress.</p>
-            <div class="blog-meta"><span>NoxFit Team · 13 min read · Jun 2026</span></div>
-          </div>
-        </article>
-        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/apple-cider-vinegar-weight-loss/" style="display:block"><img src="https://images.unsplash.com/photo-1589985270958-bf087ef9de61?w=600&q=80" alt="Apple cider vinegar weight loss" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/apple-cider-vinegar-weight-loss/" style="display:block"><img src="https://images.unsplash.com/photo-1589985270958-bf087ef9de61?w=600&q=80" alt="Apple Cider Vinegar for Weight Loss: What Science Actually Says" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
           <div style="padding:20px 24px 24px">
             <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
             <h3><a href="/blog/apple-cider-vinegar-weight-loss/">Apple Cider Vinegar for Weight Loss: What Science Actually Says</a></h3>
-            <p>ACV produces a real but modest weight loss effect — 1–2 kg over 12 weeks. Here's the research, the risks, and how to take it correctly.</p>
-            <div class="blog-meta"><span>NoxFit Team · 10 min read · Jun 2026</span></div>
+            <p>ACV is everywhere — but does it actually help you lose weight? We break down the clinical evidence and separate fact from hype.</p>
+            <div class="blog-meta"><span>NoxFit Team · 8 min · Jul 2026</span></div>
           </div>
         </article>
-        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/how-much-water-to-drink/" style="display:block"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80" alt="How much water to drink per day" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
-          <div style="padding:20px 24px 24px">
-            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
-            <h3><a href="/blog/how-much-water-to-drink/">How Much Water Should You Drink Per Day? (Calculator + Science)</a></h3>
-            <p>The 8-glasses rule is a myth. Use our calculator to find your exact daily target based on weight, activity, and climate.</p>
-            <div class="blog-meta"><span>NoxFit Team · 9 min read · Jun 2026</span></div>
-          </div>
-        </article>
-        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
-          <a href="/blog/vitamin-d-and-weight-loss/" style="display:block"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Vitamin D and weight loss" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+        <article class="blog-card" data-cat="meal-planning" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/vitamin-d-and-weight-loss/" style="display:block"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Vitamin D and Weight Loss: Does It Help? (What Research Shows)" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
           <div style="padding:20px 24px 24px">
             <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
             <h3><a href="/blog/vitamin-d-and-weight-loss/">Vitamin D and Weight Loss: Does It Help? (What Research Shows)</a></h3>
-            <p>42% of adults are deficient — and low vitamin D makes fat loss measurably harder. Here's the mechanism, the studies, and how much to take.</p>
-            <div class="blog-meta"><span>NoxFit Team · 10 min read · Jun 2026</span></div>
+            <p>Low vitamin D is linked to obesity and poor fat-burning. Here's what the research shows and how to optimize your levels through food and sun.</p>
+            <div class="blog-meta"><span>NoxFit Team · 8 min · Jul 2026</span></div>
           </div>
         </article>
+        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/how-much-water-to-drink/" style="display:block"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80" alt="How Much Water Should You Drink Per Day? (Calculator + Science)" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/how-much-water-to-drink/">How Much Water Should You Drink Per Day? (Calculator + Science)</a></h3>
+            <p>The '8 glasses a day' rule is wrong. Here's your actual daily water target based on weight, activity level, and climate — with a simple formula.</p>
+            <div class="blog-meta"><span>NoxFit Team · 7 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/sleep-and-weight-loss/" style="display:block"><img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=600&q=80" alt="Sleep and Weight Loss: How Poor Sleep Makes You Fat (Science)" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/sleep-and-weight-loss/">Sleep and Weight Loss: How Poor Sleep Makes You Fat (Science)</a></h3>
+            <p>Missing sleep isn't just tiring — it raises ghrelin, blunts fat burning, and makes cravings 24% worse. Here's how to fix it for faster results.</p>
+            <div class="blog-meta"><span>NoxFit Team · 9 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/stress-and-weight-gain/" style="display:block"><img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=600&q=80" alt="Stress and Weight Gain: Why Stress Makes You Fat (And How to Fix It)" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/stress-and-weight-gain/">Stress and Weight Gain: Why Stress Makes You Fat (And How to Fix It)</a></h3>
+            <p>Chronic stress raises cortisol, which drives fat storage and sugar cravings. Here's the science and 6 practical ways to break the cycle.</p>
+            <div class="blog-meta"><span>NoxFit Team · 9 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/body-recomposition/" style="display:block"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80" alt="Body Recomposition: Lose Fat and Build Muscle at the Same Time" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/body-recomposition/">Body Recomposition: Lose Fat and Build Muscle at the Same Time</a></h3>
+            <p>Body recomposition is possible — especially for beginners and intermediates. Here's the exact calorie, protein, and training setup that works.</p>
+            <div class="blog-meta"><span>NoxFit Team · 10 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/calorie-cycling/" style="display:block"><img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=600&q=80" alt="Calorie Cycling: How to Eat More on Some Days and Still Lose Weight" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/calorie-cycling/">Calorie Cycling: How to Eat More on Some Days and Still Lose Weight</a></h3>
+            <p>Eat more on training days, less on rest days — and actually enjoy the process. Here's how to set up calorie cycling for fat loss that lasts.</p>
+            <div class="blog-meta"><span>NoxFit Team · 9 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/how-to-break-a-weight-loss-plateau/" style="display:block"><img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80" alt="How to Break a Weight Loss Plateau: 8 Science-Backed Methods" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/how-to-break-a-weight-loss-plateau/">How to Break a Weight Loss Plateau: 8 Science-Backed Methods</a></h3>
+            <p>Plateaus happen to everyone. Here are 8 proven methods to restart weight loss — from adjusting your calorie deficit to changing your training.</p>
+            <div class="blog-meta"><span>NoxFit Team · 10 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/how-to-lose-weight-fast/" style="display:block"><img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80" alt="How to Lose Weight Fast (Safely &amp; Sustainably)" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/how-to-lose-weight-fast/">How to Lose Weight Fast (Safely &amp; Sustainably)</a></h3>
+            <p>Want to lose weight quickly without crash dieting? Here's the fastest safe approach — backed by research, not Instagram influencers.</p>
+            <div class="blog-meta"><span>NoxFit Team · 10 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/how-to-lose-weight-without-exercise/" style="display:block"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80" alt="How to Lose Weight Without Exercise: 10 Proven Methods" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/how-to-lose-weight-without-exercise/">How to Lose Weight Without Exercise: 10 Proven Methods</a></h3>
+            <p>You don't need to exercise to lose weight. These 10 non-exercise strategies — from protein intake to sleep — drive real, lasting results.</p>
+            <div class="blog-meta"><span>NoxFit Team · 9 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/creatine-for-weight-loss/" style="display:block"><img src="https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=600&q=80" alt="Creatine for Weight Loss: Does It Help or Hurt? (Science)" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/creatine-for-weight-loss/">Creatine for Weight Loss: Does It Help or Hurt? (Science)</a></h3>
+            <p>Creatine is the most-studied supplement in sports science. But does it help with fat loss — or does the water retention work against you?</p>
+            <div class="blog-meta"><span>NoxFit Team · 8 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/how-to-get-abs/" style="display:block"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="How to Get Abs: The Complete Science-Backed Guide (2026)" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/how-to-get-abs/">How to Get Abs: The Complete Science-Backed Guide (2026)</a></h3>
+            <p>Getting visible abs is 80% body fat and 20% muscle. Here's the exact calorie deficit, protein target, and ab training routine that works.</p>
+            <div class="blog-meta"><span>NoxFit Team · 11 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/how-to-build-muscle-for-beginners/" style="display:block"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80" alt="How to Build Muscle for Beginners: Complete Guide (2026)" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/how-to-build-muscle-for-beginners/">How to Build Muscle for Beginners: Complete Guide (2026)</a></h3>
+            <p>The complete beginner's guide to building muscle — covering progressive overload, protein targets, training frequency, and recovery.</p>
+            <div class="blog-meta"><span>NoxFit Team · 12 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/best-workout-for-weight-loss/" style="display:block"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80" alt="Best Workout for Weight Loss: Science-Backed Plan (2026)" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/best-workout-for-weight-loss/">Best Workout for Weight Loss: Science-Backed Plan (2026)</a></h3>
+            <p>Cardio vs. weights vs. HIIT — which burns the most fat? We compare the research and give you an evidence-based 4-week workout plan.</p>
+            <div class="blog-meta"><span>NoxFit Team · 10 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/gym-workout-for-beginners/" style="display:block"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80" alt="Gym Workout for Beginners: Complete First-Month Plan" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/gym-workout-for-beginners/">Gym Workout for Beginners: Complete First-Month Plan</a></h3>
+            <p>First time in the gym? This 4-week beginner plan tells you exactly what to do, how many sets, and how to progress — with zero guesswork.</p>
+            <div class="blog-meta"><span>NoxFit Team · 10 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/hiit-workout-for-beginners/" style="display:block"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80" alt="HIIT Workout for Beginners: 20-Minute Plan + What the Science Says" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/hiit-workout-for-beginners/">HIIT Workout for Beginners: 20-Minute Plan + What the Science Says</a></h3>
+            <p>HIIT burns more fat in less time than steady-state cardio. This beginner-friendly 20-minute plan gets you started safely with full modifications.</p>
+            <div class="blog-meta"><span>NoxFit Team · 9 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/running-for-beginners/" style="display:block"><img src="https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=600&q=80" alt="Running for Beginners: 8-Week Plan to Run 5K Without Stopping" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/running-for-beginners/">Running for Beginners: 8-Week Plan to Run 5K Without Stopping</a></h3>
+            <p>Go from couch to 5K in 8 weeks with this beginner running plan — no experience needed. Includes weekly schedules and pace guidance.</p>
+            <div class="blog-meta"><span>NoxFit Team · 10 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/walking-for-weight-loss/" style="display:block"><img src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=600&q=80" alt="Walking for Weight Loss: How Many Steps, How Far &amp; How Fast?" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/walking-for-weight-loss/">Walking for Weight Loss: How Many Steps, How Far &amp; How Fast?</a></h3>
+            <p>Walking is surprisingly effective for fat loss. Here's exactly how many steps, what pace, and which strategies maximize results.</p>
+            <div class="blog-meta"><span>NoxFit Team · 8 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/how-to-build-a-home-gym-on-a-budget/" style="display:block"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80" alt="How to Build a Home Gym on a Budget (Under $200)" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/how-to-build-a-home-gym-on-a-budget/">How to Build a Home Gym on a Budget (Under $200)</a></h3>
+            <p>You don't need a gym membership. These are the only 5 pieces of equipment you need to build an effective home gym for under $200.</p>
+            <div class="blog-meta"><span>NoxFit Team · 9 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/fitness-app-for-beginners-free/" style="display:block"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="Best Free Fitness App for Beginners (2026)" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/fitness-app-for-beginners-free/">Best Free Fitness App for Beginners (2026)</a></h3>
+            <p>Tried a dozen fitness apps and quit within a week? This guide picks the best free app for beginners based on ease of use, workout quality, and guidance.</p>
+            <div class="blog-meta"><span>NoxFit Team · 8 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="fitness" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/home-workout-app-for-beginners/" style="display:block"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80" alt="Best Home Workout App for Beginners (Free)" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/home-workout-app-for-beginners/">Best Home Workout App for Beginners (Free)</a></h3>
+            <p>The best free home workout apps for beginners — rated on workout variety, coaching quality, and whether they actually help you stay consistent.</p>
+            <div class="blog-meta"><span>NoxFit Team · 8 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="grocery" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/grocery-budgeting-app/" style="display:block"><img src="https://images.unsplash.com/photo-1543168256-418811576931?w=600&q=80" alt="Best Grocery Budgeting App for Healthy Eating (2026)" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/grocery-budgeting-app/">Best Grocery Budgeting App for Healthy Eating (2026)</a></h3>
+            <p>Compare the best grocery budgeting apps that actually help you eat healthy on a tight budget — with real feature breakdowns and user ratings.</p>
+            <div class="blog-meta"><span>NoxFit Team · 7 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="grocery" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/meal-planning-app-on-a-budget/" style="display:block"><img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=600&q=80" alt="Best Meal Planning App on a Budget (2026)" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/meal-planning-app-on-a-budget/">Best Meal Planning App on a Budget (2026)</a></h3>
+            <p>The best meal planning apps that help you eat healthy without overspending — compared by features, ease of use, and real-world results.</p>
+            <div class="blog-meta"><span>NoxFit Team · 7 min · Jul 2026</span></div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="grocery" data-new="true" style="border:1px solid var(--accent);padding:0;overflow:hidden;">
+          <a href="/blog/healthy-eating-on-a-budget-app/" style="display:block"><img src="https://images.unsplash.com/photo-1543168256-418811576931?w=600&q=80" alt="Best Healthy Eating on a Budget App (2026)" style="width:100%;height:180px;object-fit:cover;display:block;" loading="lazy"/></a>
+          <div style="padding:20px 24px 24px">
+            <div class="blog-card-tag" style="background:var(--accent);color:#fff;">New</div>
+            <h3><a href="/blog/healthy-eating-on-a-budget-app/">Best Healthy Eating on a Budget App (2026)</a></h3>
+            <p>The best apps that make healthy eating on a tight budget actually doable — covering meal planning, grocery lists, and calorie tracking in one.</p>
+            <div class="blog-meta"><span>NoxFit Team · 7 min · Jul 2026</span></div>
+          </div>
+        </article>
+
+      
       </div>
     </div>
   </section>
@@ -581,7 +598,7 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <a href="/" class="logo"><img src="/logo.svg" alt="NoxFit icon" width="28" height="28" style="vertical-align:middle;margin-right:8px;" loading="eager">Nox<span>Fit</span></a>
+        <a href="/" class="logo"><img src="/logo.svg" alt="NoxFit icon" width="28" height="28" style="vertical-align:middle;margin-right:8px;">Nox<span>Fit</span></a>
         <p>Your all-in-one fitness companion.</p>
       </div>
       <div class="footer-col">
@@ -600,34 +617,24 @@
     </div>
   </footer>
 
-  <script src="/theme.js" defer></script>
+  <script src="/theme.js"></script>
   <script>
-    var cards = document.querySelectorAll('#blogGrid .blog-card');
-    var catBtns = document.querySelectorAll('.cat-btn');
-    var catSelect = document.getElementById('catSelect');
-
-    function filterCards(cat) {
-      cards.forEach(function(card) {
-        var matchCat = cat === 'all' || card.getAttribute('data-cat') === cat;
-        var matchNew = cat === 'new' && card.getAttribute('data-new') === 'true';
-        card.classList.toggle('hidden', !(matchCat || matchNew));
-      });
-    }
-
-    function setActive(cat) {
-      catBtns.forEach(function(b) { b.classList.toggle('active', b.getAttribute('data-cat') === cat); });
-      catSelect.value = (cat === 'new') ? 'all' : cat;
-      filterCards(cat);
-    }
-
+    const catBtns = document.querySelectorAll('.cat-btn');
+    const cards = document.querySelectorAll('#blogGrid .blog-card');
     catBtns.forEach(function(btn) {
-      btn.addEventListener('click', function() { setActive(btn.getAttribute('data-cat')); });
+      btn.addEventListener('click', function() {
+        catBtns.forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        const cat = btn.getAttribute('data-cat');
+        cards.forEach(function(card) {
+          if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
     });
-
-    catSelect.addEventListener('change', function() { setActive(catSelect.value); });
-
-    var urlCat = new URLSearchParams(window.location.search).get('cat') || 'all';
-    setActive(urlCat);
   </script>
 </body>
 </html>

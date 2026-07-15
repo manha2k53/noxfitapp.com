@@ -65,4 +65,23 @@
   <url><loc>https://noxfitapp.com/blog/fat-burning-foods/</loc><lastmod>2026-07-14</lastmod><priority>0.8</priority></url>
   <url><loc>https://noxfitapp.com/blog/how-to-lose-weight-in-a-month/</loc><lastmod>2026-07-14</lastmod><priority>0.8</priority></url>
   <url><loc>https://noxfitapp.com/blog/plant-based-diet-for-weight-loss/</loc><lastmod>2026-07-14</lastmod><priority>0.8</priority></url>
+
+  <url>
+    <loc>https://noxfitapp.com/blog/best-cardio-for-weight-loss/</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://noxfitapp.com/blog/gut-health-and-weight-loss/</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://noxfitapp.com/blog/healthy-lunch-ideas-for-weight-loss/</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

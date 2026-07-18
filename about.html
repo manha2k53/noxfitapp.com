@@ -9,62 +9,22 @@
   <link rel="canonical" href="https://noxfitapp.com/about.html" />
   <meta property="og:title" content="About NoxFit – Our Mission" />
   <meta property="og:url" content="https://noxfitapp.com/about.html" />
-    <link rel="preload" href="/style.css" as="style"/>
-  <link rel="preconnect" href="https://images.unsplash.com"/>
-  <link rel="dns-prefetch" href="https://images.unsplash.com"/>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="stylesheet" href="/style.css" />
-<style>
-  .nav-item-drop { position:relative; }
-  .nav-item-drop > a::after { content:' ⌄'; font-size:.8rem; opacity:.5; }
-  .nav-drop-menu {
-    visibility:hidden; opacity:0; pointer-events:none;
-    position:absolute; top:calc(100% + 12px); right:0;
-    background:var(--nav-bg, var(--card-bg));
-    border:1px solid var(--card-border);
-    border-radius:16px; padding:.6rem;
-    min-width:200px; z-index:9999;
-    box-shadow:0 16px 48px rgba(0,0,0,.35);
-    transition:opacity .18s ease, visibility .18s ease, transform .18s ease;
-    transform:translateY(-6px);
-  }
-  .nav-item-drop:hover .nav-drop-menu {
-    visibility:visible; opacity:1; pointer-events:auto; transform:translateY(0);
-  }
-  .nav-drop-item {
-    display:flex; align-items:center; gap:.75rem;
-    padding:.7rem 1rem; border-radius:10px;
-    color:var(--text-secondary); font-size:.88rem; font-weight:600;
-    text-decoration:none; transition:background .15s, color .15s;
-    white-space:nowrap;
-  }
-  .nav-drop-item:hover { background:var(--accent-alpha); color:var(--accent); }
-  .nav-drop-divider { height:1px; background:var(--card-border); margin:.4rem .25rem; }
-</style>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <header class="nav-wrap">
     <nav class="nav container">
-      <a href="/" class="logo"><img src="/logo.svg" alt="NoxFit icon" width="28" height="28" style="vertical-align:middle;margin-right:8px;" loading="eager">Nox<span>Fit</span></a>
+      <a href="index.html" class="logo"><img src="logo.svg" alt="NoxFit icon" width="28" height="28" style="vertical-align:middle;margin-right:8px;">Nox<span>Fit</span></a>
       <ul class="nav-links">
-        <li><a href="/features/">Features</a></li>
-        <li><a href="/about/" class="active">About</a></li>
-        <li class="nav-item-drop">
-          <a href="/blog/">Blog</a>
-          <div class="nav-drop-menu">
-            <a class="nav-drop-item" href="/blog/?cat=fitness">💪 Fitness</a>
-            <a class="nav-drop-item" href="/blog/?cat=meal-planning">🥗 Meal Planning</a>
-            <a class="nav-drop-item" href="/blog/?cat=recipe">🍳 Recipe</a>
-            <a class="nav-drop-item" href="/blog/?cat=grocery">🛒 Grocery</a>
-            <div class="nav-drop-divider"></div>
-            <a class="nav-drop-item" href="/blog/">📚 All Posts</a>
-          </div>
-        </li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
       </ul>
       <div class="nav-right">
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
-        <a href="/#download" class="btn btn-primary">Download Free</a>
+        <a href="index.html#download" class="btn btn-primary">Download Free</a>
       </div>
       <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
     </nav>
@@ -273,17 +233,17 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <a href="/" class="logo"><img src="/logo.svg" alt="NoxFit icon" width="28" height="28" style="vertical-align:middle;margin-right:8px;" loading="eager">Nox<span>Fit</span></a>
+        <a href="index.html" class="logo"><img src="logo.svg" alt="NoxFit icon" width="28" height="28" style="vertical-align:middle;margin-right:8px;">Nox<span>Fit</span></a>
         <p>Your all-in-one fitness companion.</p>
       </div>
       <div class="footer-col">
         <strong>Features</strong>
-        <a href="/features/#workouts">Workouts</a>
-        <a href="/features/#meal-planning">Meal Planning</a>
-        <a href="/features/#grocery">Grocery Budgeting</a>
-        <a href="/features/">All Features</a>
+        <a href="features.html#workouts">Workouts</a>
+        <a href="features.html#meal-planning">Meal Planning</a>
+        <a href="features.html#grocery">Grocery Budgeting</a>
+        <a href="features.html">All Features</a>
       </div>
-      <div class="footer-col"><strong>Company</strong><a href="/about/">About Us</a><a href="/blog/">Blog</a></div>
+      <div class="footer-col"><strong>Company</strong><a href="about.html">About Us</a><a href="blog.html">Blog</a></div>
       <div class="footer-col"><strong>Legal</strong><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
     </div>
     <div class="footer-bottom container">
@@ -292,6 +252,6 @@
     </div>
   </footer>
 
-  <script src="/theme.js" defer></script>
+  <script src="theme.js"></script>
 </body>
 </html>
